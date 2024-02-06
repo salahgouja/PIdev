@@ -4,6 +4,9 @@ package sample.pidevjava.db;
 import java.sql.*;
 
 public class DBConnection {
+    private final String URL ="jdbc:mysql://127.0.0.1:/pidev";
+    private final String Username ="root";
+    private final String Password ="admin";
 
     private static  DBConnection dbConnection;
     private final Connection connection ;
@@ -12,7 +15,7 @@ public class DBConnection {
 
         try {
         Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/pidev","root","admin");
+            connection = DriverManager.getConnection(URL,Username,Password);
             System.out.println("connected ");
             PreparedStatement pstm = connection.prepareStatement("SHOW TABLES");
             ResultSet resultSet = pstm.executeQuery();
@@ -25,15 +28,13 @@ public class DBConnection {
                         "  `phone` varchar(20) DEFAULT NULL,\n" +
                         "  `email` varchar(20) DEFAULT NULL,\n" +
                         "  `password` varchar(20) DEFAULT NULL,\n" +
-
                         "  PRIMARY KEY (`id`)\n" +
                         ") ENGINE=InnoDB DEFAULT CHARSET=latin1;\n" +
-                        "\n" ;
+                        "\n"
+                        ;
                 pstm = connection.prepareStatement(sql);
                 pstm.execute();
             }
-
-
 
         } catch (ClassNotFoundException | SQLException e) {
             throw new RuntimeException(e);
@@ -41,11 +42,7 @@ public class DBConnection {
         }
     }
     public static  DBConnection getInstance(){
-
-        if(dbConnection == null){
-
-            dbConnection =new DBConnection();
-        }
+        if(dbConnection == null){ dbConnection =new DBConnection();}
         return dbConnection ;
     }
 

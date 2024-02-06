@@ -6,8 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+
 @Entity
-public class user {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,11 +21,11 @@ public class user {
 
 
 
-    public user() {
+    public User() {
         super();
     }
 
-    public user( String password, String firstname, String lastname, String email, String phone) {
+    public User(String password, String firstname, String lastname, String email, String phone) {
         super();
 
         this.password = password;
@@ -34,7 +35,7 @@ public class user {
         this.phone = phone;
     }
 
-    public user(int id,  String password, String firstname, String lastname, String email, String phone) {
+    public User(int id, String password, String firstname, String lastname, String email, String phone) {
         super();
         this.id = id;
 
@@ -46,8 +47,7 @@ public class user {
     }
 
 
-
-    public long getId() {
+    public int getId() {
         return id;
     }
 
@@ -55,37 +55,20 @@ public class user {
         this.id = id;
     }
 
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getName() {
+    public String getFirstname() {
         return firstname;
     }
 
-    public void setName(String firstname) {
+    public void setFirstname(String firstname) {
         this.firstname = firstname;
     }
 
-    public String getSurname() {
+    public String getLastname() {
         return lastname;
     }
 
-    public void setSurname(String lastname) {
+    public void setLastname(String lastname) {
         this.lastname = lastname;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getPhone() {
@@ -96,7 +79,21 @@ public class user {
         this.phone = phone;
     }
 
+    public String getEmail() {
+        return email;
+    }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     @Override
     public int hashCode() {
@@ -120,7 +117,7 @@ public class user {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        user other = (user) obj;
+        User other = (User) obj;
         if (email == null) {
             if (other.email != null)
                 return false;

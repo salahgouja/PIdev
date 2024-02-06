@@ -11,6 +11,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import sample.pidevjava.Main;
 import sample.pidevjava.db.DBConnection;
+import sample.pidevjava.model.User;
+import sample.pidevjava.validator.UserValidator;
+
 import java.io.IOException;
 import java.sql.*;
 
@@ -25,11 +28,16 @@ public class RegistrationFormController {
     public Label lblpasswordconfirm;
 
     public BorderPane root2 ;
+    public Label lblemail;
+    public Label lblphone;
 
 
     public void initialize() throws SQLException {
         lblpassword.setVisible(false);
         lblpasswordconfirm.setVisible(false);
+        lblemail.setVisible(false);
+        lblphone.setVisible(false);
+        setBorderColor("transparent");
 
         getId();
     }
@@ -51,8 +59,8 @@ public class RegistrationFormController {
     public void btnSignup(ActionEvent event)  {
         register();
 
-        DBConnection object = DBConnection.getInstance() ;
-        System.out.println(object);
+        DBConnection DB = DBConnection.getInstance() ;
+        System.out.println(DB);
     }
 
     public void btnLogin(ActionEvent event) throws IOException {
@@ -76,24 +84,67 @@ public class RegistrationFormController {
 
     public void register(){
 
+        String userfirstname = firstname.getText();
+        String userlastname = lastname.getText();
+        String mobilephone = phone.getText();
+        String useremail = email.getText();
+        String pass = password.getText();
         String newpassword = password.getText();
         String newpasswordconfirm = passwordconfirm.getText();
 
-        if (newpassword.equals(newpasswordconfirm)){
-            setBorderColor("transparent");
+
+        if (!UserValidator.isValidName(userfirstname)) {
+            firstname.requestFocus();
+        }else {
+            setBorderColor("red");
+            firstname.requestFocus();
+        }
+        if (!UserValidator.isValidName(userlastname)) {
+            lastname.requestFocus();
+        }else {
+            setBorderColor("red");
+            lastname.requestFocus();
+        }
+        if (!UserValidator.isValidEmail(useremail)) {
+
+            lblemail.setVisible(true);
+            email.requestFocus();
+        }else {
+            setBorderColor("red");
+            lblemail.setVisible(false);
+            email.requestFocus();
+        }
+        if (!UserValidator.isValidPhone(mobilephone)) {
+
+            lblphone.setVisible(true);
+            phone.requestFocus();
+        }else {
+            setBorderColor("red");
+            lblphone.setVisible(false);
+            phone.requestFocus();
+        }
+
+        if (newpassword.equals(newpasswordconfirm)) {
 
             lblpassword.setVisible(false);
             lblpasswordconfirm.setVisible(false);
             password.requestFocus();
+        }
+        else{
+            setBorderColor("red");
+            lblpassword.setVisible(true);
+            lblpasswordconfirm.setVisible(true);
+            password.requestFocus();
+        }
 
+
+           // Créer un objet User avec les données saisies par l'utilisateur
+            User user = new User(pass, userfirstname, userlastname, useremail, mobilephone);
+            // Valider l'utilisateur en utilisant UserValidator cree separement
+            if (UserValidator.validate(user)) {
             try {
                 Connection connection = DBConnection.getInstance().getConnection();
                 int id = getId();
-                String userfirstname = firstname.getText();
-                String userlastname = lastname.getText();
-                String mobilephone = phone.getText();
-                String useremail = email.getText();
-                String pass = password.getText();
 
                 PreparedStatement preparedStatement = connection.prepareStatement("insert into user(id,firstname,lastname,phone,email,password)values(?,?,?,?,?,?) ");
                 preparedStatement.setInt(1, id);
@@ -103,6 +154,7 @@ public class RegistrationFormController {
                 preparedStatement.setString(5, useremail);
                 preparedStatement.setString(6, pass);
                 int i = preparedStatement.executeUpdate();
+
                 if (i != 0) {
                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Success");
                     alert.showAndWait();
@@ -114,24 +166,22 @@ public class RegistrationFormController {
                     primarystage.setTitle("Login Form");
                     primarystage.centerOnScreen();
                 }
-            }
-            catch (SQLException | IOException ex)
-            {
+            } catch (SQLException | IOException ex) {
                 ex.printStackTrace();
             }
+             }
 
-        }else{
-            setBorderColor("red");
-            lblpassword.setVisible(true);
-            lblpasswordconfirm.setVisible(true);
-            password.requestFocus();
-        }
 
     }
 
     private void setBorderColor(String color) {
         password.setStyle(" -fx-border-color: "+color);
         passwordconfirm.setStyle("-fx-border-color:"+color);
+        email.setStyle("-fx-border-color:"+color);
+        phone.setStyle("-fx-border-color:"+color);
+        firstname.setStyle("-fx-border-color:"+color);
+        lastname.setStyle("-fx-border-color:"+color);
+
 
     }
 
