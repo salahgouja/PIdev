@@ -2,10 +2,18 @@ package sample.pidevjava;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
+import sample.pidevjava.controller.EventsPageController;
+import sample.pidevjava.model.Evenement;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
+
 
 public class Main extends Application {
 
@@ -15,13 +23,37 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("LoginForm.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("addEventForm.fxml"));
+        //Scene scene = new Scene(fxmlLoader.load());
 
-        primaryStage.setTitle(" lOGIN ");
+
+        // Get the screen bounds
+        Screen screen = Screen.getPrimary();
+        Rectangle2D bounds = screen.getVisualBounds();
+
+        // Create a BorderPane for the root of the scene
+        BorderPane root = new BorderPane();
+
+        // Create a Scene with root and set the width to be resizable
+        Scene scene = new Scene(fxmlLoader.load(), 800, bounds.getHeight());
         primaryStage.setScene(scene);
-        primaryStage.centerOnScreen();
+
+        // Set the stage to full-screen height
+        primaryStage.setY(bounds.getMinY());
+        primaryStage.setX(0);
+        primaryStage.setHeight(bounds.getHeight());
+
+        // Set minimum and maximum width to keep it resizable
+        primaryStage.setMinWidth(bounds.getWidth()/2); // Set a minimum width
+        primaryStage.setMaxWidth(bounds.getWidth()); // Set a maximum width
+        primaryStage.setMinHeight(bounds.getHeight());
+        primaryStage.setX(0);
+
+        primaryStage.setTitle(" ActiveZone ");
         primaryStage.show();
 
+EventsPageController rr = new EventsPageController();
+        ArrayList<Evenement>  r=rr.getAll();
+        System.out.println(r);
     }
 }

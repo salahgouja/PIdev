@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="sample.pidevjava.controller.EventsPageController"
+            prefHeight="400.0" prefWidth="600.0">
+    <children>
+        <TableView fx:id="eventTableView" layoutX="28.0" layoutY="23.0" prefHeight="353.0" prefWidth="543.0">
+            <columns>
+                <TableColumn fx:id="dateColumn" prefWidth="105.0" text="Date" />
+                <TableColumn fx:id="titreColumn" prefWidth="105.0" text="Titre" />
+                <TableColumn fx:id="descriptionColumn" prefWidth="105.0" text="Description" />
+                <TableColumn fx:id="prixColumn" prefWidth="105.0" text="Prix" />
+                <TableColumn fx:id="typeColumn" prefWidth="105.0" text="Type" />
+                <TableColumn fx:id="categorieColumn" prefWidth="105.0" text="Categorie" />
+                <TableColumn fx:id="editColumn" prefWidth="105.0" text="modifier"  />
+                <TableColumn fx:id="deletColumn" prefWidth="105.0" text="supprimer" />
+            </columns>
+        </TableView>
+    </children>
+
+</AnchorPane>

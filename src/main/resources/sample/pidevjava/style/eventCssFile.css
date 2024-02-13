@@ -1,0 +1,34 @@
+/* cardStyles.css */
+
+/* Define styles for the card container */
+.card {
+    -fx-background-color: #ffffff; /* Card background color */
+    -fx-border-color: #cccccc; /* Card border color */
+    -fx-border-radius: 10px; /* Card border radius */
+}
+
+/* Style the title label */
+.title-label {
+    -fx-font-size: 16px; /* Title font size */
+    -fx-font-weight: bold; /* Title font weight */
+}
+
+/* Style the description label */
+.description-label {
+    -fx-font-size: 14px; /* Description font size */
+}
+
+/* Style the button */
+.button {
+    -fx-background-color: #007bff; /* Button background color */
+    -fx-text-fill: #ffffff; /* Button text color */
+    -fx-font-size: 14px; /* Button font size */
+    -fx-padding: 5px 10px; /* Button padding */
+    -fx-border-radius: 5px; /* Button border radius */
+}
+
+/* Style the date label */
+.date-label {
+    -fx-font-size: 12px; /* Date font size */
+    -fx-text-fill: #999999; /* Date text color */
+}

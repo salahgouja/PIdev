@@ -6,14 +6,14 @@ import java.sql.*;
 public class DBConnection {
 
     private static  DBConnection dbConnection;
-    private final Connection connection ;
+    private  Connection connection ;
 
     private   DBConnection(){
 
         try {
         Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/pidev","root","admin");
-            System.out.println("connected ");
+            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:/pidev","root","");
+            System.out.println("connected");
             PreparedStatement pstm = connection.prepareStatement("SHOW TABLES");
             ResultSet resultSet = pstm.executeQuery();
             if (!resultSet.next()) {
@@ -25,7 +25,6 @@ public class DBConnection {
                         "  `phone` varchar(20) DEFAULT NULL,\n" +
                         "  `email` varchar(20) DEFAULT NULL,\n" +
                         "  `password` varchar(20) DEFAULT NULL,\n" +
-
                         "  PRIMARY KEY (`id`)\n" +
                         ") ENGINE=InnoDB DEFAULT CHARSET=latin1;\n" +
                         "\n" ;
@@ -36,8 +35,8 @@ public class DBConnection {
 
 
         } catch (ClassNotFoundException | SQLException e) {
-            throw new RuntimeException(e);
 
+            System.out.println("not connected");
         }
     }
     public static  DBConnection getInstance(){

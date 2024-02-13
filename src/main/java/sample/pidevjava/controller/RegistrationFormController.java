@@ -14,7 +14,7 @@ import sample.pidevjava.db.DBConnection;
 import java.io.IOException;
 import java.sql.*;
 
-public class RegistrationFormController {
+public class  RegistrationFormController {
     public TextField firstname;
     public TextField lastname;
     public TextField phone;
