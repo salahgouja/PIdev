@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="pidevjava:javaEEApplication exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/pidevjava_javaEEApplication_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="pidevjava/javaeeApplication/javaEEApplication" />
+    </root>
+  </artifact>
+</component>
