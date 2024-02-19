@@ -12,7 +12,8 @@ public class Evenement {
     private String type;
     private String categorie;
 
-    public Evenement( String date, String titre, String description, String prix, String type, String categorie) {
+    public Evenement( int id_event,String date, String titre, String description, String prix, String type, String categorie) {
+        this.id_event = id_event;
         this.date = date;
         this.titre = titre;
         this.description = description;

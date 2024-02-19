@@ -23,7 +23,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("addEventForm.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("dashboardEvent.fxml"));
         //Scene scene = new Scene(fxmlLoader.load());
 
 
@@ -51,8 +51,8 @@ public class Main extends Application {
 
         primaryStage.setTitle(" ActiveZone ");
         primaryStage.show();
-
-EventsPageController rr = new EventsPageController();
+//Evenement ee = new Evenement(27,)
+        EventsPageController rr = new EventsPageController();
         ArrayList<Evenement>  r=rr.getAll();
         System.out.println(r);
     }

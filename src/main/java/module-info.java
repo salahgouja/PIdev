@@ -10,4 +10,5 @@ module sample.pidevjava {
     exports sample.pidevjava;
     exports sample.pidevjava.controller;
     opens sample.pidevjava.controller to javafx.fxml;
+    opens sample.pidevjava.model to javafx.base;
 }
