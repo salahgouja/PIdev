@@ -1,41 +1,74 @@
 package sample.pidevjava.controller;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import sample.pidevjava.Main;
 import sample.pidevjava.db.DBConnection;
 import sample.pidevjava.interfaces.IServices;
 import sample.pidevjava.model.Evenement;
+import sample.pidevjava.model.EvetCategory;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javafx.embed.swing.SwingFXUtils;
+
+import java.io.*;
 import java.net.URL;
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.ResourceBundle;
 
+import static sample.pidevjava.model.EvetCategory.evetCategory;
 
-public class EventsPageController implements IServices<Evenement> {
+
+public class EventsPageController implements IServices<Evenement>  {
 
     @FXML
-    private TextField dateField;
+    private ImageView imageView;
+    private Stage primaryStage;
+
+    @FXML
+    private Button uploadButton;
+
+
+    @FXML
+    private ListView<Evenement> mylistview;
+
+    @FXML
+    private DatePicker dateFieldPicker;
 
     @FXML
     private TextField titreField;
 
     @FXML
-    private TextField descriptionField;
+    private TextArea descriptionField;
 
     @FXML
     private TextField prixField;
 
     @FXML
-    private TextField typeField;
-
-    @FXML
-    private TextField categorieField;
+    private ChoiceBox<String> categorieFieldchoise;
 
 
     @FXML
@@ -44,77 +77,116 @@ public class EventsPageController implements IServices<Evenement> {
     @FXML
     private URL location;
 
-    @FXML
-    private TableColumn<Evenement, Integer> idColumn;
+    ArrayList<Evenement> evenements = new ArrayList<>();
 
-    @FXML
-    private TableColumn<Evenement, String> categorieColumn;
+    public void setPrimaryStage(Stage primaryStage) {
+        this.primaryStage = primaryStage;
+    }
 
-    @FXML
-    private TableColumn<Evenement, String> dateColumn;
-
-    @FXML
-    private TableColumn<Evenement, String> descriptionColumn;
-
-
-    @FXML
-    private TableView<Evenement> eventTableView;
-
-    @FXML
-    private TableColumn<Evenement, String> prixColumn;
-
-    @FXML
-    private TableColumn<Evenement, String> titreColumn;
-
-    @FXML
-    private TableColumn<Evenement, String> typeColumn;
 
     @FXML
     void initialize() {
-        assert idColumn != null;
-        assert categorieColumn != null;
-        assert dateColumn != null;
-        assert descriptionColumn != null;
-        assert eventTableView != null;
-        assert prixColumn != null;
-        assert titreColumn != null;
-        assert typeColumn != null;
+        categorieFieldchoise.getItems().addAll(evetCategory);
+        getAll();
+        System.out.println(evenements);
+        setEventList();
 
-        // Define cell value factories for each column
-        idColumn.setCellValueFactory(new PropertyValueFactory<>("id_event"));
-        categorieColumn.setCellValueFactory(new PropertyValueFactory<>("categorie"));
-        dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
-        descriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
-        prixColumn.setCellValueFactory(new PropertyValueFactory<>("prix"));
-        titreColumn.setCellValueFactory(new PropertyValueFactory<>("titre"));
-        typeColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
+    }
 
-        // Load data into the TableView
-        eventTableView.getItems().addAll(getAll());
+    private void showAlert(Alert.AlertType alertType, String title, String content) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
+
+    void setEventList() {
+        ObservableList<Evenement> observableList = FXCollections.observableArrayList(evenements);
+        mylistview.setItems(observableList);
+        mylistview.setCellFactory(param -> new ListCell<Evenement>() {
+            @Override
+            protected void updateItem(Evenement item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                    setGraphic(null);
+                } else {
+                    try {
+                        FXMLLoader loader = new FXMLLoader(Main.class.getResource("eventCardDash.fxml"));
+                        Node node = loader.load();
+                        EventCardController controller = loader.getController();
+                        controller.setEventData(item); // Pass the event data to the controller
+                        setGraphic(node);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
     }
 
 
 
 
+
+
     @Override
-    public void add() {
+    public void add() throws IOException {
         int id_event =0;
-        String date = dateField.getText();
+        String date = dateFieldPicker.getValue().toString();
         String titre = titreField.getText();
         String description = descriptionField.getText();
         String prix = prixField.getText();
-        String type = typeField.getText();
-        String categorie = categorieField.getText();
+        String categorie = categorieFieldchoise.getValue();
+        // Get the image file from the ImageView
+        Image image = imageView.getImage();
+        File imageFile = new File("temp_image.png"); // Provide a temporary file name or adjust as needed
+
+        // Save the image to a temporary file
+        try {
+            BufferedImage bufferedImage = SwingFXUtils.fromFXImage(image, null);
+            ImageIO.write(bufferedImage, "png", imageFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+            showAlert(Alert.AlertType.ERROR, "Error", "Failed to save the image.");
+            return;
+        }
+
+        // Convert the image file to Base64 encoding
+
+        String base64Image = convertImageToBase64(imageFile);
 
         // Créer un nouvel objet Evenement avec les valeurs récupérées du formulaire
-        Evenement nouvelEvenement = new Evenement(id_event,date, titre, description, prix, type, categorie);
+        Evenement nouvelEvenement = new Evenement(id_event,date, titre, description, prix, categorie,base64Image);
 
         // Exécuter la requête SQL pour insérer les données dans la base de données
-        String qry = "INSERT INTO `evenement` (`date`, `titre`, `description`, `prix`, `type`, `categorie`) VALUES (?, ?, ?, ?, ?, ?)";
-        if(dateField.getText().isEmpty()||titreField.getText().isEmpty()||descriptionField.getText().isEmpty()||prixField.getText().isEmpty()||typeField.getText().isEmpty()||categorieField.getText().isEmpty()){
-            Alert alert =new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("empty");
-            alert.showAndWait();
+        String qry = "INSERT INTO `evenement` (`date`, `titre`, `description`, `prix`, `categorie`,`image`) VALUES ( ?, ?,?, ?, ?, ?)";
+        String errorMessage = "";
+        if (dateFieldPicker.getValue().equals(null) ) {
+            errorMessage += "Invalid date format (dd/mm/yyyy)\n";
+        }
+        if (titreField.getText().isEmpty()) {
+            errorMessage += "Title cannot be empty\n";
+        }
+        if (descriptionField.getText().isEmpty()) {
+            errorMessage += "Description cannot be empty\n";
+        }
+        if (prixField.getText().isEmpty()) {
+            errorMessage += "Invalid price format (only digits and optionally a decimal point)\n";
+        }
+
+        if (categorieFieldchoise.getValue().isEmpty()) {
+            errorMessage += "Category cannot be empty\n";
+        }
+        if (imageView.getImage() == null) {
+            // Show error message and return if no image has been uploaded
+            showAlert(Alert.AlertType.ERROR, "Error", "Please upload an image first.");
+            return;
+        }
+        if (!errorMessage.isEmpty()) {
+            // Show error message
+            return; // Exit the method if there are validation errors
         }else {
             try {
                 PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement(qry);
@@ -122,17 +194,18 @@ public class EventsPageController implements IServices<Evenement> {
                 stm.setString(2, nouvelEvenement.getTitre());
                 stm.setString(3, nouvelEvenement.getDescription());
                 stm.setString(4, nouvelEvenement.getPrix());
-                stm.setString(5, nouvelEvenement.getType());
-                stm.setString(6, nouvelEvenement.getCategorie());
+                stm.setString(5, nouvelEvenement.getCategorie());
+                stm.setString(6, nouvelEvenement.getImage());
+                ObservableList<Evenement> observableList = FXCollections.observableArrayList(evenements);
+                observableList.addListener((ListChangeListener<Evenement>) change -> {setEventList();
+                });
                 stm.executeUpdate();
-                eventTableView.getItems().addAll(nouvelEvenement);
-                eventTableView.refresh();
-                dateField.clear();
+                dateFieldPicker.setValue(null);
                 titreField.clear();
                 descriptionField.clear();
                 prixField.clear();
-                typeField.clear();
-                categorieField.clear();
+                categorieFieldchoise.setValue(null);
+                imageView.setImage(null);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
@@ -142,9 +215,9 @@ public class EventsPageController implements IServices<Evenement> {
 
 
 
+
     @Override
     public ArrayList<Evenement> getAll() {
-        ArrayList<Evenement> evenements = new ArrayList<>();
         String query = "SELECT * FROM evenement";
         try {
             Connection connection = DBConnection.getInstance().getConnection();
@@ -157,8 +230,8 @@ public class EventsPageController implements IServices<Evenement> {
                 evenement.setTitre(resultSet.getString("titre"));
                 evenement.setDescription(resultSet.getString("description"));
                 evenement.setPrix(resultSet.getString("prix"));
-                evenement.setType(resultSet.getString("type"));
                 evenement.setCategorie(resultSet.getString("categorie"));
+                evenement.setImage(resultSet.getString("image"));
                 evenements.add(evenement);
             }
             resultSet.close();
@@ -173,23 +246,22 @@ public class EventsPageController implements IServices<Evenement> {
 
 
         int id_event =0;
-        String date = dateField.getText();
+        String date = dateFieldPicker.getValue().toString();
         String titre = titreField.getText();
         String description = descriptionField.getText();
         String prix = prixField.getText();
-        String type = typeField.getText();
-        String categorie = categorieField.getText();
-        Evenement nouvelEvenement = new Evenement( id_event,date, titre, description, prix, type, categorie);
-        String query = "UPDATE evenement SET date=?, titre=?, description=?, prix=?, type=?, categorie=? WHERE id_event=?";
+        String categorie = categorieFieldchoise.getValue();
+        String image ="";
+        Evenement nouvelEvenement = new Evenement( id_event,date, titre, description, prix, categorie,image);
+        String query = "UPDATE evenement SET date=?, titre=?, description=?, prix=?, categorie=? WHERE id_event=?";
         try {
             PreparedStatement statement = DBConnection.getInstance().getConnection().prepareStatement(query);
-            statement.setString(1, nouvelEvenement.getDate());
-            statement.setString(2, nouvelEvenement.getTitre());
-            statement.setString(3, nouvelEvenement.getDescription());
-            statement.setString(4, nouvelEvenement.getPrix());
-            statement.setString(5, nouvelEvenement.getType());
-            statement.setString(6, nouvelEvenement.getCategorie());
-            evenement.getId_event();
+            statement.setString(1, dateFieldPicker.getValue().toString());
+            statement.setString(2, titreField.getText());
+            statement.setString(3, descriptionField.getText());
+            statement.setString(4, prixField.getText());
+            statement.setString(5, categorieFieldchoise.getValue());
+            statement.setInt(6, evenement.getId_event()); // set the ID
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -212,35 +284,84 @@ public class EventsPageController implements IServices<Evenement> {
 
 
     public void removeEvent(ActionEvent actionEvent) {
-        Evenement Selectedenvent = eventTableView.getSelectionModel().getSelectedItem();
+        Evenement Selectedenvent = mylistview.getSelectionModel().getSelectedItem();
         delete(Selectedenvent);
-        eventTableView.getItems().remove(Selectedenvent);
+        mylistview.getItems().remove(Selectedenvent);
     }
 
     public Evenement selectItem(MouseEvent mouseEvent) {
-        TableView.TableViewSelectionModel<Evenement> Selectedenvent = eventTableView.getSelectionModel();
-        Evenement event = Selectedenvent.getSelectedItem();
-        if(Selectedenvent.isEmpty()){
+        Evenement Selectedenvent = mylistview.getSelectionModel().getSelectedItem();
+        if(Selectedenvent.equals(null)){
             System.out.println("not selected");
         }else {
-            categorieField.setText(String.valueOf(event.getCategorie()));
-            dateField.setText(String.valueOf(event.getDate()));
-            descriptionField.setText(String.valueOf(event.getDescription()));
-            prixField.setText(String.valueOf(event.getPrix()));
-            titreField.setText(String.valueOf(event.getTitre()));
-            typeField.setText(String.valueOf(event.getType()));
+            categorieFieldchoise.setValue(String.valueOf(Selectedenvent.getCategorie()));
+            descriptionField.setText(String.valueOf(Selectedenvent.getDescription()));
+            prixField.setText(String.valueOf(Selectedenvent.getPrix()));
+            titreField.setText(String.valueOf(Selectedenvent.getTitre()));
+            dateFieldPicker.setValue(LocalDate.parse(Selectedenvent.getDate(), DateTimeFormatter.ofPattern("dd/MM/yyyy")));
         }
-        return event;
+        return Selectedenvent;
     }
+
 
     public void updeteEvent(ActionEvent actionEvent) {
-        TableView.TableViewSelectionModel<Evenement> Selectedenvent = eventTableView.getSelectionModel();
-        Evenement event = Selectedenvent.getSelectedItem();
-        if(Selectedenvent.isEmpty()){
+        Evenement Selectedenvent = mylistview.getSelectionModel().getSelectedItem();
+
+        if(Selectedenvent.equals(null)){
             System.out.println("not selected");
         }else {
-            update(event);
+            update(Selectedenvent);
+            dateFieldPicker.setValue(null);
+            titreField.clear();
+            descriptionField.clear();
+            prixField.clear();
+            categorieFieldchoise.setValue(null);
         }
 
     }
+
+    /********************************image uplode*************************************/
+    public void chooseAndUploadImage() {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Select Image File");
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg");
+        fileChooser.getExtensionFilters().add(extFilter);
+        File selectedFile = fileChooser.showOpenDialog(primaryStage);
+        if (selectedFile != null) {
+            // Call method to handle file selection
+            handleSelectedFile(selectedFile);
+        }
+    }
+
+
+    private void handleSelectedFile(File file) {
+        try {
+
+            String base64Image = convertImageToBase64(file);
+            Image image = convertBase64ToImage(base64Image);
+            imageView.setImage(image);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            showAlert(Alert.AlertType.ERROR, "Error", "An error occurred while uploading the image.");
+        }
+    }
+    private Image convertBase64ToImage(String base64Image) {
+        byte[] imageBytes = Base64.getDecoder().decode(base64Image);
+        return new Image(new ByteArrayInputStream(imageBytes));
+    }
+    private String convertImageToBase64(File file) throws IOException {
+        try (FileInputStream imageInFile = new FileInputStream(file)) {
+            byte[] imageData = new byte[(int) file.length()];
+            imageInFile.read(imageData);
+            return Base64.getEncoder().encodeToString(imageData);
+        }
+    }
+
+
+
+
 }
+
+
+

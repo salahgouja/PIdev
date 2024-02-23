@@ -4,22 +4,26 @@ import javafx.beans.value.ObservableValue;
 
 public class Evenement {
 
+
+
     private int id_event;
     private String date;
     private String titre;
     private String description;
     private String prix;
-    private String type;
     private String categorie;
+    private String image;
 
-    public Evenement( int id_event,String date, String titre, String description, String prix, String type, String categorie) {
+
+
+    public Evenement( int id_event,String date, String titre, String description, String prix, String categorie, String image) {
         this.id_event = id_event;
         this.date = date;
         this.titre = titre;
         this.description = description;
         this.prix = prix;
-        this.type = type;
         this.categorie = categorie;
+        this.image = image;
     }
 
     public Evenement() {
@@ -65,13 +69,7 @@ public class Evenement {
         this.prix = prix;
     }
 
-    public String getType() {
-        return type;
-    }
 
-    public void setType(String type) {
-        this.type = type;
-    }
 
     public String getCategorie() {
         return categorie;
@@ -79,6 +77,14 @@ public class Evenement {
 
     public void setCategorie(String categorie) {
         this.categorie = categorie;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     @Override
@@ -89,8 +95,8 @@ public class Evenement {
                 ", titre='" + titre + '\'' +
                 ", description='" + description + '\'' +
                 ", prix=" + prix +
-                ", type='" + type + '\'' +
                 ", categorie='" + categorie + '\'' +
+                ", image='" + image + '\'' +
                 '}';
     }
 

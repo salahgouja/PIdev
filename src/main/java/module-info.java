@@ -4,6 +4,8 @@ module sample.pidevjava {
     requires java.sql;
     requires java.persistence;
     requires mysql.connector.j;
+    requires java.desktop;
+    requires javafx.swing;
 
 
     opens sample.pidevjava to javafx.fxml;

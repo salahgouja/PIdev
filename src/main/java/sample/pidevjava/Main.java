@@ -51,9 +51,6 @@ public class Main extends Application {
 
         primaryStage.setTitle(" ActiveZone ");
         primaryStage.show();
-//Evenement ee = new Evenement(27,)
-        EventsPageController rr = new EventsPageController();
-        ArrayList<Evenement>  r=rr.getAll();
-        System.out.println(r);
+
     }
 }
