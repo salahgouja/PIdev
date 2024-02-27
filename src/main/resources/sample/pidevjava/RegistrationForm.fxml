@@ -16,7 +16,7 @@
         <children>
             <ImageView fitHeight="409.0" fitWidth="315.0" layoutX="-36.0" pickOnBounds="true" preserveRatio="true">
                 <image>
-                    <Image url="https://i.pinimg.com/564x/54/98/2f/54982f20d017491f59f155684ef4f8e6.jpg" />
+                    <Image url="@../Images/bgimage.jpg" />
                 </image>
             </ImageView>
         </children>

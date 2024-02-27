@@ -1,0 +1,112 @@
+/* cardStyles.css */
+
+/* Define styles for the card container */
+.card {
+    -fx-background-color: #ffffff; /* Card background color */
+    -fx-border-color: #ffffff; /* Card border color */
+    -fx-border-radius: 10px; /* Card border radius */
+}
+
+.shadow{
+    -fx-effect:dropshadow(three-pass-box, rgba(0,0,0,0.4), 6,0,0,0);
+}
+
+/* Style the title label */
+.title-label {
+    -fx-font-size: 16px; /* Title font size */
+    -fx-font-weight: bold; /* Title font weight */
+}
+
+/* Style the description label */
+.description-label {
+    -fx-font-size: 14px; /* Description font size */
+}
+
+/* Style the button */
+.button {
+    -fx-font-weight: bold;
+    -fx-background-color:#ff3800;
+    -fx-background-radius: 10;
+    -fx-font-size: 14;
+    -fx-text-fill: white; /* Button font size */
+    -fx-padding: 5px 10px; /* Button padding */
+    -fx-border-radius: 10px; /* Button border radius */
+}
+
+.button:hover{
+
+
+    -fx-background-color: white;
+    -fx-text-fill:  #ff3800;
+    -fx-border-color:  #ff3800;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+    -fx-font-size: 14;
+
+
+
+}
+
+.button:pressed{
+
+    -fx-background-color: white;
+    -fx-text-fill:#ff3800;
+    -fx-border-color:#ff3800;
+    -fx-border-width: 2;
+    -fx-font-size: 14;
+
+}
+
+/* Style the date label */
+.date-label {
+    -fx-font-size: 12px; /* Date font size */
+    -fx-text-fill: #999999; /* Date text color */
+}
+
+
+
+/*admin event card */
+.anchor-pane {
+    -fx-background-color: #f0f0f0; /* Set background color */
+    -fx-border-color: #cccccc; /* Set border color */
+    -fx-border-width: 1px; /* Set border width */
+    -fx-border-radius: 5px; /* Set border radius */
+    -fx-padding: 10px; /* Set padding */
+}
+
+/* Style for the HBox */
+.box {
+    -fx-spacing: 10px; /* Set spacing between children */
+}
+
+/* Style for the ImageView */
+.image-view {
+    -fx-fit-width: 72px; /* Set width */
+    -fx-fit-height: 72px; /* Set height */
+}
+
+/* Style for the Label */
+.label {
+    -fx-font-size: 12px; /* Set font size */
+    -fx-text-fill: #333333;
+    -fx-padding: 5px;
+    /* Set text color */
+}
+
+
+.input {
+    -fx-background-color:white;
+    -fx-background-radius: 5;
+    -fx-border-color: #ff3800;
+    -fx-border-radius: 5;
+    -fx-border-width: 1;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-font-size: 15;
+}
+
+.box{
+    -fx-background-color:white;
+    -fx-background-radius: 5;
+
+}

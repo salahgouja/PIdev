@@ -10,9 +10,8 @@ public class UserValidator {
                     isValidPhone(user.getPhone())  ;
         }
 
-
         public static boolean isValidEmail(String email) {
-            String emailvrai = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+            String emailvrai = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}$";
             return email != null && email.matches(emailvrai);
         }
 
@@ -21,9 +20,8 @@ public class UserValidator {
             return phone != null && phone.matches(phonetunis);
         }
 
-    public static boolean isValidName(String name) {
-        return name != null && !name.isEmpty();
-
-    }
+          public static boolean isValidName(String name) {
+            return name != null && !name.isEmpty();
+        }
 }
 
