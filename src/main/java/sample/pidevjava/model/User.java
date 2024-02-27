@@ -1,16 +1,14 @@
 package sample.pidevjava.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 
 @Entity
 public class User {
 
     @Id
+
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String firstname;
@@ -19,32 +17,38 @@ public class User {
     private String email;
     private String password;
 
-
+    private String role ;
 
     public User() {
-        super();
+
     }
 
-    public User(String password, String firstname, String lastname, String email, String phone) {
+
+
+    public User( String firstname, String lastname, String email, String phone,String password,String role) {
         super();
 
-        this.password = password;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.phone = phone;
+        this.password = password;
+        this.role = role;
     }
 
-    public User(int id, String password, String firstname, String lastname, String email, String phone) {
+    public User( int id,String firstname, String lastname, String email, String phone,String password,String role) {
         super();
         this.id = id;
-
-        this.password = password;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.phone = phone;
+        this.password = password;
+        this.role = role;
+
     }
+
+
 
 
     public int getId() {
@@ -95,17 +99,25 @@ public class User {
         this.password = password;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((email == null) ? 0 : email.hashCode());
-        result = prime * result + (int) (id ^ (id >>> 32));
 
         result = prime * result + ((firstname == null) ? 0 : firstname.hashCode());
-        result = prime * result + ((password == null) ? 0 : password.hashCode());
-        result = prime * result + ((phone == null) ? 0 : phone.hashCode());
         result = prime * result + ((lastname == null) ? 0 : lastname.hashCode());
+        result = prime * result + ((email == null) ? 0 : email.hashCode());
+        result = prime * result + ((phone == null) ? 0 : phone.hashCode());
+        result = prime * result + ((password == null) ? 0 : password.hashCode());
+
         return result;
     }
 
@@ -149,12 +161,19 @@ public class User {
         return true;
     }
 
+
     @Override
     public String toString() {
-        return "User [id=" + id + ", password=" + password + ", firstname=" + firstname
-                + ", lastname=" + lastname + ", email=" + email + ", phone=" + phone + "]";
+        return "User{" +
+                "id=" + id +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", role=" + role +
+                '}';
     }
-
 
 
 }
