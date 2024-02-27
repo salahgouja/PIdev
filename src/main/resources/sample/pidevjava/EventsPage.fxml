@@ -1,61 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.Blend?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pidevjava.controller.EventsPageController">
-   <children>
-      <VBox prefHeight="400.0" prefWidth="600.0">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="786.0" prefWidth="1535.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pidevjava.controller.EventsPageUserController">
+   <top>
+      <Pane prefHeight="58.0" prefWidth="1474.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER" />
+   </top>
+   <left>
+      <VBox prefHeight="728.0" prefWidth="1535.0" BorderPane.alignment="CENTER">
          <children>
-            <Pane prefHeight="46.0" prefWidth="215.0" />
-            <AnchorPane prefHeight="200.0" prefWidth="600.0">
+            <AnchorPane prefHeight="228.0" prefWidth="1097.0">
                <children>
-                  <StackPane prefHeight="200.0" prefWidth="600.0">
-                     <children>
-                        <ImageView fitHeight="249.0" fitWidth="1059.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/pg.png" />
-                           </image>
-                           <StackPane.margin>
-                              <Insets />
-                           </StackPane.margin></ImageView>
-                        <ImageView pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@images/sousPg.png" />
-                           </image>
-                        </ImageView>
-                        <Label text="Label" />
-                        <HBox prefHeight="250.0" prefWidth="912.0">
-                           <children>
-                              <ChoiceBox prefWidth="150.0" />
-                              <ChoiceBox prefWidth="150.0" />
-                           </children>
-                        </HBox>
-                     </children>
-                  </StackPane>
+                  <ImageView fitHeight="224.0" fitWidth="1012.0" layoutX="223.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/pg.png" />
+                     </image></ImageView>
+                  <ImageView fitHeight="257.0" fitWidth="640.0" layoutX="647.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/sousPg.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="249.0" layoutY="72.0" prefHeight="26.0" prefWidth="410.0" text="Vous êtes cordialement invités à participer à notre événement " textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="249.0" layoutY="26.0" prefHeight="25.0" prefWidth="340.0" text="Suivez vos activités" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Bold Italic" size="24.0" />
+                     </font></Label>
+                  <Label layoutX="249.0" layoutY="124.0" prefHeight="25.0" prefWidth="340.0" text="Rejoignez-nous pour une journée remplie d'action, de " textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="249.0" layoutY="98.0" prefHeight="26.0" prefWidth="398.0" text="sportif excitant qui se déroulera au notre Complexe Sportif . " textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="249.0" layoutY="150.0" prefHeight="25.0" prefWidth="340.0" text="compétition et de camaraderie !" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
                </children>
+               <VBox.margin>
+                  <Insets left="50.0" right="50.0" top="10.0" />
+               </VBox.margin>
             </AnchorPane>
-            <ScrollPane prefHeight="200.0" prefWidth="200.0">
+            <Label text="Evènements à venir" textFill="#263c7e">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="30.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="MS Reference Specialty" size="26.0" />
+               </font>
+               <effect>
+                  <Blend />
+               </effect></Label>
+            <ScrollPane prefHeight="419.0" prefWidth="1535.0">
                <content>
-                  <GridPane prefHeight="30.0" prefWidth="113.0">
-                    <rowConstraints>
-                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
+                  <GridPane fx:id="myGridPane">
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                     </rowConstraints>
                   </GridPane>
                </content>
+               <padding>
+                  <Insets left="80.0" right="80.0" />
+               </padding>
             </ScrollPane>
          </children>
       </VBox>
-   </children>
-</AnchorPane>
+   </left>
+</BorderPane>

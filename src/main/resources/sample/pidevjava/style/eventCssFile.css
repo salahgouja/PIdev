@@ -4,7 +4,8 @@
 .card {
     -fx-background-color: #ffffff; /* Card background color */
     -fx-border-color: #ffffff; /* Card border color */
-    -fx-border-radius: 10px; /* Card border radius */
+    -fx-border-radius: 20px; /* Card border radius */
+    -fx-background-radius: 20px;
 }
 
 .shadow{
@@ -81,8 +82,10 @@
 
 /* Style for the ImageView */
 .image-view {
-    -fx-fit-width: 72px; /* Set width */
-    -fx-fit-height: 72px; /* Set height */
+   /* -fx-fit-width: 72px; /* Set width */
+   /* -fx-fit-height: 72px; /* Set height */
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
 }
 
 /* Style for the Label */
@@ -110,3 +113,30 @@
     -fx-background-radius: 5;
 
 }
+
+
+/***********alert***********/
+/* CSS for Custom Alert */
+.custom-alert {
+    -fx-background-color: #ffffff; /* Background color */
+    -fx-border-color: #000000; /* Border color */
+    -fx-border-width: 1px; /* Border width */
+    -fx-border-radius: 5px; /* Border radius */
+    -fx-padding: 10px; /* Padding */
+}
+
+.custom-alert .message-label {
+    -fx-font-size: 14px; /* Font size */
+    -fx-text-fill: #000000; /* Text color */
+}
+
+.custom-alert .button {
+    -fx-background-color: #4CAF50; /* Button background color */
+    -fx-text-fill: #ffffff; /* Button text color */
+    -fx-font-size: 14px; /* Font size */
+}
+
+.custom-alert .button:hover {
+    -fx-background-color: #45a049; /* Hover background color */
+}
+

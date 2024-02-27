@@ -4,24 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19ceb744-616d-4382-a4d3-5d6106809877" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/EventCardController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/model/EvetCategory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/eventCardDash.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/images/eventIcon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/images/participationIcon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/style/dashboardCSS.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/temp_image.png" afterDir="false" />
+    <list default="true" id="19ceb744-616d-4382-a4d3-5d6106809877" name="Changes" comment="card">
+      <change afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/EventsPageUserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/ISevecesEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/JavaMailUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/model/Participation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/participationcard.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/participationcardDash.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/EventCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/EventCardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/EventsPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/EventsPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/interfaces/IServices.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/interfaces/IServices.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/model/Evenement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/model/Evenement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/EventsPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/EventsPage.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/dashboardEvent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/dashboardEvent.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/eventCard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/eventCard.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/images/pg.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/images/pg.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/images/sousPg.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/images/sousPg.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/style/dashboardCSS.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/style/dashboardCSS.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/style/eventCssFile.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/style/eventCssFile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp_image.png" beforeDir="false" afterPath="$PROJECT_DIR$/temp_image.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,13 +37,24 @@
         <option value="AnnotationType" />
         <option value="Interface" />
         <option value="Enum" />
+        <option value="CSS File" />
         <option value="FxmlFile" />
         <option value="Class" />
-        <option value="CSS File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--follow-tags" />
+        <option name="title" value="Current Branch" />
+      </GitPushTagMode>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="rania" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
@@ -51,7 +65,7 @@
     </option>
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2
@@ -64,37 +78,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "rania",
-    "javascript.karma.karma_node_package_dir": "",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "C:/Users/ASUS/PIdev/src/main/java/sample/pidevjava",
-    "last_opened_file_path": "C:/Users/ASUS/Downloads/PIdev-master/PIdev-master",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2617801",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;rania&quot;,
+    &quot;javascript.karma.karma_node_package_dir&quot;: &quot;&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/ASUS/PIdev/src/main/java/sample/pidevjava&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ASUS/Downloads/javax.mail.jar&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2617801&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="sample.pidevjava.model" />
@@ -153,8 +167,19 @@
       <workItem from="1708169489848" duration="38467000" />
       <workItem from="1708518418994" duration="13800000" />
       <workItem from="1708551590297" duration="977000" />
-      <workItem from="1708552827808" duration="25856000" />
+      <workItem from="1708552827808" duration="28334000" />
+      <workItem from="1708774477848" duration="63715000" />
+      <workItem from="1709028515272" duration="4727000" />
     </task>
+    <task id="LOCAL-00001" summary="card">
+      <option name="closed" value="true" />
+      <created>1708697422004</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1708697422004</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,6 +198,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="card" />
+    <option name="LAST_COMMIT_MESSAGE" value="card" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -6,6 +6,7 @@ module sample.pidevjava {
     requires mysql.connector.j;
     requires java.desktop;
     requires javafx.swing;
+    requires java.mail;
 
 
     opens sample.pidevjava to javafx.fxml;

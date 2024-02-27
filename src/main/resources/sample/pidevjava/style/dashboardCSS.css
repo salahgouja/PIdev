@@ -39,3 +39,29 @@
     -fx-background-radius:30px;
     -fx-padding:10px 10px 10px 10px;
 }
+
+.search{
+    -fx-background-color:linear-gradient(to right, rgba(255, 56, 0, 0.54), rgba(252, 86, 13, 0.45));
+    -fx-background-radius:10px;
+    -fx-border-width: 1px;
+    -fx-font-family: "Arial";
+    -fx-border-radius: 10px;
+    -fx-font-size:13px;
+}
+
+.searchButton{
+    -fx-background-color:linear-gradient(to right, #ff3800, rgb(252, 86, 13));
+    -fx-background-radius:10px;
+    -fx-border-width: 1px;
+    -fx-font-family: "Arial";
+    -fx-border-radius: 10px;
+    -fx-font-size:13px;
+}
+.searchInput{
+    -fx-background-color:transparent;
+    -fx-background-radius:10px;
+    -fx-border-width: 1px;
+    -fx-font-family: "Arial";
+    -fx-border-radius: 10px;
+    -fx-font-size:13px;
+}

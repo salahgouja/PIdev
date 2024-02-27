@@ -8,6 +8,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import sample.pidevjava.controller.EventsPageController;
+import sample.pidevjava.controller.JavaMailUtil;
 import sample.pidevjava.model.Evenement;
 
 import java.io.IOException;
@@ -22,10 +23,10 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("dashboardEvent.fxml"));
-        //Scene scene = new Scene(fxmlLoader.load());
+    public void start(Stage primaryStage) throws Exception {
 
+    //    JavaMailUtil.sendMail("chebili335@gmail.com");
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("dashboardEvent.fxml"));//dashboardEvent.fxml
 
         // Get the screen bounds
         Screen screen = Screen.getPrimary();
@@ -48,6 +49,9 @@ public class Main extends Application {
         primaryStage.setMaxWidth(bounds.getWidth()); // Set a maximum width
         primaryStage.setMinHeight(bounds.getHeight());
         primaryStage.setX(0);
+
+
+
 
         primaryStage.setTitle(" ActiveZone ");
         primaryStage.show();

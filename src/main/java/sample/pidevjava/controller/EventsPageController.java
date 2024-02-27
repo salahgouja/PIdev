@@ -16,6 +16,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import sample.pidevjava.Main;
@@ -23,12 +26,13 @@ import sample.pidevjava.db.DBConnection;
 import sample.pidevjava.interfaces.IServices;
 import sample.pidevjava.model.Evenement;
 import sample.pidevjava.model.EvetCategory;
-
+import javafx.scene.control.Pagination;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javafx.embed.swing.SwingFXUtils;
+import sample.pidevjava.model.Participation;
 
 import java.io.*;
 import java.net.URL;
@@ -37,12 +41,14 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Base64;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.concurrent.atomic.AtomicReference;
 
 import static sample.pidevjava.model.EvetCategory.evetCategory;
 
 
-public class EventsPageController implements IServices<Evenement>  {
+public class EventsPageController extends ISevecesEvent  implements Initializable {
 
     @FXML
     private ImageView imageView;
@@ -51,12 +57,24 @@ public class EventsPageController implements IServices<Evenement>  {
     @FXML
     private Button uploadButton;
 
+    @FXML
+    private Label nbParticipation;
+    @FXML
+    private Label nbEvents;
 
     @FXML
-    private ListView<Evenement> mylistview;
+    public ListView<Evenement> mylistview;
+
+    @FXML
+    public ListView<Participation> mylistview1;
 
     @FXML
     private DatePicker dateFieldPicker;
+
+    @FXML
+    private TextField searchField;
+    @FXML
+    private TextField searchField1;
 
     @FXML
     private TextField titreField;
@@ -68,7 +86,7 @@ public class EventsPageController implements IServices<Evenement>  {
     private TextField prixField;
 
     @FXML
-    private ChoiceBox<String> categorieFieldchoise;
+    private ChoiceBox<String> categorieFieldchoise ;
 
 
     @FXML
@@ -77,33 +95,42 @@ public class EventsPageController implements IServices<Evenement>  {
     @FXML
     private URL location;
 
-    ArrayList<Evenement> evenements = new ArrayList<>();
 
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
 
 
-    @FXML
-    void initialize() {
-        categorieFieldchoise.getItems().addAll(evetCategory);
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        try {
+            categorieFieldchoise.getItems().addAll(evetCategory);
+            categorieFieldchoise.setItems(FXCollections.observableArrayList(EvetCategory.evetCategory));
+        }catch (Exception e){
+            System.out.println(e);
+
+        };
         getAll();
-        System.out.println(evenements);
         setEventList();
-
+        getAllParticipation();
+        setParticipationList();
     }
 
-    private void showAlert(Alert.AlertType alertType, String title, String content) {
-        Alert alert = new Alert(alertType);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(content);
-        alert.showAndWait();
-    }
+
+
+    int itemsPerPage = 3; // Change this value according to your requirement
+    Pagination pagination;
+    @FXML
+    private VBox layout;
+
 
     void setEventList() {
         ObservableList<Evenement> observableList = FXCollections.observableArrayList(evenements);
+
         mylistview.setItems(observableList);
+
+        nbEvents.setText(String.valueOf(evenements.size()));
         mylistview.setCellFactory(param -> new ListCell<Evenement>() {
             @Override
             protected void updateItem(Evenement item, boolean empty) {
@@ -126,12 +153,155 @@ public class EventsPageController implements IServices<Evenement>  {
         });
     }
 
+    @FXML
+    private void search(){
+        ObservableList<Evenement> observableList = FXCollections.observableArrayList(evenements);
+        mylistview.setItems(observableList);
+        String searchText = searchField.getText().toLowerCase();
+        ObservableList<Evenement> filteredList = observableList.filtered(
+                evenement -> evenement.getTitre().toLowerCase().contains(searchText)
+                        || String.valueOf(evenement.getId_event()).contains(searchText)
+                        || evenement.getDate().toLowerCase().contains(searchText)
+                        || String.valueOf(evenement.getPrix()).contains(searchText)
+
+                // Add more conditions for other fields as needed
+        );
+        mylistview.setItems(filteredList);
+    }
+
+    @FXML
+    private void search1(){
+        ObservableList<Participation> observableList = FXCollections.observableArrayList(paticipations);
+        mylistview1.setItems(observableList);
+        String searchText = searchField1.getText().toLowerCase();
+        ObservableList<Participation> filteredList = observableList.filtered(
+                p -> String.valueOf(p.getId_participation()).contains(searchText)
+
+        );
+        mylistview1.setItems(filteredList);
+    }
+
+    @FXML
+    public void refrechEventlist() {
+        evenements.clear();
+        mylistview.getItems().clear();
+        getAll();
+        ObservableList<Evenement> observableList = FXCollections.observableArrayList();
+        observableList.addAll(evenements);
+        mylistview.setItems(observableList);
+    }
+    @FXML
+    public void refrechParticipationlist() {
+        ObservableList<Participation> observableList = FXCollections.observableArrayList(paticipations);
+        ObservableList<Participation> filteredList = observableList.filtered(
+                p -> p.getEtat().contains("en attend")
+
+        );
+        mylistview1.setItems(filteredList);
+        mylistview1.refresh();
+
+    }
+//    void setParticipationList() {
+//        ObservableList<Participation> observableList = FXCollections.observableArrayList(paticipations);
+//        ObservableList<Participation> filteredList = observableList.filtered(
+//                p -> p.getEtat().contains("en attend")
+//        );
+//
+//        // Create Pagination instance and set page count
+//        pagination = new Pagination((int) Math.ceil((double) filteredList.size() / itemsPerPage), 0);
+//        pagination.setPageFactory(pageIndex -> createParticipationPage(pageIndex, filteredList));
+//
+//        // Add pagination to your layout
+//        layout.getChildren().add(pagination);
+//
+//        nbParticipation.setText(String.valueOf(filteredList.size()));
+//    }
+//
+//    private Node createParticipationPage(int pageIndex, ObservableList<Participation> filteredList) {
+//        int fromIndex = pageIndex * itemsPerPage;
+//        int toIndex = Math.min(fromIndex + itemsPerPage, filteredList.size());
+//        ListView<Participation> pageListView = new ListView<>();
+//        AtomicReference<Participation> selectedParticipation = new AtomicReference<>();
+//        mylistview1.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+//            if (newValue != null) {
+//                selectedParticipation.set(newValue);
+//                System.out.println(selectedParticipation.get());
+//            }
+//        });
+//        // Customize your cell factory here for the pageListView if needed
+//        pageListView.setCellFactory(param -> new ListCell<Participation>() {
+//            @Override
+//            protected void updateItem(Participation item, boolean empty) {
+//                super.updateItem(item, empty);
+//                if (empty || item == null) {
+//                    setText(null);
+//                    setGraphic(null);
+//                } else {
+//                    try {
+//                        FXMLLoader loader = new FXMLLoader(Main.class.getResource("participationcardDash.fxml"));
+//                        Node node = loader.load();
+//                        EventCardController controller = loader.getController();
+//                        controller.setParticipationData(item);
+//                        controller.setParticipation(selectedParticipation.get());
+//                        setGraphic(node);
+//                    } catch (IOException e) {
+//                        e.printStackTrace();
+//                    }
+//                }
+//            }
+//        });
+//
+//        // Set items for the current page
+//        pageListView.setItems(FXCollections.observableArrayList(filteredList.subList(fromIndex, toIndex)));
+//
+//        return pageListView;
+//    }
+
+
+
+    void setParticipationList() {
+        ObservableList<Participation> observableList = FXCollections.observableArrayList(paticipations);
+        ObservableList<Participation> filteredList = observableList.filtered(
+                p -> p.getEtat().contains("en attend")
+
+        );
+        mylistview1.setItems(filteredList);
+        //mylistview1.setItems(observableList);
+        nbParticipation.setText(String.valueOf(paticipations.size()));
+        AtomicReference<Participation> selectedParticipation = new AtomicReference<>();
+        mylistview1.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                selectedParticipation.set(newValue);
+                System.out.println(selectedParticipation.get());
+            }
+        });
+
+        mylistview1.setCellFactory(param -> new ListCell<Participation>() {
+            @Override
+            protected void updateItem(Participation item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                    setGraphic(null);
+                } else {
+                    try {
+                        FXMLLoader loader = new FXMLLoader(Main.class.getResource("participationcardDash.fxml"));
+                        Node node = loader.load();
+                        EventCardController controller = loader.getController();
+                        controller.setParticipationData(item);
+                        controller.setParticipation(selectedParticipation.get());
+                        setGraphic(node);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+    }
 
 
 
 
-
-    @Override
     public void add() throws IOException {
         int id_event =0;
         String date = dateFieldPicker.getValue().toString();
@@ -149,7 +319,7 @@ public class EventsPageController implements IServices<Evenement>  {
             ImageIO.write(bufferedImage, "png", imageFile);
         } catch (IOException e) {
             e.printStackTrace();
-            showAlert(Alert.AlertType.ERROR, "Error", "Failed to save the image.");
+        //    showAlert(Alert.AlertType.ERROR, "Error", "Failed to save the image.");
             return;
         }
 
@@ -181,7 +351,7 @@ public class EventsPageController implements IServices<Evenement>  {
         }
         if (imageView.getImage() == null) {
             // Show error message and return if no image has been uploaded
-            showAlert(Alert.AlertType.ERROR, "Error", "Please upload an image first.");
+          //  showAlert(Alert.AlertType.ERROR, "Error", "Please upload an image first.");
             return;
         }
         if (!errorMessage.isEmpty()) {
@@ -216,32 +386,7 @@ public class EventsPageController implements IServices<Evenement>  {
 
 
 
-    @Override
-    public ArrayList<Evenement> getAll() {
-        String query = "SELECT * FROM evenement";
-        try {
-            Connection connection = DBConnection.getInstance().getConnection();
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(query);
-            while (resultSet.next()) {
-                Evenement evenement = new Evenement();
-                evenement.setId_event(resultSet.getInt("id_event"));
-                evenement.setDate(resultSet.getString("date"));
-                evenement.setTitre(resultSet.getString("titre"));
-                evenement.setDescription(resultSet.getString("description"));
-                evenement.setPrix(resultSet.getString("prix"));
-                evenement.setCategorie(resultSet.getString("categorie"));
-                evenement.setImage(resultSet.getString("image"));
-                evenements.add(evenement);
-            }
-            resultSet.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return evenements;
-    }
 
-    @Override
     public void update(Evenement evenement) {
 
 
@@ -268,7 +413,6 @@ public class EventsPageController implements IServices<Evenement>  {
         }
     }
 
-    @Override
     public boolean delete(Evenement evenement) {
         String query = "DELETE FROM evenement WHERE id_event=?";
         try {
@@ -285,11 +429,13 @@ public class EventsPageController implements IServices<Evenement>  {
 
     public void removeEvent(ActionEvent actionEvent) {
         Evenement Selectedenvent = mylistview.getSelectionModel().getSelectedItem();
-        delete(Selectedenvent);
+//        delete(Selectedenvent);
         mylistview.getItems().remove(Selectedenvent);
     }
 
-    public Evenement selectItem(MouseEvent mouseEvent) {
+
+    @FXML
+    public Evenement selectItem() {
         Evenement Selectedenvent = mylistview.getSelectionModel().getSelectedItem();
         if(Selectedenvent.equals(null)){
             System.out.println("not selected");
@@ -298,11 +444,12 @@ public class EventsPageController implements IServices<Evenement>  {
             descriptionField.setText(String.valueOf(Selectedenvent.getDescription()));
             prixField.setText(String.valueOf(Selectedenvent.getPrix()));
             titreField.setText(String.valueOf(Selectedenvent.getTitre()));
-            dateFieldPicker.setValue(LocalDate.parse(Selectedenvent.getDate(), DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+            dateFieldPicker.setValue(LocalDate.parse(Selectedenvent.getDate()));
+            Image image = convertBase64ToImage(Selectedenvent.getImage());
+            imageView.setImage(image);
         }
         return Selectedenvent;
     }
-
 
     public void updeteEvent(ActionEvent actionEvent) {
         Evenement Selectedenvent = mylistview.getSelectionModel().getSelectedItem();
@@ -316,9 +463,15 @@ public class EventsPageController implements IServices<Evenement>  {
             descriptionField.clear();
             prixField.clear();
             categorieFieldchoise.setValue(null);
+            imageView.setImage(null);
         }
 
     }
+
+
+
+
+
 
     /********************************image uplode*************************************/
     public void chooseAndUploadImage() {
@@ -343,13 +496,14 @@ public class EventsPageController implements IServices<Evenement>  {
 
         } catch (IOException e) {
             e.printStackTrace();
-            showAlert(Alert.AlertType.ERROR, "Error", "An error occurred while uploading the image.");
+         //   showAlert(Alert.AlertType.ERROR, "Error", "An error occurred while uploading the image.");
         }
     }
-    private Image convertBase64ToImage(String base64Image) {
+    public Image convertBase64ToImage(String base64Image) {
         byte[] imageBytes = Base64.getDecoder().decode(base64Image);
         return new Image(new ByteArrayInputStream(imageBytes));
     }
+
     private String convertImageToBase64(File file) throws IOException {
         try (FileInputStream imageInFile = new FileInputStream(file)) {
             byte[] imageData = new byte[(int) file.length()];
@@ -357,7 +511,6 @@ public class EventsPageController implements IServices<Evenement>  {
             return Base64.getEncoder().encodeToString(imageData);
         }
     }
-
 
 
 
