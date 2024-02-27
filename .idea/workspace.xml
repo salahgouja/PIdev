@@ -4,53 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19ceb744-616d-4382-a4d3-5d6106809877" name="Changes" comment="+&#10;&#10;                        &quot;CREATE TABLE `article` (\n&quot; +&#10;                        &quot;  `id_article` int(10) NOT NULL,\n&quot; +&#10;                        &quot;  `titre` varchar(15) DEFAULT NULL,\n&quot; +&#10;                        &quot;  `description` varchar(20) DEFAULT NULL,\n&quot; +&#10;                        &quot;  `date` varchar(20) DEFAULT NULL,\n&quot; +&#10;                        &quot;  `nbr_commentaire` int(20) DEFAULT NULL,\n&quot; +&#10;                        &quot;  `nbr_like` int(20) DEFAULT NULL,\n&quot; +&#10;                        &quot;  `nbr_deslike` int(20) DEFAULT NULL,\n&quot; +&#10;                        &quot;  PRIMARY KEY (`id_article`)\n&quot; +&#10;                        &quot;) ENGINE=InnoDB DEFAULT CHARSET=latin1;\n&quot; +&#10;                        &quot;\n&quot; +&#10;&#10;                        &quot;CREATE TABLE `commentaire` (\n&quot; +&#10;                        &quot;  `id_commentaire` int(10) NOT NULL,\n&quot; +&#10;                        &quot;  `contenu` varchar(15) DEFAULT NULL,\n&quot; +&#10;                        &quot;  `date` varchar(20) DEFAULT NULL,\n&quot; +&#10;                        &quot;  PRIMARY KEY (`id_commentaire`)\n&quot; +&#10;                        &quot;) ENGINE=InnoDB DEFAULT CHARSET=latin1;\n&quot; +&#10;                        &quot;\n&quot; +&#10;&#10;&#10;                        &quot;CREATE TABLE `evenement` (\n&quot; +&#10;                        &quot;  `id_evenement` int(10) NOT NULL,\n&quot; +&#10;                        &quot;  `categorie` varchar(15) DEFAULT NULL,\n&quot; +&#10;                        &quot;  `type` varchar(15) DEFAULT NULL,\n&quot; +&#10;                        &quot;  `date` varchar(20) DEFAULT NULL,\n&quot; +&#10;                        &quot;  `description` varchar(15) DEFAULT NULL,\n&quot; +&#10;                        &quot;  `image` varchar(15) DEFAULT NULL,\n&quot; +&#10;                        &quot;  PRIMARY KEY (`id_evenement`)\n&quot; +&#10;                        &quot;) ENGINE=InnoDB DEFAULT CHARSET=latin1;\n&quot; +&#10;                        &quot;\n&quot; +&#10;&#10;                        &quot;CREATE TABLE `reservation` (\n&quot; +&#10;                        &quot;  `id_reservation` int(10) NOT NULL,\n&quot; +&#10;                        &quot;  `date_reservation` varchar(20) DEFAULT NULL,\n&quot; +&#10;                        &quot;  `temps_reservation` varchar(20) DEFAULT NULL,\n&quot; +&#10;                        &quot;  `image` varchar(30) DEFAULT NULL,\n&quot; +&#10;                        &quot;  `prix` float(30) DEFAULT NULL,\n&quot; +&#10;                        &quot;  PRIMARY KEY (`id_reservation`)\n&quot; +&#10;                        &quot;) ENGINE=InnoDB DEFAULT CHARSET=latin1;\n&quot; +&#10;                        &quot;\n&quot; +&#10;&#10;&#10;                        &quot;CREATE TABLE `terrain` (\n&quot; +&#10;                        &quot;  `id_terrain` int(10) NOT NULL,\n&quot; +&#10;                        &quot;  `type_terrain` varchar(20) DEFAULT NULL,\n&quot; +&#10;                        &quot;  `disponibilite_terrain`  varchar(30) DEFAULT NULL,\n&quot; +&#10;                        &quot;  `capacite` varchar(30) DEFAULT NULL,\n&quot; +&#10;                        &quot;  PRIMARY KEY (`id_terrain`)\n&quot; +&#10;                        &quot;) ENGINE=InnoDB DEFAULT CHARSET=latin1;\n&quot; +&#10;                        &quot;\n&quot;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/AddUserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/ForgetPasswordController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/HashPasswordController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/UpdateUserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sample/Images/bgimage.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sample/Images/eventIcon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sample/Images/participationIcon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/AddUserForm.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/EnterCode.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/ForgetPassword.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/UpdateUserForm.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/style/eventCssFile.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/style/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="19ceb744-616d-4382-a4d3-5d6106809877" name="Changes" comment="forgetpassword+hashpassword crud+interfaceuser">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/DashboardAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/DashboardAdmin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/DashboardEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/DashboardEmployee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/DashboardUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/DashboardUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/ForgetPasswordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/ForgetPasswordController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/LoginFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/LoginFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/RegistrationFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/RegistrationFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/db/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/db/DBConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/interfaces/IController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/interfaces/IService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/model/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/model/UserRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/validator/UserValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/validator/UserValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/CSS/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/style/dashboardCSS.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/Images/add.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/Images/add.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/Images/data.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/Images/data.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/Images/email_Unused.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/Images/email_Used.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/Images/exit.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/Images/exit.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/Images/images.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/Images/img.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/Images/user_Unused.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/Images/user_Used.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/DashboardAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/DashboardAdmin.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/DashboardEmployee.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/DashboardEmployee.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/DashboardUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/DashboardUser.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/LoginForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/LoginForm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/MainForm.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/RegistrationForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/RegistrationForm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/ForgetPassword.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/ForgetPassword.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,42 +70,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;javascript.karma.karma_node_package_dir&quot;: &quot;&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;C:/Users/Salah Gouja/IdeaProjects/pidevjava/src/main/java/sample/pidevjava&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Salah Gouja/Desktop/test&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.4053498&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/Salah Gouja/IdeaProjects/pidevjava/src/main/resources/sample/pidevjava/RegistrationForm.fxml&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.Main.executor": "Run",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "javascript.karma.karma_node_package_dir": "",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "C:/Users/Salah Gouja/IdeaProjects/pidevjava/src/main/java/sample/pidevjava",
+    "last_opened_file_path": "C:/Users/Salah Gouja/Desktop/test",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Problems",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.4053498",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "two.files.diff.last.used.file": "C:/Users/Salah Gouja/IdeaProjects/pidevjava/src/main/resources/sample/pidevjava/RegistrationForm.fxml",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="sample.pidevjava.model" />
@@ -230,8 +195,17 @@
       <workItem from="1708751660510" duration="21340000" />
       <workItem from="1708851129633" duration="45190000" />
       <workItem from="1708983815667" duration="13380000" />
-      <workItem from="1708997248492" duration="5419000" />
+      <workItem from="1708997248492" duration="10371000" />
     </task>
+    <task id="LOCAL-00001" summary="forgetpassword+hashpassword crud+interfaceuser">
+      <option name="closed" value="true" />
+      <created>1709003087727</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1709003087727</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -251,7 +225,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Merge branch 'master' of https://github.com/salahgouja/PIdev" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="forgetpassword+hashpassword crud+interfaceuser" />
+    <option name="LAST_COMMIT_MESSAGE" value="forgetpassword+hashpassword crud+interfaceuser" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
