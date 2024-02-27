@@ -4,8 +4,9 @@ module sample.pidevjava {
     requires java.sql;
     requires java.persistence;
     requires mysql.connector.j;
+    requires MaterialFX;
 
-
+    opens sample.pidevjava.model to javafx.base;
     opens sample.pidevjava to javafx.fxml;
     exports sample.pidevjava;
     exports sample.pidevjava.controller;

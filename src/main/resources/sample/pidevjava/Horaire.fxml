@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import io.github.palexdev.materialfx.controls.MFXComboBox?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import io.github.palexdev.materialfx.controls.MFXToggleButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="551.0" prefWidth="790.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pidevjava.controller.HoraireController">
+   <children>
+      <Label layoutX="68.0" layoutY="39.0" prefHeight="51.0" prefWidth="322.0" text="Welcome Admin ! ">
+         <font>
+            <Font name="System Bold Italic" size="35.0" />
+         </font>
+      </Label>
+      <Label layoutX="42.0" layoutY="103.0" prefHeight="32.0" prefWidth="706.0" text="Merci de configurer les horaires de travaille de votre complexe  !">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="68.0" layoutY="201.0" prefHeight="22.0" prefWidth="258.0" text="Choisissez le jour de la semaine">
+         <font>
+            <Font name="Arial Black" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="67.0" layoutY="297.0" text="Saisir l'heure de debut de travail">
+         <font>
+            <Font name="Arial Black" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="67.0" layoutY="398.0" prefHeight="20.0" prefWidth="227.0" text="Saisir l'heure de fin de travail">
+         <font>
+            <Font name="Arial Black" size="14.0" />
+         </font>
+      </Label>
+      <MFXToggleButton fx:id="repos_btn" layoutX="495.0" layoutY="212.0" text="repos" />
+      <MFXComboBox fx:id="jours_list" layoutX="111.0" layoutY="235.0" onAction="#affichageHoraireTravail" prefHeight="40.0" prefWidth="170.0" />
+      <MFXTextField fx:id="heure_debut_txt" layoutX="77.0" layoutY="324.0" prefHeight="50.0" prefWidth="207.0" promptText="HH:MM">
+         <font>
+            <Font name="Arial Black" size="15.0" />
+         </font></MFXTextField>
+      <MFXTextField fx:id="heure_fin_txt" layoutX="67.0" layoutY="425.0" prefHeight="50.0" prefWidth="207.0" promptText="HH/MM">
+         <font>
+            <Font name="Arial Black" size="15.0" />
+         </font></MFXTextField>
+      <MFXButton fx:id="confirmation_btn" layoutX="501.0" layoutY="324.0" onAction="#addHoraireTravail" prefHeight="26.0" prefWidth="102.0" text="Confirmer" />
+      <MFXButton fx:id="maj_btn" layoutX="501.0" layoutY="396.0" onAction="#handleUpdateButton" prefHeight="26.0" prefWidth="102.0" text="Mettre à jour" />
+      <Text layoutX="484.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Non" />
+      <Text layoutX="533.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Oui" />
+      <Text fx:id="heure_debut_valmsg" fill="#ef0a0a" layoutX="79.0" layoutY="394.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Entrez un champ valide sous forme hh:mm:ss" visible="false">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text fx:id="heure_fin_valmsg" fill="#ef0a0a" layoutX="71.0" layoutY="498.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Entrez un champ valide sous forme hh:mm:ss" visible="false">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="390.0" layoutY="362.0" />
+   </children>
+</AnchorPane>

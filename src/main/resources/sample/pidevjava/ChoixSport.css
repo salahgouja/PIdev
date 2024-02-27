@@ -1,0 +1,6 @@
+.border-radius{
+    -fx-border-radius:50 ;
+}
+.backgound-card{
+    -fx-background-color: linear-gradient(to left, rgba(255, 255, 255, 0.5), rgba(255, 172, 51, 0.5));
+}

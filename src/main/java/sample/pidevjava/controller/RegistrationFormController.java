@@ -1,4 +1,4 @@
-package sample.pidevjava.controller;
+/*package sample.pidevjava.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -91,6 +91,7 @@ public class RegistrationFormController {
         String pass = password.getText();
         String newpassword = password.getText();
         String newpasswordconfirm = passwordconfirm.getText();
+
 
 
         if (!UserValidator.isValidName(userfirstname)) {
@@ -186,4 +187,4 @@ public class RegistrationFormController {
     }
 
 }
-
+*/
