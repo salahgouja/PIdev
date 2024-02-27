@@ -94,7 +94,7 @@ public class LoginFormController {
     }
     private void loadHomePage() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("DashboardUser.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1400, 800);
+        Scene scene = new Scene(fxmlLoader.load(), 1500, 800);
 
         Stage primaryStage = (Stage) root.getScene().getWindow();
         primaryStage.setScene(scene);
@@ -104,7 +104,7 @@ public class LoginFormController {
 
     private void loadDashboardAdmin() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("DashboardAdmin.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1400, 800);
+        Scene scene = new Scene(fxmlLoader.load(), 1500, 800);
 
         Stage primaryStage = (Stage) root.getScene().getWindow();
         primaryStage.setScene(scene);
@@ -114,7 +114,7 @@ public class LoginFormController {
 
     private void loadDashboardEmployee() throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("DashboardEmployee.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 1400, 800);
+        Scene scene = new Scene(fxmlLoader.load(), 1500, 800);
 
         Stage primaryStage = (Stage) root.getScene().getWindow();
         primaryStage.setScene(scene);

@@ -25,6 +25,8 @@ import java.util.Random;
 
 public class ForgetPasswordController {
     @FXML
+    private Button back;
+    @FXML
     private Button sendVerificationCode;
     @FXML
 
@@ -286,5 +288,15 @@ public class ForgetPasswordController {
 
 
     public void back(ActionEvent actionEvent) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("LoginForm.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+            Stage primarystage = (Stage) back.getScene().getWindow();
+            primarystage.setScene(scene);
+            primarystage.setTitle("Login Form");
+            primarystage.centerOnScreen();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

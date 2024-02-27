@@ -1,269 +1,200 @@
 package sample.pidevjava.controller;
-
+import com.jfoenix.controls.JFXButton;
+import javafx.animation.TranslateTransition;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.stage.FileChooser;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import javafx.util.Duration;
+import sample.pidevjava.Main;
 import sample.pidevjava.model.User;
-import sample.pidevjava.model.UserRole;
-import sample.pidevjava.validator.UserValidator;
-import java.io.File;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
-import javafx.util.Callback;
+
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
 
 public class DashboardUser implements Initializable {
 
     @FXML
-    private TextField searchField;
+    private JFXButton logout;
     @FXML
-    private Label lblLastnameField;
+    private JFXButton profile;
     @FXML
-    private Label lblPasswordConfirmField;
+    private JFXButton add_user;
     @FXML
-    private Label lblPasswordField;
+    private TableColumn<User, String> clfirstname;
     @FXML
-    private Label lblFirstnameField;
+    private TableColumn<User, String> cllastname;
     @FXML
-    private Label lblPhoneField;
+    private TableColumn<User, String> clphone;
     @FXML
-    private Label lblEmailField;
-    @FXML
-    private TextField EmailField;
+    private TableColumn<User, String> clemail;
 
     @FXML
-    private TextField FirstnameField;
-
+    private TableColumn<User, String> clpassword;
     @FXML
-    private TextField LastnameField;
-
-    @FXML
-    private TextField PasswordConfirmField;
-
-    @FXML
-    private TextField PasswordField;
-
-    @FXML
-    private TextField PhoneField;
-
-    @FXML
-    private ChoiceBox<UserRole> RoleFieldchoise;
-
+    private TableColumn<User, String> clrole;
     @FXML
     private Button add;
-
     @FXML
     private Button delete;
-
     @FXML
-    private Button editbutton;
-
+    private Button update;
     @FXML
-    private ImageView imageView;
-
-    @FXML
-    private ListView<User> mylistview;
-
-    @FXML
-    private Button uploadButton;
+    private TableView<User> table;
 
 
-    public class UserCellFactory implements Callback<ListView<User>, ListCell<User>> {
-        @Override
-        public ListCell<User> call(ListView<User> param) {
-            return new ListCell<User>() {
-                @Override
-                protected void updateItem(User user, boolean empty) {
-                    super.updateItem(user, empty);
-                    if (empty || user == null) {
-                        setText(null);
-                    } else {
-                        setText(user.getFirstname() + "        " + user.getLastname()+"        "+user.getEmail()+"        "+user.getRole());
-                    }
-                }
-            };
-        }
-    }
-
-    @FXML
-    void addUser(ActionEvent event) {
-        String firstname = FirstnameField.getText();
-        String lastname = LastnameField.getText();
-        String phone = PhoneField.getText();
-        String email = EmailField.getText();
-        String pass = PasswordField.getText();
-        String newpasswordconfirm = PasswordConfirmField.getText();
-        String role = String.valueOf(RoleFieldchoise.getValue());
-
-        boolean isValid = true;
-
-        if (!UserValidator.isValidName(firstname)) {
-            FirstnameField.requestFocus();
-            isValid = false;
-            System.out.println("Invalid first name");
-        }
-
-        if (!UserValidator.isValidName(lastname)) {
-            LastnameField.requestFocus();
-            isValid = false;
-            System.out.println("Invalid last name");
-        }
-
-        if (!UserValidator.isValidEmail(email)) {
-            lblEmailField.setVisible(true);
-            EmailField.requestFocus();
-            isValid = false;
-            System.out.println("Invalid email");
-        } else {
-            lblEmailField.setVisible(false);
-        }
-
-        if (!UserValidator.isValidPhone(phone)) {
-            lblPhoneField.setVisible(true);
-            PhoneField.requestFocus();
-            isValid = false;
-            System.out.println("Invalid phone number");
-        } else {
-            lblPhoneField.setVisible(false);
-        }
-
-        if (!isValid) {
-            System.out.println("Validation failed, user not added");
-            return;
-        }
-
-
-        if (!pass.equals(newpasswordconfirm)) {
-            lblPasswordField.setVisible(true);
-            lblPasswordConfirmField.setVisible(true);
-            PasswordField.requestFocus();
-            return;
-        } else {
-            lblPasswordField.setVisible(false);
-            lblPasswordConfirmField.setVisible(false);
-        }
-
-        // Hash the password
-        String hashedPass = HashPasswordController.hashPassword(pass);
-
-        User user = new User(firstname, lastname, email, phone, hashedPass, role);
-        UserController userController = new UserController();
-
-            userController.add(user);
-
-
-
-        // Refresh the ListView with the updated list of users
-        mylistview.getItems().clear();
-        mylistview.getItems().addAll(userController.getAllUsers());
-
-    }
 
 
     @FXML
-    void chooseAndUploadImage(ActionEvent event) {
-        // Use a FileChooser to allow the user to choose an image file
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
-        File selectedFile = fileChooser.showOpenDialog(null);
-
-        if (selectedFile != null) {
-            // Display the selected image in the ImageView
-            Image image = new Image(selectedFile.toURI().toString());
-            imageView.setImage(image);
-
-            // Save the image file to a folder on the server
-            // You can use the Files.copy() method to copy the file to a folder on the server
-        }
-
-    }
+    private Label Menu;
 
     @FXML
-    void removeUser(ActionEvent event) {
-        User selectedUser = (User) mylistview.getSelectionModel().getSelectedItem();
-        if (selectedUser != null) {
-            UserController userController = new UserController();
-            userController.delete(selectedUser);
-
-            // Refresh the ListView with the updated list of users
-            mylistview.getItems().clear();
-            mylistview.getItems().addAll(userController.getAllUsers());
-        }
-
-    }
+    private Label MenuClose;
 
     @FXML
-    void updeteUser(ActionEvent event) {
-        User selectedUser = (User) mylistview.getSelectionModel().getSelectedItem();
-        if (selectedUser != null) {
-            String firstname = FirstnameField.getText();
-            String lastname = LastnameField.getText();
-            String phone = PhoneField.getText();
-            String email = EmailField.getText();
-            String pass = PasswordField.getText();
-            String role = String.valueOf(RoleFieldchoise.getValue());
-
-            selectedUser.setFirstname(firstname);
-            selectedUser.setLastname(lastname);
-            selectedUser.setPhone(phone);
-            selectedUser.setEmail(email);
-            selectedUser.setPassword(pass);
-            selectedUser.setRole(role);
-
-            UserController userController = new UserController();
-
-            userController.update(selectedUser);
-
-            // Refresh the ListView with the updated list of users
-            mylistview.getItems().clear();
-            mylistview.getItems().addAll(userController.getAllUsers());
-        }
-
-    }
-
-
+    private AnchorPane slider;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        // Initialize the ChoiceBox with the available roles
-        RoleFieldchoise.getItems().addAll(UserRole.values());
-        // Initialize the ListView with the list of users
-        UserController userController = new UserController();
-        mylistview.getItems().addAll(userController.getAllUsers());
-        mylistview.setCellFactory(new UserCellFactory());
-        lblFirstnameField.setVisible(false);
-        lblLastnameField.setVisible(false);
-        lblEmailField.setVisible(false);
-        lblPasswordConfirmField.setVisible(false);
-        lblPasswordField.setVisible(false);
-        lblPhoneField.setVisible(false);
+
+        slider.setTranslateX(-176);
+        Menu.setOnMouseClicked(event -> {
+            TranslateTransition slide = new TranslateTransition();
+            slide.setDuration(Duration.seconds(0.4));
+            slide.setNode(slider);
+
+            slide.setToX(0);
+            slide.play();
+
+            slider.setTranslateX(-176);
+
+            slide.setOnFinished((ActionEvent e) -> {
+                Menu.setVisible(false);
+                MenuClose.setVisible(true);
+            });
+        });
+
+        MenuClose.setOnMouseClicked(event -> {
+            TranslateTransition slide = new TranslateTransition();
+            slide.setDuration(Duration.seconds(0.4));
+            slide.setNode(slider);
+
+            slide.setToX(-176);
+            slide.play();
+
+            slider.setTranslateX(0);
+
+            slide.setOnFinished((ActionEvent e) -> {
+                Menu.setVisible(true);
+                MenuClose.setVisible(false);
+            });
+        });
+        clfirstname.setCellValueFactory(new PropertyValueFactory<>("firstname"));
+        cllastname.setCellValueFactory(new PropertyValueFactory<>("lastname"));
+        clphone.setCellValueFactory(new PropertyValueFactory<>("phone"));
+        clemail.setCellValueFactory(new PropertyValueFactory<>("email"));
+        clpassword.setCellValueFactory(new PropertyValueFactory<>("password"));
+        clrole.setCellValueFactory(new PropertyValueFactory<>("role"));
+        table.setVisible(true);
+        loadMenuInTable();
+
 
     }
 
-    @FXML
-    public void handleSearch() {
-        String searchQuery = searchField.getText().trim();
-        if (searchQuery.isEmpty()) {
+    public void logout(ActionEvent actionEvent) {
+
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("LoginForm.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 14000, 800);
+            Stage primarystage = (Stage) logout.getScene().getWindow();
+            primarystage.setScene(scene);
+            primarystage.setTitle("Login Form");
+            primarystage.centerOnScreen();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void profile(ActionEvent actionEvent) {
+    }
+
+
+
+    public void loadMenuInTable() {
+        try {
             UserController userController = new UserController();
-            mylistview.getItems().clear();
-            mylistview.getItems().addAll(userController.getAllUsers());
-        } else {
-            UserController userController = new UserController();
-            ObservableList<User> searchResults = userController.searchUsers(searchQuery);
-            mylistview.getItems().clear();
-            mylistview.getItems().addAll(searchResults);
+            List<User> userList = userController.getAllUsers();
+            ObservableList<User> users = FXCollections.observableArrayList(userList);
+
+            clfirstname.setCellValueFactory(new PropertyValueFactory<>("firstname"));
+            cllastname.setCellValueFactory(new PropertyValueFactory<>("lastname"));
+            clphone.setCellValueFactory(new PropertyValueFactory<>("phone"));
+            clemail.setCellValueFactory(new PropertyValueFactory<>("email"));
+            clpassword.setCellValueFactory(new PropertyValueFactory<>("password"));
+            clrole.setCellValueFactory(new PropertyValueFactory<>("role"));
+            System.out.println(users);
+            table.setItems(users);
+
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
 
 
+    public void delete_user(ActionEvent actionEvent) {
+        User user =  table.getSelectionModel().getSelectedItem();
 
+        if (user == null) {
+            // Aucune ligne sélectionnée, afficher un message d'erreur ou une alerte
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Avertissement");
+            alert.setHeaderText(null);
+            alert.setContentText(" sélectionner un user à supprimer.");
+            alert.show();
+            return;
+        }
+
+        UserController userController = new UserController();
+        userController.delete(user);
+
+    }
+    public void update_user(ActionEvent actionEvent) {
+        User user = (User) table.getSelectionModel().getSelectedItem();
+
+        if (user == null) {
+            // Aucune ligne sélectionnée, afficher un message d'erreur ou une alerte
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Avertissement");
+            alert.setHeaderText(null);
+            alert.setContentText(" sélectionner un user à mettre à jour.");
+            alert.show();
+            return;
+        }
+        UserController userController = new UserController();
+        userController.update(user);
+    }
+
+    public void navigatetoadduser(ActionEvent actionEvent) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("AddUserForm.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage primaryStage = (Stage) add.getScene().getWindow();
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("AddUserForm");
+        primaryStage.centerOnScreen();
+    }
 }
