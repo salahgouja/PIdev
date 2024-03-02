@@ -1,5 +1,11 @@
 package sample.pidevjava.controller;
 
+
+import com.github.sarxos.webcam.Webcam;
+import com.github.sarxos.webcam.WebcamResolution;
+import com.google.zxing.*;
+import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
+import com.google.zxing.common.HybridBinarizer;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +18,7 @@ import sample.pidevjava.Main;
 import sample.pidevjava.db.DBConnection;
 import sample.pidevjava.model.UserRole;
 
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,6 +26,8 @@ import java.sql.ResultSet;
 
 
 public class LoginFormController {
+    @FXML
+    private Button scanQRCodeButton;
     @FXML
     private TextField username;
     @FXML
@@ -155,6 +164,32 @@ public class LoginFormController {
             password.setText(visiblePasswordTextField.getText());
         }
     }
+    public void scanQRCode(ActionEvent event) {
+        Webcam webcam = Webcam.getDefault();
+        webcam.setViewSize(WebcamResolution.VGA.getSize());
+        webcam.open();
 
+        Result result = null;
+        do {
+            BufferedImage image = webcam.getImage();
+            LuminanceSource source = new BufferedImageLuminanceSource(image);
+            BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
+
+            try {
+                result = new MultiFormatReader().decode(bitmap);
+            } catch (NotFoundException e) {
+                // QR code not found in the image
+            }
+        } while (result == null);
+
+        webcam.close();
+
+        String[] parts = result.getText().split(":");
+        String email = parts[0];
+        String password = parts[1];
+
+        // Fill the username and password fields
+        username.setText(email);
+        this.password.setText(password);    }
 
 }

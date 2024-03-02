@@ -5,8 +5,12 @@ module sample.pidevjava {
     requires java.persistence;
     requires mysql.connector.j;
     requires com.jfoenix;
+    requires com.google.zxing;
+    requires com.google.zxing.javase;
+    requires java.desktop;
+    requires javafx.swing;
     requires mail;
-
+    requires webcam.capture;
 
     opens sample.pidevjava to javafx.fxml;
 

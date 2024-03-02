@@ -21,7 +21,7 @@ public class UserController implements IService<User> {
 
         try {
 
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO USER (firstname, lastname, phone, email, password, role) VALUES (?, ?, ?, ?, ?, ?)");
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO USER (firstname, lastname, phone, email, password, role,image) VALUES (?,?, ?, ?, ?, ?, ?)");
 
             preparedStatement.setString(1, user.getFirstname());
             preparedStatement.setString(2, user.getLastname());
@@ -29,6 +29,7 @@ public class UserController implements IService<User> {
             preparedStatement.setString(4, user.getEmail());
             preparedStatement.setString(5, user.getPassword());
             preparedStatement.setString(6, user.getRole().toString());
+            preparedStatement.setString(7, user.getImage()) ;
 
             preparedStatement.executeUpdate();
 
@@ -43,7 +44,7 @@ public class UserController implements IService<User> {
     @Override
     public void update(User user) {
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE user SET firstname = ?, lastname = ?, phone = ?, email = ?, password = ?, role = ? WHERE id = ?");
+            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE user SET firstname = ?, lastname = ?, phone = ?, email = ?, password = ?, role = ? ,image = ? WHERE id = ?");
 
             preparedStatement.setString(1, user.getFirstname());
             preparedStatement.setString(2, user.getLastname());
@@ -51,7 +52,8 @@ public class UserController implements IService<User> {
             preparedStatement.setString(4, user.getEmail());
             preparedStatement.setString(5, user.getPassword());
             preparedStatement.setString(6, user.getRole().toString());
-            preparedStatement.setInt(7, user.getId());
+            preparedStatement.setString(7, user.getImage()) ;
+            preparedStatement.setInt(8, user.getId());
 
             preparedStatement.executeUpdate();
             preparedStatement.close();

@@ -4,17 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19ceb744-616d-4382-a4d3-5d6106809877" name="Changes" comment="forgetpassword+hashpassword crud+interfaceuser">
+    <list default="true" id="19ceb744-616d-4382-a4d3-5d6106809877" name="Changes" comment="forgetpassword+hashpassword crud+interfaceuser (version2.0)">
+      <change afterPath="$PROJECT_DIR$/qrcode.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/salahgouja11@gmail.com" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/QRCodeGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/QRCodeScanner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/AddUserController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/DashboardAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/DashboardAdmin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/DashboardEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/DashboardEmployee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/DashboardUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/DashboardUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/ForgetPasswordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/ForgetPasswordController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/LoginFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/LoginFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/RegistrationFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/RegistrationFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/UpdateUserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/db/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/db/DBConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/AddUserForm.fxml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/DashboardAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/DashboardAdmin.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/DashboardEmployee.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/DashboardEmployee.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/DashboardUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/DashboardUser.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/ForgetPassword.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/ForgetPassword.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/LoginForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/LoginForm.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/UpdateUserForm.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,10 +108,10 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Problems",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.4053498",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "project.structure.side.proportion": "0.33024693",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "two.files.diff.last.used.file": "C:/Users/Salah Gouja/IdeaProjects/pidevjava/src/main/resources/sample/pidevjava/RegistrationForm.fxml",
     "vue.rearranger.settings.migration": "true"
   },
@@ -195,7 +209,18 @@
       <workItem from="1708751660510" duration="21340000" />
       <workItem from="1708851129633" duration="45190000" />
       <workItem from="1708983815667" duration="13380000" />
-      <workItem from="1708997248492" duration="10371000" />
+      <workItem from="1708997248492" duration="10433000" />
+      <workItem from="1709028891161" duration="4189000" />
+      <workItem from="1709042096811" duration="2376000" />
+      <workItem from="1709087765392" duration="1655000" />
+      <workItem from="1709201828489" duration="13554000" />
+      <workItem from="1709231110759" duration="18000" />
+      <workItem from="1709241257355" duration="537000" />
+      <workItem from="1709303688361" duration="7799000" />
+      <workItem from="1709316257998" duration="629000" />
+      <workItem from="1709337980735" duration="2328000" />
+      <workItem from="1709342304746" duration="434000" />
+      <workItem from="1709344240022" duration="10118000" />
     </task>
     <task id="LOCAL-00001" summary="forgetpassword+hashpassword crud+interfaceuser">
       <option name="closed" value="true" />
@@ -205,7 +230,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709003087727</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="forgetpassword+hashpassword crud+interfaceuser (version2.0)">
+      <option name="closed" value="true" />
+      <created>1709007688834</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1709007688834</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,7 +259,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Merge branch 'master' of https://github.com/salahgouja/PIdev" />
     <MESSAGE value="forgetpassword+hashpassword crud+interfaceuser" />
-    <option name="LAST_COMMIT_MESSAGE" value="forgetpassword+hashpassword crud+interfaceuser" />
+    <MESSAGE value="forgetpassword+hashpassword crud+interfaceuser (version2.0)" />
+    <option name="LAST_COMMIT_MESSAGE" value="forgetpassword+hashpassword crud+interfaceuser (version2.0)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
