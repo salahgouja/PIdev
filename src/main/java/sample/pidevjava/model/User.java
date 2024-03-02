@@ -1,7 +1,7 @@
 package sample.pidevjava.model;
 
-
 import javax.persistence.*;
+import java.util.Objects;
 
 
 @Entity
@@ -18,25 +18,14 @@ public class User {
     private String password;
 
     private String role ;
+    private String image;
+    private String qrcode;
+
 
     public User() {
-
     }
 
-
-
-    public User( String firstname, String lastname, String email, String phone,String password,String role) {
-        super();
-
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.phone = phone;
-        this.password = password;
-        this.role = role;
-    }
-
-    public User( int id,String firstname, String lastname, String email, String phone,String password,String role) {
+    public User(int id, String firstname, String lastname, String email, String phone, String password, String role) {
         super();
         this.id = id;
         this.firstname = firstname;
@@ -45,11 +34,55 @@ public class User {
         this.phone = phone;
         this.password = password;
         this.role = role;
-
     }
 
+    public User(String firstname, String lastname, String email, String phone, String password, String role) {
+        super();
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.phone = phone;
+        this.password = password;
+        this.role = role;
+    }
 
+    public User(String firstname, String lastname, String phone, String email, String password, String role, String image) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.phone = phone;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.image = image;
+    }
 
+    public User(String firstname, String lastname, String phone, String email, String password, String role, String image, String qrcode) {
+        super();
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.phone = phone;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.image = image;
+        this.qrcode = qrcode;
+    }
+
+    public String getQrcode() {
+        return qrcode;
+    }
+
+    public void setQrcode(String qrcode) {
+        this.qrcode = qrcode;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public int getId() {
         return id;
@@ -122,45 +155,12 @@ public class User {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        User other = (User) obj;
-        if (email == null) {
-            if (other.email != null)
-                return false;
-        } else if (!email.equals(other.email))
-            return false;
-        if (id != other.id)
-            return false;
-
-        if (firstname == null) {
-            if (other.firstname != null)
-                return false;
-        } else if (!firstname.equals(other.firstname))
-            return false;
-        if (password == null) {
-            if (other.password != null)
-                return false;
-        } else if (!password.equals(other.password))
-            return false;
-        if (phone == null) {
-            if (other.phone != null)
-                return false;
-        } else if (!phone.equals(other.phone))
-            return false;
-        if (lastname == null) {
-            if (other.lastname != null)
-                return false;
-        } else if (!lastname.equals(other.lastname))
-            return false;
-        return true;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return id == user.id && Objects.equals(firstname, user.firstname) && Objects.equals(lastname, user.lastname) && Objects.equals(phone, user.phone) && Objects.equals(email, user.email) && Objects.equals(password, user.password) && Objects.equals(role, user.role) && Objects.equals(image, user.image) && Objects.equals(qrcode, user.qrcode);
     }
-
 
     @Override
     public String toString() {

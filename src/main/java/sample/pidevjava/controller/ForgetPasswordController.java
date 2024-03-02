@@ -222,7 +222,7 @@ public class ForgetPasswordController {
             Connection connection = DBConnection.getInstance().getConnection();
             PreparedStatement statement = connection.prepareStatement("UPDATE USER SET verification_code = ?, expiration_date = ? WHERE email = ?");
             statement.setString(1, code);
-            statement.setTimestamp(2, Timestamp.valueOf(LocalDateTime.now().plusSeconds(60))); // Set expiration date from now
+            statement.setTimestamp(2, Timestamp.valueOf(LocalDateTime.now().plusMinutes(10))); // Set expiration date from now
             statement.setString(3, email);
             statement.executeUpdate();
             statement.close();

@@ -36,6 +36,9 @@ public class DBConnection {
                         "  `password` varchar(100) DEFAULT NULL,\n" +
                         "  `role` enum('USER','ADMIN','EMPLOYEE') DEFAULT 'USER',\n" +
                         "  `verification_code` varchar(100) DEFAULT NULL,\n" +
+                        "  `image` varchar(10000000) DEFAULT NULL,\n" +
+                        "  `qrcode` varchar(10000000) DEFAULT NULL,\n" +
+
 
                         "  PRIMARY KEY (`id`)\n" +
                         ") ENGINE=InnoDB DEFAULT CHARSET=latin1;\n" +

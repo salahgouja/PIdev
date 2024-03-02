@@ -3,6 +3,7 @@ package sample.pidevjava.controller;
 import com.jfoenix.controls.JFXButton;
 import javafx.animation.TranslateTransition;
 import javafx.collections.ObservableList;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,16 +20,26 @@ import sample.pidevjava.Main;
 import sample.pidevjava.model.User;
 import sample.pidevjava.model.UserRole;
 import sample.pidevjava.validator.UserValidator;
+
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Base64;
 import java.util.ResourceBundle;
 
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 import javafx.util.Callback;
 
+import javax.imageio.ImageIO;
+
 public class DashboardAdmin implements Initializable {
+    @FXML
+    private ImageView imageView;
+    private Stage primaryStage;
     @FXML
     private Label Menu;
 
@@ -83,8 +94,7 @@ public class DashboardAdmin implements Initializable {
     @FXML
     private Button editbutton;
 
-    @FXML
-    private ImageView imageView;
+
 
     @FXML
     private ListView<User> mylistview;
@@ -111,7 +121,7 @@ public class DashboardAdmin implements Initializable {
     }
 
     @FXML
-    void addUser(ActionEvent event) {
+    void addUser(ActionEvent event) throws IOException {
         String firstname = FirstnameField.getText();
         String lastname = LastnameField.getText();
         String phone = PhoneField.getText();
@@ -171,7 +181,28 @@ public class DashboardAdmin implements Initializable {
         // Hash the password
         String hashedPass = HashPasswordController.hashPassword(pass);
 
-        User user = new User(firstname, lastname, email, phone, hashedPass, role);
+        Image image = imageView.getImage();
+        File imageFile = new File("temp_image.png"); // Provide a temporary file name or adjust as needed
+
+        // Save the image to a temporary file
+        try {
+            BufferedImage bufferedImage = SwingFXUtils.fromFXImage(image, null);
+            ImageIO.write(bufferedImage, "png", imageFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+            //    showAlert(Alert.AlertType.ERROR, "Error", "Failed to save the image.");
+            return;
+        }
+
+        // Convert the image file to Base64 encoding
+
+        String base64Image = convertImageToBase64(imageFile);
+
+
+
+
+
+        User user = new User(firstname, lastname, email, phone, hashedPass, role,base64Image);
         UserController userController = new UserController();
 
         userController.add(user);
@@ -184,25 +215,49 @@ public class DashboardAdmin implements Initializable {
 
     }
 
-
+    /********************************image uplode*************************************/
     @FXML
-    void chooseAndUploadImage(ActionEvent event) {
-        // Use a FileChooser to allow the user to choose an image file
+    public void chooseAndUploadImage() {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
-        File selectedFile = fileChooser.showOpenDialog(null);
-
+        fileChooser.setTitle("Select Image File");
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg");
+        fileChooser.getExtensionFilters().add(extFilter);
+        File selectedFile = fileChooser.showOpenDialog(primaryStage);
         if (selectedFile != null) {
-            // Display the selected image in the ImageView
-            Image image = new Image(selectedFile.toURI().toString());
-            imageView.setImage(image);
-
-            // Save the image file to a folder on the server
-            // You can use the Files.copy() method to copy the file to a folder on the server
+            // Call method to handle file selection
+            handleSelectedFile(selectedFile);
         }
-
     }
 
+
+    private void handleSelectedFile(File file) {
+        try {
+
+            String base64Image = convertImageToBase64(file);
+            Image image = convertBase64ToImage(base64Image);
+            imageView.setImage(image);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            //   showAlert(Alert.AlertType.ERROR, "Error", "An error occurred while uploading the image.");
+        }
+    }
+    public Image convertBase64ToImage(String base64Image) {
+        byte[] imageBytes = Base64.getDecoder().decode(base64Image);
+        return new Image(new ByteArrayInputStream(imageBytes));
+    }
+
+    private String convertImageToBase64(File file) throws IOException {
+        try (FileInputStream imageInFile = new FileInputStream(file)) {
+            byte[] imageData = new byte[(int) file.length()];
+            imageInFile.read(imageData);
+            return Base64.getEncoder().encodeToString(imageData);
+        }
+    }
+
+
+
+                        /* ------------------------------------- */
     @FXML
     void removeUser(ActionEvent event) {
         User selectedUser = (User) mylistview.getSelectionModel().getSelectedItem();
@@ -218,8 +273,10 @@ public class DashboardAdmin implements Initializable {
     }
 
     @FXML
-    void updeteUser(ActionEvent event) {
+    void updateUser(ActionEvent event) throws IOException {
+        System.out.println("Entered updateUser method");
         User selectedUser = (User) mylistview.getSelectionModel().getSelectedItem();
+
         if (selectedUser != null) {
             String firstname = FirstnameField.getText();
             String lastname = LastnameField.getText();
@@ -227,6 +284,23 @@ public class DashboardAdmin implements Initializable {
             String email = EmailField.getText();
             String pass = PasswordField.getText();
             String role = String.valueOf(RoleFieldchoise.getValue());
+            Image image = imageView.getImage();
+
+            File imageFile = new File("temp_image.png");
+
+            // Save the image to a temporary file
+            try {
+                BufferedImage bufferedImage = SwingFXUtils.fromFXImage(image, null);
+                ImageIO.write(bufferedImage, "png", imageFile);
+            } catch (IOException e) {
+                e.printStackTrace();
+                return;
+            }
+
+            // Convert the image file to Base64 encoding
+
+            String base64Image = convertImageToBase64(imageFile);
+            //System.out.println("Base64 image: " + base64Image);
 
             selectedUser.setFirstname(firstname);
             selectedUser.setLastname(lastname);
@@ -234,8 +308,10 @@ public class DashboardAdmin implements Initializable {
             selectedUser.setEmail(email);
             selectedUser.setPassword(pass);
             selectedUser.setRole(role);
+            selectedUser.setImage(base64Image);
 
             UserController userController = new UserController();
+            //System.out.println("+++++++++++");
 
             userController.update(selectedUser);
 
