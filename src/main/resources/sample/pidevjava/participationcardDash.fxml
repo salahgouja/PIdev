@@ -13,11 +13,10 @@
     <children>
         <HBox alignment="CENTER_LEFT" prefHeight="45.0" prefWidth="640.0" styleClass="card" stylesheets="@style/eventCssFile.css">
             <children>
-                <Label fx:id="paticipationId" styleClass="label" text="Label" />
                 <Label fx:id="paticipationUser" styleClass="label" text="Label" />
                 <Label fx:id="paticipationEvnt" styleClass="label" text="Label" />
                 <Label fx:id="paticipationDate" styleClass="label" text="Label" />
-            <Pane prefHeight="69.0" prefWidth="286.0" />
+            <Pane prefHeight="44.0" prefWidth="219.0" />
             <Button mnemonicParsing="false" onAction="#participationaccepter" text="accepter" textAlignment="CENTER">
                <HBox.margin>
                   <Insets left="5.0" right="5.0" />

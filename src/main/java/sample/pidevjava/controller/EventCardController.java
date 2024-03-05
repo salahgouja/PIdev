@@ -35,8 +35,7 @@ public class EventCardController extends  ISevecesEvent{
     @FXML
     private Label eventDate;
 
-    @FXML
-    private Label eventId;
+
 
     @FXML
     private ImageView eventImg;
@@ -53,8 +52,6 @@ public class EventCardController extends  ISevecesEvent{
     @FXML
     private Label paticipationEvnt;
 
-    @FXML
-    private Label paticipationId;
 
     @FXML
     private Label paticipationUser;
@@ -72,7 +69,7 @@ public class EventCardController extends  ISevecesEvent{
         // Set event data to the labels
         eventPrix.setText(event.getPrix()+ " DT");
         eventDate.setText(event.getDate());
-        eventId.setText(String.valueOf(event.getId_event()));
+       // eventId.setText(String.valueOf(event.getId_event()));
         eventTitre.setText(event.getTitre());
         Image image = convertBase64ToImage(event.getImage());
         eventImg.setImage(image);
@@ -101,9 +98,8 @@ public class EventCardController extends  ISevecesEvent{
         user user = getUserById(p.getId());
         Evenement evenement = getEventById(p.getId_event());
         paticipationEvnt.setText(String.valueOf(evenement.getTitre()));
-        paticipationId.setText(String.valueOf(p.getId_participation()));
-        paticipationUser.setText(user.getName() + user.getSurname());
         paticipationDate.setText(p.getDateDeCreation());
+        paticipationUser.setText(user.getName() +" "+ user.getSurname());
     }
 
 
@@ -126,7 +122,7 @@ public class EventCardController extends  ISevecesEvent{
 
             int id_participation = 0;
             final int eventId = eventData.getId_event();
-            int id_user = 2;
+            int id_user = 5;
             String etat ="en attend";
             String dateDeCreation = LocalDate.now().toString();
             Participation participation = new Participation(id_participation,etat,eventId, id_user ,dateDeCreation);
@@ -134,8 +130,8 @@ public class EventCardController extends  ISevecesEvent{
             showAlert(
                     Alert.AlertType.CONFIRMATION,
                     "Confirmation Dialog",
-                    "Are you sure you want to proceed?"+cutentUser.getName(),
-                    "Confirm",
+                     cutentUser.getName() +" "+ cutentUser.getSurname() +"\nÊtes-vous sur de vouloir continuer? \n",
+                    "oui",
                     (_void) -> {
                         try {
                             PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement(qry);
@@ -148,7 +144,11 @@ public class EventCardController extends  ISevecesEvent{
                             showAlert(
                                     Alert.AlertType.CONFIRMATION,
                                     "Confirmation Dialog",
-                                    "sucss",
+                                    "Votre participation a été créée avec succès.\n" +
+                                            "Nous vous contacterons dans les plus brefs délais par email\n" +
+                                            "à l'adresse e-mail fournie "+cutentUser.getEmail() +
+                                            "\nou en vous appelant sur votre numéro de\n téléphone "+cutentUser.getPhone(),
+
                                     "ok",
                                     (e) -> {
                                         System.out.println("Confirmed!");
@@ -175,7 +175,7 @@ public class EventCardController extends  ISevecesEvent{
 
 
     @FXML
-    void participationaccepter(){
+    void participationaccepter() throws Exception {
 
         int id;
         String query = "UPDATE participation SET etat=? WHERE id_participation=?";
@@ -189,6 +189,11 @@ public class EventCardController extends  ISevecesEvent{
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        String qrCodeData = "https://example.com";
+        int qrCodeSize = 250;
+        Image qrCodeImage = QRCodeGenerator.generateQRCodeImage(qrCodeData, qrCodeSize);
+        PDFCreator.createPdfAccepted(qrCodeImage);
+        JavaMailUtil.sendMail("chebili335@gmail.com"," Réponse  du complexe sportif concernant votre demande de participation à un événement","HelloWorld_out.pdf");
     }
 
     @FXML

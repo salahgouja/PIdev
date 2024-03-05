@@ -189,6 +189,7 @@ public class EventsPageController extends ISevecesEvent  implements Initializabl
         ObservableList<Evenement> observableList = FXCollections.observableArrayList();
         observableList.addAll(evenements);
         mylistview.setItems(observableList);
+
     }
     @FXML
     public void refrechParticipationlist() {
@@ -285,7 +286,7 @@ public class EventsPageController extends ISevecesEvent  implements Initializabl
                     setGraphic(null);
                 } else {
                     try {
-                        FXMLLoader loader = new FXMLLoader(Main.class.getResource("participationcardDash.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/pidevjava/participationcardDash.fxml"));
                         Node node = loader.load();
                         EventCardController controller = loader.getController();
                         controller.setParticipationData(item);
@@ -311,7 +312,8 @@ public class EventsPageController extends ISevecesEvent  implements Initializabl
         String categorie = categorieFieldchoise.getValue();
         // Get the image file from the ImageView
         Image image = imageView.getImage();
-        File imageFile = new File("temp_image.png"); // Provide a temporary file name or adjust as needed
+        File imageFile = new File("temp_image.png");
+
 
         // Save the image to a temporary file
         try {
@@ -332,32 +334,17 @@ public class EventsPageController extends ISevecesEvent  implements Initializabl
 
         // Exécuter la requête SQL pour insérer les données dans la base de données
         String qry = "INSERT INTO `evenement` (`date`, `titre`, `description`, `prix`, `categorie`,`image`) VALUES ( ?, ?,?, ?, ?, ?)";
-        String errorMessage = "";
-        if (dateFieldPicker.getValue().equals(null) ) {
-            errorMessage += "Invalid date format (dd/mm/yyyy)\n";
-        }
-        if (titreField.getText().isEmpty()) {
-            errorMessage += "Title cannot be empty\n";
-        }
-        if (descriptionField.getText().isEmpty()) {
-            errorMessage += "Description cannot be empty\n";
-        }
-        if (prixField.getText().isEmpty()) {
-            errorMessage += "Invalid price format (only digits and optionally a decimal point)\n";
-        }
-
-        if (categorieFieldchoise.getValue().isEmpty()) {
-            errorMessage += "Category cannot be empty\n";
-        }
-        if (imageView.getImage() == null) {
-            // Show error message and return if no image has been uploaded
-          //  showAlert(Alert.AlertType.ERROR, "Error", "Please upload an image first.");
-            return;
-        }
-        if (!errorMessage.isEmpty()) {
-            // Show error message
-            return; // Exit the method if there are validation errors
-        }else {
+        if (dateFieldPicker.getValue() == null ||
+                titreField.getText().isEmpty() ||
+                descriptionField.getText().isEmpty() ||
+                categorieFieldchoise.getValue() == null ||
+                imageView.getImage() == null) {
+            System.out.println("error rmty");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("ERROR");
+            alert.setContentText("You should fill in all fields.");
+            alert.showAndWait(); // This line was missing
+        } else {
             try {
                 PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement(qry);
                 stm.setString(1, nouvelEvenement.getDate());
@@ -387,7 +374,7 @@ public class EventsPageController extends ISevecesEvent  implements Initializabl
 
 
 
-    public void update(Evenement evenement) {
+    public void update(Evenement evenement) throws IOException {
 
 
         int id_event =0;
@@ -396,9 +383,24 @@ public class EventsPageController extends ISevecesEvent  implements Initializabl
         String description = descriptionField.getText();
         String prix = prixField.getText();
         String categorie = categorieFieldchoise.getValue();
-        String image ="";
-        Evenement nouvelEvenement = new Evenement( id_event,date, titre, description, prix, categorie,image);
-        String query = "UPDATE evenement SET date=?, titre=?, description=?, prix=?, categorie=? WHERE id_event=?";
+        Image image = imageView.getImage();
+        File imageFile = new File("temp_image.png");
+
+
+
+        // Save the image to a temporary file
+        try {
+            BufferedImage bufferedImage = SwingFXUtils.fromFXImage(image, null);
+            ImageIO.write(bufferedImage, "png", imageFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+            //    showAlert(Alert.AlertType.ERROR, "Error", "Failed to save the image.");
+            return;
+        }
+
+        String base64Image = convertImageToBase64(imageFile);
+        Evenement nouvelEvenement = new Evenement( id_event,date, titre, description, prix, categorie,base64Image);
+        String query = "UPDATE evenement SET date=?, titre=?, description=?, prix=?, categorie=? ,image =? WHERE id_event=?";
         try {
             PreparedStatement statement = DBConnection.getInstance().getConnection().prepareStatement(query);
             statement.setString(1, dateFieldPicker.getValue().toString());
@@ -406,7 +408,9 @@ public class EventsPageController extends ISevecesEvent  implements Initializabl
             statement.setString(3, descriptionField.getText());
             statement.setString(4, prixField.getText());
             statement.setString(5, categorieFieldchoise.getValue());
-            statement.setInt(6, evenement.getId_event()); // set the ID
+            statement.setString(6, nouvelEvenement.getImage());
+            statement.setInt(7, evenement.getId_event());
+           // set the ID
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -426,10 +430,22 @@ public class EventsPageController extends ISevecesEvent  implements Initializabl
         }
     }
 
+    public boolean deleteParticipation(Participation p) {
+        String query = "DELETE FROM participation WHERE id_event=? ";
+        try {
+            PreparedStatement statement = DBConnection.getInstance().getConnection().prepareStatement(query);
+            statement.setInt(1, p.getId_event());
+            int rowsDeleted = statement.executeUpdate();
+            return rowsDeleted > 0;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
     public void removeEvent(ActionEvent actionEvent) {
         Evenement Selectedenvent = mylistview.getSelectionModel().getSelectedItem();
-//        delete(Selectedenvent);
+        delete(Selectedenvent);
         mylistview.getItems().remove(Selectedenvent);
     }
 
@@ -451,7 +467,7 @@ public class EventsPageController extends ISevecesEvent  implements Initializabl
         return Selectedenvent;
     }
 
-    public void updeteEvent(ActionEvent actionEvent) {
+    public void updeteEvent(ActionEvent actionEvent) throws IOException {
         Evenement Selectedenvent = mylistview.getSelectionModel().getSelectedItem();
 
         if(Selectedenvent.equals(null)){

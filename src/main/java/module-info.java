@@ -7,6 +7,8 @@ module sample.pidevjava {
     requires java.desktop;
     requires javafx.swing;
     requires java.mail;
+    requires aspose.pdf;
+    requires com.google.zxing;
 
 
     opens sample.pidevjava to javafx.fxml;

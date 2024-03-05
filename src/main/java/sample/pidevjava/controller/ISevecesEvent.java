@@ -109,6 +109,7 @@ public class ISevecesEvent implements Initializable {
                 participation.setEtat(resultSet.getString("etat"));
                 participation.setId_event(resultSet.getInt("id_event"));
                 participation.setId(resultSet.getInt("id"));
+                participation.setDateDeCreation(resultSet.getString("dateDeCreation"));
                 paticipations.add(participation);
             }
             resultSet.close();

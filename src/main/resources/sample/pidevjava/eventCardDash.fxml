@@ -12,7 +12,6 @@
       <HBox prefHeight="30.0" prefWidth="640.0" styleClass="card" stylesheets="@style/eventCssFile.css">
          <children>
             <ImageView fx:id="eventImg" fitHeight="20.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view" />
-            <Label fx:id="eventId" styleClass="label" text="Label" />
             <Label fx:id="eventDate" styleClass="label" text="Label" />
             <Label fx:id="eventTitre" styleClass="label" text="Label" />
             <Label fx:id="eventPrix" styleClass="label" text="Label" />

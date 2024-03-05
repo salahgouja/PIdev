@@ -1,14 +1,20 @@
 package sample.pidevjava;
 
+import com.aspose.pdf.Document;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import sample.pidevjava.controller.EventsPageController;
 import sample.pidevjava.controller.JavaMailUtil;
+import sample.pidevjava.controller.PDFCreator;
+import sample.pidevjava.controller.QRCodeGenerator;
 import sample.pidevjava.model.Evenement;
 
 import java.io.IOException;
@@ -25,7 +31,6 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-    //    JavaMailUtil.sendMail("chebili335@gmail.com");
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("dashboardEvent.fxml"));//dashboardEvent.fxml
 
         // Get the screen bounds
@@ -55,6 +60,12 @@ public class Main extends Application {
 
         primaryStage.setTitle(" ActiveZone ");
         primaryStage.show();
+
+
+
+
+
+
 
     }
 }
