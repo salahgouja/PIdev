@@ -4,31 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19ceb744-616d-4382-a4d3-5d6106809877" name="Changes" comment="forgetpassword+hashpassword crud+interfaceuser (version2.0)">
-      <change afterPath="$PROJECT_DIR$/qrcode.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/salahgouja11@gmail.com" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/QRCodeGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/QRCodeScanner.java" afterDir="false" />
+    <list default="true" id="19ceb744-616d-4382-a4d3-5d6106809877" name="Changes" comment="qrcode &amp; email &amp; clean code">
+      <change afterPath="$PROJECT_DIR$/profile.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/TwilioSMSService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/UserSession.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/interfaces/SMSService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/qrcode.png" beforeDir="false" afterPath="$PROJECT_DIR$/qrcode.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/AddUserController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/DashboardAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/DashboardAdmin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/DashboardEmployee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/DashboardEmployee.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/DashboardUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/DashboardUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/ForgetPasswordController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/ForgetPasswordController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/LoginFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/LoginFormController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/RegistrationFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/RegistrationFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/UpdateUserController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/db/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/db/DBConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/AddUserForm.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/DashboardAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/DashboardAdmin.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/DashboardEmployee.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/DashboardEmployee.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/DashboardUser.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/DashboardUser.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/LoginForm.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/LoginForm.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/UpdateUserForm.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,10 +32,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="AnnotationType" />
-        <option value="Interface" />
-        <option value="FxmlFile" />
         <option value="CSS File" />
+        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -84,45 +77,47 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.Main.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "javascript.karma.karma_node_package_dir": "",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "C:/Users/Salah Gouja/IdeaProjects/pidevjava/src/main/java/sample/pidevjava",
-    "last_opened_file_path": "C:/Users/Salah Gouja/Desktop/test",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.33024693",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "two.files.diff.last.used.file": "C:/Users/Salah Gouja/IdeaProjects/pidevjava/src/main/resources/sample/pidevjava/RegistrationForm.fxml",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;javascript.karma.karma_node_package_dir&quot;: &quot;&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/Salah Gouja/IdeaProjects/pidevjava/src/main/java/sample/pidevjava&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Salah Gouja/Downloads/wetransfer_maram-rar_2024-03-03_0707/maram&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.33024693&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/Salah Gouja/IdeaProjects/pidevjava/src/main/resources/sample/pidevjava/RegistrationForm.fxml&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="sample.pidevjava.interfaces" />
+      <recent name="sample.pidevjava.controller" />
       <recent name="sample.pidevjava.model" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -220,7 +215,8 @@
       <workItem from="1709316257998" duration="629000" />
       <workItem from="1709337980735" duration="2328000" />
       <workItem from="1709342304746" duration="434000" />
-      <workItem from="1709344240022" duration="10118000" />
+      <workItem from="1709344240022" duration="89201000" />
+      <workItem from="1709742456173" duration="515000" />
     </task>
     <task id="LOCAL-00001" summary="forgetpassword+hashpassword crud+interfaceuser">
       <option name="closed" value="true" />
@@ -238,7 +234,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709007688834</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="qrcode &amp; email &amp; clean code">
+      <option name="closed" value="true" />
+      <created>1709382467098</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1709382467099</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,7 +264,8 @@
     <MESSAGE value="Merge branch 'master' of https://github.com/salahgouja/PIdev" />
     <MESSAGE value="forgetpassword+hashpassword crud+interfaceuser" />
     <MESSAGE value="forgetpassword+hashpassword crud+interfaceuser (version2.0)" />
-    <option name="LAST_COMMIT_MESSAGE" value="forgetpassword+hashpassword crud+interfaceuser (version2.0)" />
+    <MESSAGE value="qrcode &amp; email &amp; clean code" />
+    <option name="LAST_COMMIT_MESSAGE" value="qrcode &amp; email &amp; clean code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

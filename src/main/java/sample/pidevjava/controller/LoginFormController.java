@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 
 import sample.pidevjava.Main;
 import sample.pidevjava.db.DBConnection;
+import sample.pidevjava.model.User;
 import sample.pidevjava.model.UserRole;
 
 import java.awt.image.BufferedImage;
@@ -24,6 +25,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import static sample.pidevjava.controller.UserSession.*;
 
 public class LoginFormController {
     @FXML
@@ -45,7 +47,7 @@ public class LoginFormController {
 
 
     public void btnSignup(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("RegistrationForm.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/pidevjava/RegistrationForm.fxml"));
         Scene scene = new Scene(fxmlLoader.load(),600, 400);
 
         Stage primaryStage = (Stage) root.getScene().getWindow();
@@ -55,7 +57,7 @@ public class LoginFormController {
 
     }
     public void btnforgetpassword(ActionEvent actionEvent) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("ForgetPassword.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/pidevjava/ForgetPassword.fxml"));
         Scene scene = new Scene(fxmlLoader.load(),600, 400);
 
         Stage primaryStage = (Stage) root.getScene().getWindow();
@@ -78,6 +80,16 @@ public class LoginFormController {
 
             if (resultSet.next()) {
                 UserRole role = UserRole.valueOf(resultSet.getString("role")); // Fetch user role from database
+                User user = new User();
+                user.setId(resultSet.getInt("id"));
+                user.setFirstname(resultSet.getString("firstname"));
+                user.setLastname(resultSet.getString("lastname"));
+                user.setEmail(resultSet.getString("email"));
+                user.setPhone(resultSet.getString("phone"));
+                user.setPassword(resultSet.getString("password"));
+                user.setRole(String.valueOf(role));
+
+                setCurrentUser(user);
 
                 switch (role) {
                     case USER:
@@ -92,6 +104,7 @@ public class LoginFormController {
                     default:
                         break;
                 }
+
             } else {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "UserName or Password Do not Match");
                 alert.showAndWait();
@@ -100,11 +113,18 @@ public class LoginFormController {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+        System.out.println("User logged in: " + getCurrentUser().getEmail());
+
     }
     private void loadHomePage() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("DashboardUser.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/pidevjava/DashboardUser.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1500, 800);
 
+        // Get the DashboardUser controller
+        DashboardUser dashboardUserController = fxmlLoader.getController();
+
+        // Set the user object in the DashboardUser controller
+        dashboardUserController.setUser(UserSession.getCurrentUser());
         Stage primaryStage = (Stage) root.getScene().getWindow();
         primaryStage.setScene(scene);
         primaryStage.setTitle("Dashboard User");
@@ -112,8 +132,13 @@ public class LoginFormController {
     }
 
     private void loadDashboardAdmin() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("DashboardAdmin.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/pidevjava/DashboardAdmin.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1500, 800);
+
+        // Get the DashboardUser controller
+        DashboardAdmin dashboardAdminController = fxmlLoader.getController();
+        // Set the user object in the DashboardUser controller
+        dashboardAdminController.setUser(UserSession.getCurrentUser());
 
         Stage primaryStage = (Stage) root.getScene().getWindow();
         primaryStage.setScene(scene);
@@ -122,9 +147,11 @@ public class LoginFormController {
     }
 
     private void loadDashboardEmployee() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("DashboardEmployee.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/pidevjava/DashboardEmployee.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1500, 800);
-
+        DashboardEmployee dashboardEmployeeController = fxmlLoader.getController();
+        // Set the user object in the DashboardUser controller
+        dashboardEmployeeController.setUser(UserSession.getCurrentUser());
         Stage primaryStage = (Stage) root.getScene().getWindow();
         primaryStage.setScene(scene);
         primaryStage.setTitle("Employee Dashboard");

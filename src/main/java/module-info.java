@@ -11,6 +11,8 @@ module sample.pidevjava {
     requires javafx.swing;
     requires mail;
     requires webcam.capture;
+    requires org.apache.pdfbox;
+    requires twilio;
 
     opens sample.pidevjava to javafx.fxml;
 

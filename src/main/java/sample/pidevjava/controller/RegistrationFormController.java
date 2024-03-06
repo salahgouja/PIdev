@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import sample.pidevjava.Main;
 import sample.pidevjava.db.DBConnection;
 import sample.pidevjava.model.User;
 import sample.pidevjava.model.UserRole;
@@ -51,6 +50,7 @@ public class RegistrationFormController {
     private UserRole userRole;
 
 
+
     public void initialize()  {
         lblpassword.setVisible(false);
         lblpasswordconfirm.setVisible(false);
@@ -78,7 +78,7 @@ public class RegistrationFormController {
 
     public void btnLogin(ActionEvent event) throws IOException {
         // Load the login form
-        FXMLLoader loginLoader = new FXMLLoader(Main.class.getResource("LoginForm.fxml"));
+        FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("/sample/pidevjava/LoginForm.fxml"));
         Scene loginScene = new Scene(loginLoader.load(), 600, 400);
 
         // Get the primary stage
@@ -94,7 +94,6 @@ public class RegistrationFormController {
     }
 
     public void register() {
-        //System.out.println("sssssssssssss");
 
         String userfirstname = firstname.getText();
         String userlastname = lastname.getText();
@@ -139,7 +138,7 @@ public class RegistrationFormController {
 
         if (!isValid) {
             setBorderColor("red");
-            return; // Stop registration process if any validation fails
+            return;
         }
         if (pass.equals(newpasswordconfirm)) {
             lblpassword.setVisible(true);
@@ -149,22 +148,22 @@ public class RegistrationFormController {
             lblpassword.setVisible(false);
             lblpasswordconfirm.setVisible(false);
             password.requestFocus();
-            return; // Stop registration process if any validation fails
+            return;
 
         }
         QRCodeGenerator qrCodeGenerator = new QRCodeGenerator();
         File qrCodeFile = qrCodeGenerator.generateQRCode(useremail, pass);
         pass = HashPasswordController.hashPassword(pass);
-        //System.out.println("aaaaaaaaaaaaaaaa");
+
 
 
         // Créer un objet User avec les données saisies par l'utilisateur
         User user = new User(userfirstname, userlastname, mobilephone, useremail, pass, String.valueOf(userRole.USER), null, qrCodeFile.getAbsolutePath());
 
         //if (!UserValidator.validate(user)){
-        //System.out.println("ddddddddddddd");
+
             try {
-                //System.out.println("kkkkkkkkkkkk");
+
                 Connection connection = DBConnection.getInstance().getConnection();
 
 
@@ -181,7 +180,7 @@ public class RegistrationFormController {
 
 
                 int i = preparedStatement.executeUpdate();
-                //System.out.println("tttttttttttttttttt");
+
 
                 if (i != 0) {
                     Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Success");
@@ -189,7 +188,7 @@ public class RegistrationFormController {
                     sendQRCodeByEmail(useremail, qrCodeFile);
 
 
-                    FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("LoginForm.fxml"));
+                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/pidevjava/LoginForm.fxml"));
                     Scene scene = new Scene(fxmlLoader.load(), 600, 400);
                     Stage primarystage = (Stage) root2.getScene().getWindow();
                     primarystage.setScene(scene);

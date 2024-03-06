@@ -1,96 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.Menu?>
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import com.jfoenix.controls.JFXButton?>
-<AnchorPane prefHeight="762.0" prefWidth="1473.0" styleClass="anchor-pane" stylesheets="@style/dashboardCSS.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pidevjava.controller.DashboardUser">
+<AnchorPane fx:id="rootuser" prefHeight="762.0" prefWidth="1354.0" styleClass="anchor-pane" stylesheets="@style/dashboardCSS.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pidevjava.controller.DashboardUser">
     <children>
-        <BorderPane prefHeight="762.0" prefWidth="1398.0">
+        <BorderPane prefHeight="762.0" prefWidth="1375.0">
             <top>
-                <AnchorPane prefHeight="51.0" prefWidth="1428.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+                <AnchorPane prefHeight="74.0" prefWidth="1286.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
                     <children>
-                  <HBox prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                              <Label fx:id="MenuClose" prefHeight="38.0" prefWidth="80.0" textFill="#b7b7b7">
-                                  <graphic>
-                                      <ImageView fitHeight="23.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
-                                          <image>
-                                              <Image url="@../Images/menu1.png" />
-                                          </image>
-                                      </ImageView>
-                                  </graphic>
-                                  <font>
-                                      <Font name="System Bold" size="14.0" />
-                                  </font>
-                              </Label>
-                              <Label fx:id="Menu" prefHeight="23.0" prefWidth="64.0" textFill="#b7b7b7">
-                                  <graphic>
-                                      <ImageView fitHeight="22.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
-                                          <image>
-                                              <Image url="@../Images/menu1.png" />
-                                          </image>
-                                      </ImageView>
-                                  </graphic>
-                                  <font>
-                                      <Font name="System Bold" size="14.0" />
-                                  </font>
-                              </Label>
-                         <MenuButton mnemonicParsing="false" prefHeight="40.0" prefWidth="186.0" style="-fx-background-color: transparent;" text="Paramétres" textFill="WHITE">
-                             <items>
-                                 <Menu mnemonicParsing="false" text="Profile">
-                                     <items>
-                                         <MenuItem mnemonicParsing="false" onAction="#profileButtonOnClick" text="Voir profile">
-                                             <graphic>
-                                                 <FontAwesomeIconView glyphName="USER" size="20" />
-                                             </graphic>
+                        <Label fx:id="MenuClose" layoutX="20.0" layoutY="7.0" prefHeight="38.0" prefWidth="80.0" textFill="#b7b7b7">
+                            <graphic>
+                                <ImageView fitHeight="23.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../Images/menu1.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Label>
+                  <Label fx:id="Menu" layoutX="20.0" layoutY="7.0" prefHeight="38.0" prefWidth="80.0" textFill="#b7b7b7">
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/menu1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                   <MenuButton alignment="CENTER" layoutX="1303.0" layoutY="9.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="44.0" style="-fx-background-color: #ff3800;" styleClass="shadow" stylesheets="@style/eventCssFile.css" textFill="WHITE">
+                       <items>
+                           <Menu mnemonicParsing="false" text="Profile">
+                               <items>
+                                   <MenuItem mnemonicParsing="false" onAction="#profileButtonOnClick" text="Voir profile">
+
                                          </MenuItem>
-                                         <MenuItem mnemonicParsing="false" onAction="#modifierMdpOnClick" text="Modifier Mot de passe">
-                                             <graphic>
-                                                 <FontAwesomeIconView glyphName="KEY" size="20" />
-                                             </graphic>
+                                   <MenuItem mnemonicParsing="false" onAction="#modifierMdpOnClick" text="Modifier Mot de passe">
+
                                          </MenuItem>
-                                     </items>
-                                     <graphic>
-                                         <FontAwesomeIconView glyphName="USER" size="20" />
-                                     </graphic>
-                                 </Menu>
-                                 <MenuItem fx:id="deconnecterButton" mnemonicParsing="false" onAction="#deconnecterButtonOnClick" text="Déconnecter">
-                                     <graphic>
-                                         <FontAwesomeIconView glyphName="ARROW_CIRCLE_LEFT" size="20" />
-                                     </graphic>
+                               </items>
+
+                           </Menu>
+                           <MenuItem mnemonicParsing="false" onAction="#deconnecterButtonOnClick" text="Déconnecter">
+
                                  </MenuItem>
-                             </items>
-                             <HBox.margin>
-                                 <Insets left="850.0" top="25.0" />
-                             </HBox.margin>
-                             <padding>
-                                 <Insets left="29.0" />
-                             </padding>
-                             <graphic>
-                                 <FontAwesomeIconView fill="WHITE" glyphName="COGS" size="20" textOrigin="BOTTOM" translateX="-7.0" />
-                             </graphic>
-                             <font>
-                                 <Font size="16.0" />
-                             </font>
-                         </MenuButton>
-                     </children>
-                  </HBox>
+                       </items>
+                       <padding>
+                           <Insets left="29.0" />
+                       </padding>
+
+                       <font>
+                           <Font name="System Bold" size="1.0" />
+                       </font>
+                     <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="31.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/setting.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                   </MenuButton>
                     </children>
                 </AnchorPane>
             </top>
@@ -176,10 +155,10 @@
                     </children>
                 </AnchorPane>
             </left>
-            <right>
-                <VBox prefHeight="640.0" prefWidth="971.0" BorderPane.alignment="CENTER">
-                    <children>
-                        <Label styleClass="dashboard-label" stylesheets="@style/dashboardCSS.css" text="Profile User">
+         <center>
+            <VBox prefHeight="695.0" prefWidth="1060.0" BorderPane.alignment="CENTER">
+               <children>
+                        <Label styleClass="dashboard-label" stylesheets="@style/dashboardCSS.css" text="My Profile">
                             <VBox.margin>
                                 <Insets bottom="10.0" top="5.0" />
                             </VBox.margin>
@@ -189,105 +168,148 @@
                         </Label>
                         <HBox prefHeight="445.0" prefWidth="1180.0">
                             <children>
-                                <VBox prefHeight="464.0" prefWidth="777.0">
-                                    <children>
-                                        <HBox prefHeight="20.0" prefWidth="698.0" />
-                                    </children>
-                                </VBox>
+                        <VBox fx:id="VBoxprofile" prefHeight="567.0" prefWidth="469.0" styleClass="box" stylesheets="@style/eventCssFile.css">
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                           <children>
+                              <AnchorPane prefHeight="459.0" prefWidth="449.0" styleClass="box">
+                                 <children>
+                                    <ImageView fx:id="imageView1" fitHeight="114.0" fitWidth="131.0" layoutX="140.0" pickOnBounds="true" preserveRatio="true" visible="true">
+
+                                    </ImageView>
+                                    <TextField fx:id="FirstnameField1" layoutX="103.0" layoutY="137.0" prefHeight="34.0" prefWidth="205.0" promptText="firsname">
+                                       <styleClass>
+                                          <String fx:value="input" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                    </TextField>
+                                    <TextField fx:id="LastnameField1" layoutX="102.0" layoutY="192.0" prefHeight="34.0" prefWidth="206.0" promptText="lastname">
+                                       <styleClass>
+                                          <String fx:value="input" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                    </TextField>
+                                    <TextField fx:id="PhoneField1" layoutX="102.0" layoutY="310.0" prefHeight="34.0" prefWidth="206.0" promptText="phone">
+                                       <styleClass>
+                                          <String fx:value="input" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                    </TextField>
+                                    <TextField fx:id="EmailField1" layoutX="103.0" layoutY="251.0" prefHeight="34.0" prefWidth="206.0" promptText="email">
+                                       <styleClass>
+                                          <String fx:value="input" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font>
+                                    </TextField>
+                                    <Button fx:id="downloadpdf" layoutX="137.0" layoutY="367.0" mnemonicParsing="false" onAction="#downloadpdf" prefHeight="51.0" prefWidth="114.0" stylesheets="@style/eventCssFile.css" text="download">
+                                       <styleClass>
+                                          <String fx:value="button" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                    </Button>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </VBox>
                                 <Separator orientation="VERTICAL" prefHeight="200.0">
                                     <HBox.margin>
                                         <Insets left="10.0" />
                                     </HBox.margin>
                                 </Separator>
-                                <VBox prefHeight="457.0" prefWidth="393.0" styleClass="box" stylesheets="@style/eventCssFile.css">
-                                    <AnchorPane prefHeight="369.0" prefWidth="471.0" styleClass="box">
-                                        <children>
-                                            <Button fx:id="uploadButton" layoutX="14.0" layoutY="326.0" mnemonicParsing="false" onAction="#chooseAndUploadImage" prefHeight="30.0" prefWidth="214.0" text="Ajouter une image" />
-                                            <ImageView fx:id="imageView" fitHeight="55.0" fitWidth="227.0" layoutX="14.0" layoutY="313.0" pickOnBounds="true" preserveRatio="true" />
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="box">
+                           <children>
+                                       <AnchorPane fx:id="VBoxupdateprofile" prefHeight="460.0" prefWidth="471.0" styleClass="box" stylesheets="@style/eventCssFile.css">
+                                           <children>
+                                               <Button fx:id="uploadButton" layoutX="116.0" layoutY="226.0" mnemonicParsing="false" onAction="#chooseAndUploadImage" prefHeight="30.0" prefWidth="214.0" text="Ajouter une image" />
+                                               <ImageView fx:id="imageView" fitHeight="97.0" fitWidth="107.0" layoutX="172.0" layoutY="269.0" pickOnBounds="true" preserveRatio="true" />
 
-                                            <Label layoutX="20.0" layoutY="6.0" text="Firstname" />
-                                            <TextField fx:id="FirstnameField" layoutX="19.0" layoutY="51.0" prefHeight="34.0" prefWidth="205.0">
-                                                <styleClass>
-                                                    <String fx:value="input" />
-                                                    <String fx:value="shadow" />
-                                                </styleClass>
-                                            </TextField>
-
-                                            <Label fx:id="lblpassword" layoutX="253.0" layoutY="114.0" text="Password" />
-                                            <TextField fx:id="LastnameField" layoutX="19.0" layoutY="145.0" prefHeight="34.0" prefWidth="206.0">
-                                                <styleClass>
-                                                    <String fx:value="input" />
-                                                    <String fx:value="shadow" />
-                                                </styleClass>
-                                            </TextField>
-                                            <Label layoutX="20.0" layoutY="114.0" text="Lastname" />
-                                            <Label layoutX="19.0" layoutY="199.0" text="Phone" />
-                                            <TextField fx:id="PhoneField" layoutX="20.0" layoutY="227.0" prefHeight="34.0" prefWidth="206.0">
-                                                <styleClass>
-                                                    <String fx:value="input" />
-                                                    <String fx:value="shadow" />
-                                                </styleClass>
-                                            </TextField>
-                                            <TextField fx:id="PasswordField" layoutX="255.0" layoutY="145.0" prefHeight="34.0" prefWidth="190.0">
-                                                <styleClass>
-                                                    <String fx:value="input" />
-                                                    <String fx:value="shadow" />
-                                                </styleClass>
-                                            </TextField>
-                                            <TextField fx:id="EmailField" layoutX="254.0" layoutY="51.0" prefHeight="34.0" prefWidth="190.0">
-                                                <styleClass>
-                                                    <String fx:value="input" />
-                                                    <String fx:value="shadow" />
-                                                </styleClass>
-                                                <font>
-                                                    <Font size="11.0" />
-                                                </font>
-                                            </TextField>
-                                            <Label layoutX="255.0" layoutY="6.0" text="Email" />
-                                            <Label fx:id="lblEmailField" layoutX="253.0" layoutY="85.0" text="entre valid email" />
-                                            <Label fx:id="lblPhoneField" layoutX="20.0" layoutY="261.0" text=" enter valide tunisien phone " textFill="RED" />
-                                            <Label fx:id="lblconfirmpassword" layoutX="253.0" layoutY="196.0" text="Confirm Password" />
-                                            <TextField fx:id="PasswordConfirmField" layoutX="254.0" layoutY="227.0" prefHeight="34.0" prefWidth="190.0">
-                                                <styleClass>
-                                                    <String fx:value="input" />
-                                                    <String fx:value="shadow" />
-                                                </styleClass>
-                                            </TextField>
-                                            <Label fx:id="lblFirstnameField" layoutX="20.0" layoutY="90.0" text="valid firstname" textFill="RED" />
-                                            <Label fx:id="lblPasswordField" layoutX="252.0" layoutY="179.0" text="entre valid PasswordField" textFill="RED" />
-                                            <Label fx:id="lblPasswordConfirmField" layoutX="252.0" layoutY="261.0" text="entre valid PasswordField" textFill="RED" />
-                                            <Label fx:id="lblLastnameField" layoutX="20.0" layoutY="179.0" text="valid lastname" textFill="RED" />
-                                        </children>
-                                    </AnchorPane>
-                                    <HBox prefHeight="100.0" prefWidth="200.0">
-                                        <children>
-                                            <Button fx:id="editbutton" mnemonicParsing="false" onAction="#updeteUser" prefHeight="30.0" prefWidth="165.0" stylesheets="@style/eventCssFile.css" text="modifier">
-                                                <HBox.margin>
-                                                    <Insets bottom="5.0" top="10.0" />
-                                                </HBox.margin>
-                                                <styleClass>
-                                                    <String fx:value="button" />
-                                                    <String fx:value="shadow" />
-                                                </styleClass>
-                                            </Button>
-                                        </children>
-                                    </HBox>
-                                    <HBox.margin>
-                                        <Insets left="5.0" />
-                                    </HBox.margin>
-                                    <padding>
-                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                    </padding>
-
-                                </VBox>
+                                               <Label layoutX="20.0" layoutY="6.0" text="Firstname" />
+                                               <TextField fx:id="FirstnameField" layoutX="19.0" layoutY="51.0" prefHeight="34.0" prefWidth="205.0">
+                                                   <styleClass>
+                                                       <String fx:value="input" />
+                                                       <String fx:value="shadow" />
+                                                   </styleClass>
+                                               </TextField>
+                                               <TextField fx:id="LastnameField" layoutX="19.0" layoutY="145.0" prefHeight="34.0" prefWidth="206.0">
+                                                   <styleClass>
+                                                       <String fx:value="input" />
+                                                       <String fx:value="shadow" />
+                                                   </styleClass>
+                                               </TextField>
+                                               <Label layoutX="20.0" layoutY="114.0" text="Lastname" />
+                                               <Label layoutX="251.0" layoutY="114.0" text="Phone" />
+                                               <TextField fx:id="PhoneField" layoutX="251.0" layoutY="141.0" prefHeight="34.0" prefWidth="196.0">
+                                                   <styleClass>
+                                                       <String fx:value="input" />
+                                                       <String fx:value="shadow" />
+                                                   </styleClass>
+                                               </TextField>
+                                               <TextField fx:id="EmailField" layoutX="254.0" layoutY="51.0" prefHeight="34.0" prefWidth="190.0">
+                                                   <styleClass>
+                                                       <String fx:value="input" />
+                                                       <String fx:value="shadow" />
+                                                   </styleClass>
+                                                   <font>
+                                                       <Font size="11.0" />
+                                                   </font>
+                                               </TextField>
+                                               <Label layoutX="255.0" layoutY="6.0" text="Email" />
+                                               <Label fx:id="lblEmailField" layoutX="253.0" layoutY="85.0" text="entre valid email" />
+                                               <Label fx:id="lblPhoneField" layoutX="250.0" layoutY="179.0" text=" enter valide tunisien phone " textFill="RED" />
+                                               <Label fx:id="lblFirstnameField" layoutX="20.0" layoutY="90.0" text="valid firstname" textFill="RED" />
+                                               <Label fx:id="lblLastnameField" layoutX="20.0" layoutY="179.0" text="valid lastname" textFill="RED" />
+                                    <Button fx:id="editbutton" layoutX="175.0" layoutY="376.0" mnemonicParsing="false" onAction="#updateUser" prefHeight="51.0" prefWidth="114.0" stylesheets="@style/eventCssFile.css" text="save changes">
+                                       <styleClass>
+                                          <String fx:value="button" />
+                                          <String fx:value="shadow" />
+                                       </styleClass>
+                                    </Button>
+                                           </children>
+                                       </AnchorPane>
+                                       <AnchorPane fx:id="VBoxupdatepwd" prefHeight="460.0" prefWidth="471.0" styleClass="box" stylesheets="@style/eventCssFile.css">
+                                           <children>
+                                               <Button layoutX="146.0" layoutY="365.0" mnemonicParsing="false"  prefHeight="51.0" prefWidth="171.0" stylesheets="@style/eventCssFile.css" text="confirmButton">
+                                                   <styleClass>
+                                                       <String fx:value="button" />
+                                                       <String fx:value="shadow" />
+                                                   </styleClass>
+                                               </Button>
+                                               <TextField fx:id="OldPasswordField" layoutX="118.0" layoutY="165.0" prefHeight="34.0" prefWidth="196.0" promptText="old password">
+                                                   <styleClass>
+                                                       <String fx:value="input" />
+                                                       <String fx:value="shadow" />
+                                                   </styleClass>
+                                               </TextField>
+                                               <Label alignment="CENTER" layoutX="127.0" layoutY="51.0" prefHeight="51.0" prefWidth="178.0" text="Edit password" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS">
+                                                   <font>
+                                                       <Font size="1.0" />
+                                                   </font>
+                                               </Label>
+                                               <TextField fx:id="NewPasswordField" layoutX="118.0" layoutY="234.0" prefHeight="34.0" prefWidth="196.0" promptText="new password">
+                                                   <styleClass>
+                                                       <String fx:value="input" />
+                                                       <String fx:value="shadow" />
+                                                   </styleClass>
+                                               </TextField>
+                                               <Button fx:id="annuler" layoutX="171.0" layoutY="302.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="89.0" stylesheets="@style/eventCssFile.css" text="annuler">
+                                                   <styleClass>
+                                                       <String fx:value="button" />
+                                                       <String fx:value="shadow" />
+                                                   </styleClass>
+                                               </Button>
+                                           </children>
+                                       </AnchorPane>
+                           </children>
+                        </AnchorPane>
                             </children>
                         </HBox>
-                    </children>
-                    <BorderPane.margin>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                    </BorderPane.margin>
-                </VBox>
-            </right>
+               </children>
+            </VBox>
+         </center>
         </BorderPane>
     </children>
 </AnchorPane>
