@@ -2,18 +2,20 @@
 
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import java.lang.String?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pidevjava.controller.ChoixSportController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="921.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pidevjava.controller.ChoixSportController">
    <children>
-      <AnchorPane layoutX="830.0" layoutY="434.0" prefHeight="289.0" prefWidth="257.0" stylesheets="@ChoixSport.css">
+      <AnchorPane layoutX="612.0" layoutY="485.0" prefHeight="289.0" prefWidth="257.0" stylesheets="@style/eventCssFile.css">
          <children>
             <ComboBox fx:id="tennis_list" layoutX="26.0" layoutY="203.0" prefWidth="150.0" promptText="choisir Terrain" />
             <Label layoutX="38.0" layoutY="180.0" text="Terrains disponibles">
@@ -21,30 +23,31 @@
                   <Font name="System Bold Italic" size="13.0" />
                </font>
             </Label>
-            <Label fx:id="TENNIS" layoutX="96.0" layoutY="136.0" prefHeight="30.0" prefWidth="97.0" text="Tennis">
+            <Label fx:id="TENNIS" layoutX="100.0" layoutY="139.0" prefHeight="30.0" prefWidth="97.0" text="Tennis">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
             <ImageView fitHeight="115.0" fitWidth="115.0" layoutX="90.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../img/tenis.jpg" />
+                  <Image url="@../../img/TENNIS.jpg" />
                </image>
             </ImageView>
             <MFXTextField fx:id="prix_txt_tennis" layoutX="38.0" layoutY="259.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="77.0" />
-            <Button layoutX="189.0" layoutY="262.0" mnemonicParsing="false" text="Reserver" />
+            <Button fx:id="reserver_btn4" layoutX="189.0" layoutY="262.0" mnemonicParsing="false" text="Reserver" />
             <Label layoutX="15.0" layoutY="229.0" prefHeight="18.0" prefWidth="150.0" text="Prix de location par heure:" />
          </children>
          <styleClass>
-            <String fx:value="border-radius" />
+            <String fx:value="card" />
             <String fx:value="backgound-card" />
+            <String fx:value="shadow" />
          </styleClass>
       </AnchorPane>
       <VBox layoutX="-1.0" layoutY="2.0" prefHeight="794.0" prefWidth="214.0" style="-fx-background-color: white;" />
-      <AnchorPane layoutX="830.0" layoutY="82.0" prefHeight="289.0" prefWidth="257.0" stylesheets="@ChoixSport.css">
+      <AnchorPane layoutX="613.0" layoutY="174.0" prefHeight="289.0" prefWidth="257.0" stylesheets="@style/eventCssFile.css">
          <children>
-            <Button layoutX="187.0" layoutY="252.0" mnemonicParsing="false" text="Reserver" />
-            <ComboBox fx:id="basket_list" layoutX="26.0" layoutY="203.0" onAction="#initialize" prefWidth="150.0" promptText="choisir Terrain" />
+            <Button fx:id="reserver_btn2" layoutX="187.0" layoutY="252.0" mnemonicParsing="false" text="Reserver" />
+            <ComboBox fx:id="basket_list" layoutX="26.0" layoutY="203.0" prefWidth="150.0" promptText="choisir Terrain" />
             <Label layoutX="38.0" layoutY="180.0" text="Terrains disponibles">
                <font>
                   <Font name="System Bold Italic" size="13.0" />
@@ -61,16 +64,17 @@
                </image>
             </ImageView>
             <MFXTextField fx:id="prix_txt_basket" layoutX="38.0" layoutY="250.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="77.0" />
-            <Label layoutX="39.0" layoutY="231.0" prefHeight="18.0" prefWidth="150.0" text="Prix de location par heure:" />
+            <Label layoutX="25.0" layoutY="231.0" prefHeight="27.0" prefWidth="164.0" text="Prix de location par heure:" />
          </children>
          <styleClass>
-            <String fx:value="border-radius" />
+            <String fx:value="card" />
             <String fx:value="backgound-card" />
+            <String fx:value="shadow" />
          </styleClass>
       </AnchorPane>
-      <AnchorPane layoutX="356.0" layoutY="434.0" prefHeight="289.0" prefWidth="257.0" stylesheets="@ChoixSport.css">
+      <AnchorPane layoutX="240.0" layoutY="487.0" prefHeight="289.0" prefWidth="257.0" stylesheets="@style/eventCssFile.css">
          <children>
-            <Button layoutX="183.0" layoutY="252.0" mnemonicParsing="false" text="Reserver" />
+            <Button fx:id="reserver_btn3" layoutX="183.0" layoutY="252.0" mnemonicParsing="false" text="Reserver" />
             <ComboBox fx:id="hand_list" layoutX="26.0" layoutY="203.0" prefWidth="150.0" promptText="choisir Terrain" />
             <Label layoutX="38.0" layoutY="180.0" text="Terrains disponibles">
                <font>
@@ -84,21 +88,22 @@
             </Label>
             <ImageView fitHeight="115.0" fitWidth="170.0" layoutX="44.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../img/hand.jpg" />
+                  <Image url="@../../img/HANDBALL.jpg" />
                </image>
             </ImageView>
             <MFXTextField fx:id="prix_txt_hand" layoutX="26.0" layoutY="250.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="77.0" />
             <Label layoutX="21.0" layoutY="229.0" prefHeight="18.0" prefWidth="150.0" text="Prix de location par heure:" />
          </children>
          <styleClass>
-            <String fx:value="border-radius" />
+            <String fx:value="card" />
             <String fx:value="backgound-card" />
+            <String fx:value="shadow" />
          </styleClass>
       </AnchorPane>
-      <AnchorPane layoutX="356.0" layoutY="92.0" prefHeight="289.0" prefWidth="257.0" stylesheets="@ChoixSport.css">
+      <AnchorPane layoutX="239.0" layoutY="166.0" prefHeight="289.0" prefWidth="257.0" stylesheets="@style/eventCssFile.css">
          <children>
-            <Button layoutX="186.0" layoutY="252.0" mnemonicParsing="false" text="Reserver" />
-            <ComboBox fx:id="foot_list" layoutX="26.0" layoutY="203.0" onAction="#initialize" prefWidth="150.0" promptText="choisir Terrain" />
+            <Button fx:id="reserver_btn1" layoutX="186.0" layoutY="252.0" mnemonicParsing="false" text="Reserver" />
+            <ComboBox fx:id="foot_list" layoutX="26.0" layoutY="203.0" prefWidth="150.0" promptText="choisir Terrain" />
             <Label layoutX="38.0" layoutY="180.0" text="Terrains disponibles">
                <font>
                   <Font name="System Bold Italic" size="13.0" />
@@ -111,16 +116,34 @@
             </Label>
             <ImageView fitHeight="115.0" fitWidth="198.0" layoutX="71.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../img/foot2.jpg" />
+                  <Image url="@../../img/football.jpg" />
                </image>
             </ImageView>
             <MFXTextField fx:id="prix_txt_foot" layoutX="32.0" layoutY="250.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="77.0" />
-            <Label layoutX="14.0" layoutY="231.0" prefHeight="18.0" prefWidth="150.0" text="Prix de location par heure:" />
+            <Label layoutX="14.0" layoutY="231.0" prefHeight="27.0" prefWidth="170.0" text="Prix de location par heure:" />
          </children>
          <styleClass>
-            <String fx:value="border-radius" />
+            <String fx:value="card" />
+            <String fx:value="shadow" />
             <String fx:value="backgound-card" />
          </styleClass>
       </AnchorPane>
+      <Pane layoutX="216.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="140.0" prefWidth="1010.0" AnchorPane.bottomAnchor="660.0">
+         <opaqueInsets>
+            <Insets bottom="10.0" />
+         </opaqueInsets>
+         <children>
+            <ImageView fitHeight="128.0" fitWidth="683.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/pg.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="291.0" layoutX="200.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/sousPg.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

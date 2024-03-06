@@ -26,6 +26,9 @@ public class HoraireTravail {
         this.repos = repos;
     }
 
+    public HoraireTravail(String heureDebut, String heureFin) {
+    }
+
 
     public int getId_horaire() {
         return id_horaire;

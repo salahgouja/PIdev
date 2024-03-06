@@ -3,7 +3,6 @@ package sample.pidevjava.controller;
 import sample.pidevjava.db.DBConnection;
 import sample.pidevjava.interfaces.IController;
 import sample.pidevjava.model.User;
-import sample.pidevjava.model.UserRole;
 
 
 import java.sql.*;
@@ -102,9 +101,13 @@ public class UserController implements IController<User> {
     public User getUserById(int id) {
         User user = null;
         try {
+            System.out.println("fff");
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM USER WHERE id = ?");
+            System.out.println("gfggfg");
             statement.setInt(1, id); // Set the id parameter for the prepared statement
+            System.out.println("fff");
             ResultSet resultSet = statement.executeQuery();
+            System.out.println("ggg");
             System.out.println(resultSet);
 
             if (resultSet.next()) { // Move the cursor to the first row
@@ -120,6 +123,7 @@ public class UserController implements IController<User> {
 
            // statement.close();
         } catch (SQLException exception) {
+            System.out.println("HERE");
             System.out.println(exception.getMessage());
         }
         return user;
@@ -143,6 +147,9 @@ public class UserController implements IController<User> {
                 user.setPhone(resultSet.getString("phone"));
                 user.setPassword(resultSet.getString("password"));
                 user.setRole(resultSet.getString("role"));// badlalt edhi khatar maandich lfichier enum
+                System.out.println("Can get user : "+ user);
+            } else{
+                System.out.println("Cannot get user (getUserByEmail)");
             }
 
            // statement.close();

@@ -7,17 +7,9 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import sample.pidevjava.controller.HoraireController;
-import sample.pidevjava.controller.ReservationController;
-import sample.pidevjava.db.DBConnection;
-import sample.pidevjava.model.*;
-import sample.pidevjava.controller.ChoixSportController;
 
 import java.io.IOException;
-import java.sql.Time;
-import java.util.ArrayList;
 
-import static sample.pidevjava.model.Jours.MARDI;
 
 public class Main extends Application {
 
@@ -29,7 +21,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("ReservationAdmin2.fxml"));
+       FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("ChoixSportController.fxml"));
         // Get the screen bounds
         Screen screen = Screen.getPrimary();
         Rectangle2D bounds = screen.getVisualBounds();
@@ -47,7 +39,7 @@ public class Main extends Application {
         primaryStage.setHeight(bounds.getHeight());
 
         // Set minimum and maximum width to keep it resizable
-        primaryStage.setMinWidth(bounds.getWidth()/2); // Set a minimum width
+        primaryStage.setMinWidth(bounds.getWidth() / 2); // Set a minimum width
         primaryStage.setMaxWidth(bounds.getWidth()); // Set a maximum width
         primaryStage.setMinHeight(bounds.getHeight());
         primaryStage.setX(0);
@@ -55,24 +47,13 @@ public class Main extends Application {
         primaryStage.setTitle(" ActiveZone ");
         primaryStage.show();
 
+     /*   EquipementService service=new EquipementService();
+        int id= service.getDerniereReservationId();
+        EquipementLocation equipementLocation=new EquipementLocation();
+        service.getLocationEquipementsByReservationId(id);
 
-        // Creating a sample HoraireTravail object
-        //HoraireTravail horaire = new HoraireTravail("MARDI","15:00","16:00",false );
-
-        //System.out.println(horaire);
-
-        // Creating an instance of DBConnection
-       // DBConnection.getInstance().getConnection(); // Assuming you have a connect() method to establish the database connection
-
-        // Creating an instance of your class where the add method is defined
-       // HoraireController instance = new HoraireController(); // Replace YourClassNameHere with the actual class name
-       //  instance.update("12:00", "14:00",false);
-
-        // Testing the add method
-        //System.out.println(instance.jourExisteDeja(horaire.getJour()));
+        LocationEquipementController locationEquipementController=new LocationEquipementController();*/
 
 
-
-
-}
+    }
 }

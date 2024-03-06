@@ -5,10 +5,22 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.stage.Stage;
 import sample.pidevjava.db.DBConnection;
+import sample.pidevjava.model.Equipement;
 import sample.pidevjava.model.TypeTerrain;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+
+
+import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -16,6 +28,17 @@ import java.util.List;
 import java.sql.ResultSet;
 
 public class ChoixSportController {
+    @FXML
+    private Button reserver_btn1;
+
+    @FXML
+    private Button reserver_btn2;
+
+    @FXML
+    private Button reserver_btn3;
+
+    @FXML
+    private Button reserver_btn4;
     @FXML
     private ComboBox<String> basket_list;
 
@@ -39,8 +62,50 @@ public class ChoixSportController {
     @FXML
     private MFXTextField prix_txt_tennis;
 
+    private static int selectedTerrainId;
+    private static String selectedTerrainType;
 
-    public List<String> getTerrainsFootball(TypeTerrain type) {
+    // Méthode pour récupérer l'ID du terrain sélectionné
+
+    // Méthode pour récupérer l'ID du terrain par son nom
+    private int getTerrainIdByName(String terrainName) {
+        int terrainId = -1; // Valeur par défaut si le terrain n'est pas trouvé
+
+        String qry = "SELECT id FROM terrain WHERE nom = ?";
+        try (PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement(qry)) {
+            stm.setString(1, terrainName);
+            ResultSet resultSet = stm.executeQuery();
+            if (resultSet.next()) {
+                terrainId = resultSet.getInt("id");
+                //System.out.println("aaaaaa: "+terrainId);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println("getTerrainIdByName: "+terrainId);
+        return terrainId;
+    }
+
+    public String  getTypeByid(int Id_terrain){
+        String type="";
+       // ArrayList<Equipement> equipements = new ArrayList<>();
+        String qry = "SELECT type FROM terrain WHERE id = ? ";
+        try (PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement(qry)) {
+            stm.setInt(1, Id_terrain);
+            ResultSet resultSet = stm.executeQuery();
+            if (resultSet.next()) {
+                type = resultSet.getString("type");
+                //System.out.println("aaaaaa: "+terrainId);
+            }
+            return type;
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+            public List<String> getTerrains(TypeTerrain type) {
         List<String> terrainNoms = new ArrayList<>();
         String qry = "SELECT nom FROM terrain WHERE type = ? AND active = ?";
 
@@ -130,47 +195,132 @@ public class ChoixSportController {
 
     @FXML
     public void initialize() {
-        {
-        // Appel de votre méthode pour récupérer les noms des terrains de football
-        List<String> terrainsFootballNoms = getTerrainsFootball(TypeTerrain.FOOTBALL);
+        // Charger les terrains de football dans la ComboBox foot_list
+        List<String> terrainsFootballNoms = getTerrains(TypeTerrain.FOOTBALL);
+        foot_list.setItems(FXCollections.observableArrayList(terrainsFootballNoms));
 
-        // Convertir la liste en une liste observable
-        ObservableList<String> observableTerrainsFootballNoms = FXCollections.observableArrayList(terrainsFootballNoms);
+        // Charger les terrains de basketball dans la ComboBox basket_list
+        List<String> terrainsBasketNoms = getTerrains(TypeTerrain.BASKETBALL);
+        basket_list.setItems(FXCollections.observableArrayList(terrainsBasketNoms));
 
-        // Ajouter les noms des terrains à la ComboBox
-        foot_list.setItems(observableTerrainsFootballNoms);
+        // Charger les terrains de handball dans la ComboBox hand_list
+        List<String> terrainsHandNoms = getTerrains(TypeTerrain.HANDBALL);
+        hand_list.setItems(FXCollections.observableArrayList(terrainsHandNoms));
 
-            // Appel de votre méthode pour récupérer les noms des terrains de football
-            List<String> terrainsBasketNoms = getTerrainsFootball(TypeTerrain.BASKETBALL);
+        // Charger les terrains de tennis dans la ComboBox tennis_list
+        List<String> terrainsTennisNoms = getTerrains(TypeTerrain.TENNIS);
+        tennis_list.setItems(FXCollections.observableArrayList(terrainsTennisNoms));
 
-            // Convertir la liste en une liste observable
-            ObservableList<String> observableTerrainsBasketNoms = FXCollections.observableArrayList(terrainsBasketNoms);
+        // Ajouter un gestionnaire d'événements à chaque ComboBox pour afficher le prix lors de la sélection
+        basket_list.setOnAction(event -> {
+            // Récupérer le nom du terrain sélectionné
+            String selectedTerrainName = basket_list.getValue();
 
-            // Ajouter les noms des terrains à la ComboBox
-            basket_list.setItems(observableTerrainsBasketNoms);
-            List<String> terrainsHandNoms = getTerrainsFootball(TypeTerrain.HANDBALL);
+            // Mettre à jour l'ID du terrain sélectionné en appelant la méthode getTerrainIdByName()
+            selectedTerrainId = getTerrainIdByName(selectedTerrainName);
+            selectedTerrainType=getTypeByid(selectedTerrainId);
+            System.out.println("selectedTerrainType: "+selectedTerrainType);
 
-            // Convertir la liste en une liste observable
-            ObservableList<String> observableTerrainsHandNoms = FXCollections.observableArrayList(terrainsHandNoms);
 
-            // Ajouter les noms des terrains à la ComboBox
-            hand_list.setItems(observableTerrainsHandNoms);
-            List<String> terrainsTennisNoms = getTerrainsFootball(TypeTerrain.TENNIS);
+            // Appeler la méthode afficherPrix
+            afficherPrix(event);
 
-            // Convertir la liste en une liste observable
-            ObservableList<String> observableTerrainsTennisNoms = FXCollections.observableArrayList(terrainsTennisNoms);
 
-            // Ajouter les noms des terrains à la ComboBox
-            tennis_list.setItems(observableTerrainsTennisNoms);
+        });
+        //foot_list.setOnAction(this::afficherPrix );
+        foot_list.setOnAction(event -> {
+            // Récupérer le nom du terrain sélectionné
+            String selectedTerrainName = foot_list.getValue();
 
-            basket_list.setOnAction(this::afficherPrix);
-            foot_list.setOnAction(this::afficherPrix);
-            hand_list.setOnAction(this::afficherPrix);
-            tennis_list.setOnAction(this::afficherPrix);
+            // Mettre à jour l'ID du terrain sélectionné en appelant la méthode getTerrainIdByName()
+            selectedTerrainId = getTerrainIdByName(selectedTerrainName);
+            selectedTerrainType=getTypeByid(selectedTerrainId);
+            System.out.println("selectedTerrainType: "+selectedTerrainType);
+
+            // Appeler la méthode afficherPrix
+            afficherPrix(event);
+
+
+        });
+
+        hand_list.setOnAction(event -> {
+            // Récupérer le nom du terrain sélectionné
+            String selectedTerrainName = hand_list.getValue();
+
+            // Mettre à jour l'ID du terrain sélectionné en appelant la méthode getTerrainIdByName()
+            selectedTerrainId = getTerrainIdByName(selectedTerrainName);
+            selectedTerrainType=getTypeByid(selectedTerrainId);
+            System.out.println("selectedTerrainType: "+selectedTerrainType);
+
+            // Appeler la méthode afficherPrix
+            afficherPrix(event);
+
+
+        });
+
+        tennis_list.setOnAction(event -> {
+            // Récupérer le nom du terrain sélectionné
+            String selectedTerrainName = tennis_list.getValue();
+
+            // Mettre à jour l'ID du terrain sélectionné en appelant la méthode getTerrainIdByName()
+            selectedTerrainId = getTerrainIdByName(selectedTerrainName);
+            selectedTerrainType=getTypeByid(selectedTerrainId);
+            System.out.println("selectedTerrainType: "+selectedTerrainType);
+
+            // Appeler la méthode afficherPrix
+            afficherPrix(event);
+
+
+        });
+
+        // Ajouter des gestionnaires d'événements pour chaque bouton de réservation
+        reserver_btn1.setOnAction(event -> loadReservationUserScene(selectedTerrainId,selectedTerrainType));
+        reserver_btn2.setOnAction(event -> loadReservationUserScene(selectedTerrainId,selectedTerrainType));
+        reserver_btn3.setOnAction(event -> loadReservationUserScene(selectedTerrainId,selectedTerrainType));
+        reserver_btn4.setOnAction(event -> loadReservationUserScene(selectedTerrainId,selectedTerrainType));
     }
+
+    private void loadReservationUserScene(int selectedTerrainId,String selectedTerrainType) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/pidevjava/ReservationUser.fxml"));
+            ReservationUserController controller = new ReservationUserController(selectedTerrainId,selectedTerrainType);
+            loader.setController(controller);
+
+            Parent root = loader.load();
+            Scene scene = new Scene(root);
+
+            Stage stage = (Stage) reserver_btn1.getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
+
+
+   /* @FXML
+    public int getSelectedTerrainId() {
+        int selectedTerrainId = -1; // Valeur par défaut si aucun terrain n'est sélectionné
+
+        System.out.println("foot_list: "+foot_list);
+        if (foot_list != null && foot_list.isFocused() && foot_list.getValue() != null) {
+            System.out.println("foot_list**: "+foot_list);
+            selectedTerrainId = getTerrainIdByName(foot_list.getValue());
+        }/* else if (basket_list != null && basket_list.isFocused() && basket_list.getValue() != null) {
+            selectedTerrainId = getTerrainIdByName(basket_list.getValue());
+        } else if (hand_list != null && hand_list.isFocused() && hand_list.getValue() != null) {
+            selectedTerrainId = getTerrainIdByName(hand_list.getValue());
+        } else if (tennis_list != null && tennis_list.isFocused() && tennis_list.getValue() != null) {
+            selectedTerrainId = getTerrainIdByName(tennis_list.getValue());
+        }
+
+        return selectedTerrainId;
+    }*/
 
 }
+
+
 
 
 

@@ -65,7 +65,7 @@ public class HoraireController implements IHoraire<HoraireTravail> {
    @FXML
   /*  public void initialize() {
         // Convertir les valeurs de l'énumération Jours en une liste observable
-        ObservableList<String> joursList = FXCollections.observableArrayList(        "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche");
+        ObservableList<String> joursList = FXCollections.observableArrayList(       hot l enumeration ejdida);
 
         // Ajouter les valeurs de l'énumération Jours à la ComboBox jours_list
         jours_list.setItems(joursList);

@@ -6,7 +6,7 @@ import java.sql.*;
 public class DBConnection {
 
     private static  DBConnection dbConnection;
-    private final Connection connection ;
+    private final Connection connection;
 
     private   DBConnection(){
 

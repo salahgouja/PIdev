@@ -14,3 +14,57 @@
 .mouse-moved:hover{
     -fx-background-color: #E4E4E4;
 }
+/* Style the button */
+.button {
+    -fx-font-weight: bold;
+    -fx-background-color:#ff3800;
+    -fx-background-radius: 10;
+    -fx-font-size: 14;
+    -fx-text-fill: white; /* Button font size */
+    -fx-padding: 5px 10px; /* Button padding */
+    -fx-border-radius: 10px; /* Button border radius */
+}
+
+.button:hover{
+
+
+    -fx-background-color: white;
+    -fx-text-fill:  #ff3800;
+    -fx-border-color:  #ff3800;
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+    -fx-font-size: 14;
+
+
+
+}
+
+.button:pressed{
+
+    -fx-background-color: white;
+    -fx-text-fill:#ff3800;
+    -fx-border-color:#ff3800;
+    -fx-border-width: 2;
+    -fx-font-size: 14;
+
+}
+
+
+.mfx-toggle-button {
+    -fx-text-fill: -mfx-text-he;
+}
+
+.mfx-toggle-button .text {
+    -fx-font-smoothing-type: lcd;
+}
+
+#customToggleButton {
+    -mfx-main: -common-gradient;
+    -mfx-secondary: #5E0BA8;
+    -fx-text-fill: #5E0BA8;
+}
+
+#customToggleButton .mfx-ripple-generator {
+    -mfx-ripple-color: -common-gradient;
+    -fx-opacity: 0.5;
+}

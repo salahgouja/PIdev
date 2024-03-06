@@ -7,7 +7,7 @@ public class Reservation {
         private Date date_reserve;
         private Time temps_reservation;
         private TypeTerrain type;
-        private double prix_reservation;
+        private float prix_reservation;
         public int id;
         public int id_terrain;
         private Time duree_reservation;
@@ -16,10 +16,10 @@ public class Reservation {
         public Reservation(){
 
         }
+                // nihit id reservation mil constructor
 
-
-        public Reservation(int id_reservation, Date date_reserve, Time temps_reservation, TypeTerrain type, double prix_reservation, int id_user,int id_terrain,Time duree_reservation) {
-            this.id_reservation = id_reservation;
+        public Reservation( Date date_reserve, Time temps_reservation, TypeTerrain type, float prix_reservation, int id_user,int id_terrain,Time duree_reservation) {
+           // this.id_reservation = id_reservation;
             this.date_reserve = date_reserve;
             this.temps_reservation = temps_reservation;
             this.type = type;
@@ -61,11 +61,11 @@ public class Reservation {
         this.type = type;
     }
 
-    public double getPrix_reservation() {
+    public float getPrix_reservation() {
             return prix_reservation;
         }
 
-        public void setPrix_reservation(double prix_reservation) {
+        public void setPrix_reservation(float prix_reservation) {
             this.prix_reservation = prix_reservation;
         }
 

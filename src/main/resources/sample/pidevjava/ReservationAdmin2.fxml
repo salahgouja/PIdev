@@ -8,6 +8,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -25,8 +26,8 @@
             <Separator maxHeight="-Infinity" orientation="VERTICAL" prefHeight="38.0" prefWidth="2.0" />
             <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="35.0" prefWidth="242.0" styleClass="round-layout" stylesheets="@ReservationAdmin2.css">
                <children>
-                  <TextField prefHeight="26.0" prefWidth="214.0" promptText="chercher" styleClass="transparent" stylesheets="@ReservationAdmin2.css" />
-                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                  <TextField fx:id="searchField" prefHeight="26.0" prefWidth="214.0" promptText="chercher" styleClass="transparent" stylesheets="@ReservationAdmin2.css" />
+                  <ImageView fx:id="loopIcon" fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../img/search.png" />
                      </image>
@@ -52,19 +53,41 @@
          <padding>
             <Insets left="20.0" right="20.0" />
          </padding>
+         <BorderPane.margin>
+            <Insets bottom="15.0" />
+         </BorderPane.margin>
       </HBox>
    </top>
    <left>
-      <VBox maxWidth="-Infinity" prefHeight="200.0" prefWidth="250.0" styleClass="white-background" stylesheets="@ReservationAdmin2.css" BorderPane.alignment="CENTER" />
+      <VBox alignment="CENTER" maxWidth="-Infinity" prefHeight="200.0" prefWidth="250.0" spacing="30.0" styleClass="white-background" stylesheets="@ReservationAdmin2.css" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="27.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/home.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="40.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/truck-tow.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="37.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/user.png" />
+               </image>
+            </ImageView>
+         </children>
+         <BorderPane.margin>
+            <Insets right="15.0" />
+         </BorderPane.margin></VBox>
    </left>
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <MFXScrollPane maxWidth="-Infinity" prefHeight="724.0" prefWidth="1094.0" styleClass="transparent" stylesheets="@ReservationAdmin2.css">
+            <MFXScrollPane maxWidth="-Infinity" prefHeight="822.0" prefWidth="1150.0" styleClass="transparent" stylesheets="@ReservationAdmin2.css">
                <content>
-                  <HBox fx:id="cardLayout" prefHeight="711.0" prefWidth="1081.0" styleClass="transparent" stylesheets="@ReservationAdmin2.css" />
-               </content>
-            </MFXScrollPane>
+                  <FlowPane fx:id="cardLyout" alignment="CENTER" columnHalignment="CENTER" prefHeight="782.0" prefWidth="1150.0" styleClass="cardLoyout" stylesheets="@ReservationAdmin2.css" />
+               </content></MFXScrollPane>
          </children>
       </VBox>
    </center>

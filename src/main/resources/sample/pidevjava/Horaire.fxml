@@ -4,21 +4,20 @@
 <?import io.github.palexdev.materialfx.controls.MFXComboBox?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import io.github.palexdev.materialfx.controls.MFXToggleButton?>
+<?import java.lang.String?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="551.0" prefWidth="790.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pidevjava.controller.HoraireController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="551.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pidevjava.controller.HoraireController">
    <children>
-      <Label layoutX="68.0" layoutY="39.0" prefHeight="51.0" prefWidth="322.0" text="Welcome Admin ! ">
+      <Label layoutX="67.0" layoutY="143.0" prefHeight="51.0" prefWidth="322.0" text="Welcome Admin ! ">
          <font>
-            <Font name="System Bold Italic" size="35.0" />
-         </font>
-      </Label>
-      <Label layoutX="42.0" layoutY="103.0" prefHeight="32.0" prefWidth="706.0" text="Merci de configurer les horaires de travaille de votre complexe  !">
-         <font>
-            <Font name="System Bold" size="22.0" />
+            <Font name="System Bold Italic" size="24.0" />
          </font>
       </Label>
       <Label layoutX="68.0" layoutY="201.0" prefHeight="22.0" prefWidth="258.0" text="Choisissez le jour de la semaine">
@@ -26,28 +25,40 @@
             <Font name="Arial Black" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="67.0" layoutY="297.0" text="Saisir l'heure de debut de travail">
+      <Label layoutX="72.0" layoutY="301.0" text="Saisir l'heure de debut de travail">
          <font>
             <Font name="Arial Black" size="14.0" />
          </font>
       </Label>
-      <Label layoutX="67.0" layoutY="398.0" prefHeight="20.0" prefWidth="227.0" text="Saisir l'heure de fin de travail">
+      <Label layoutX="67.0" layoutY="415.0" prefHeight="20.0" prefWidth="227.0" text="Saisir l'heure de fin de travail">
          <font>
             <Font name="Arial Black" size="14.0" />
          </font>
       </Label>
-      <MFXToggleButton fx:id="repos_btn" layoutX="495.0" layoutY="212.0" text="repos" />
-      <MFXComboBox fx:id="jours_list" layoutX="111.0" layoutY="235.0" onAction="#affichageHoraireTravail" prefHeight="40.0" prefWidth="170.0" />
-      <MFXTextField fx:id="heure_debut_txt" layoutX="77.0" layoutY="324.0" prefHeight="50.0" prefWidth="207.0" promptText="HH:MM">
+      <MFXToggleButton fx:id="repos_btn" layoutX="495.0" layoutY="212.0" styleClass="mfx-toggle-button" stylesheets="@Buttons.css" text="repos" />
+      <MFXComboBox fx:id="jours_list" layoutX="77.0" layoutY="240.0" onAction="#affichageHoraireTravail" prefHeight="40.0" prefWidth="170.0" stylesheets="@style/eventCssFile.css">
+         <styleClass>
+            <String fx:value="shadow" />
+            <String fx:value="input" />
+         </styleClass></MFXComboBox>
+      <MFXTextField fx:id="heure_debut_txt" layoutX="77.0" layoutY="339.0" prefHeight="50.0" prefWidth="207.0" promptText="HH:MM" stylesheets="@style/eventCssFile.css">
          <font>
             <Font name="Arial Black" size="15.0" />
-         </font></MFXTextField>
-      <MFXTextField fx:id="heure_fin_txt" layoutX="67.0" layoutY="425.0" prefHeight="50.0" prefWidth="207.0" promptText="HH/MM">
+         </font>
+         <styleClass>
+            <String fx:value="shadow" />
+            <String fx:value="input" />
+         </styleClass></MFXTextField>
+      <MFXTextField fx:id="heure_fin_txt" layoutX="77.0" layoutY="457.0" prefHeight="50.0" prefWidth="207.0" promptText="HH/MM" stylesheets="@style/eventCssFile.css">
          <font>
             <Font name="Arial Black" size="15.0" />
-         </font></MFXTextField>
-      <MFXButton fx:id="confirmation_btn" layoutX="501.0" layoutY="324.0" onAction="#addHoraireTravail" prefHeight="26.0" prefWidth="102.0" text="Confirmer" />
-      <MFXButton fx:id="maj_btn" layoutX="501.0" layoutY="396.0" onAction="#handleUpdateButton" prefHeight="26.0" prefWidth="102.0" text="Mettre à jour" />
+         </font>
+         <styleClass>
+            <String fx:value="shadow" />
+            <String fx:value="input" />
+         </styleClass></MFXTextField>
+      <MFXButton fx:id="confirmation_btn" layoutX="501.0" layoutY="324.0" onAction="#addHoraireTravail" prefHeight="26.0" prefWidth="102.0" stylesheets="@ReservationAdmin2.css" text="Confirmer" />
+      <MFXButton fx:id="maj_btn" layoutX="501.0" layoutY="396.0" onAction="#handleUpdateButton" prefHeight="30.0" prefWidth="161.0" stylesheets="@ReservationAdmin2.css" text="Mettre à jour" />
       <Text layoutX="484.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Non" />
       <Text layoutX="533.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Oui" />
       <Text fx:id="heure_debut_valmsg" fill="#ef0a0a" layoutX="79.0" layoutY="394.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Entrez un champ valide sous forme hh:mm:ss" visible="false">
@@ -61,5 +72,19 @@
          </font>
       </Text>
       <Text layoutX="390.0" layoutY="362.0" />
+      <Pane layoutX="1.0" layoutY="-1.0" prefHeight="144.0" prefWidth="716.0">
+         <children>
+            <ImageView fitHeight="144.0" fitWidth="762.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/pg.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="144.0" fitWidth="706.0" layoutX="226.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/sousPg.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

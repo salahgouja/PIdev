@@ -21,7 +21,7 @@ public class TerrainController {
                 terrain.setId(resultSet.getInt("id"));
                 terrain.setNom(resultSet.getString("nom"));
                 terrain.setActive(resultSet.getBoolean("active"));
-                terrain.setCapaciteTerrain(resultSet.getInt("capacite"));
+              //  terrain.setCapaciteTerrain(resultSet.getInt("capacite"));
                 terrain.setPrix_location_terrain(resultSet.getFloat("prix_location_terrain"));
                 terrain.setType(TypeTerrain.valueOf(resultSet.getString("type")));
 
