@@ -6,10 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.util.Callback;
@@ -55,11 +53,11 @@ public class DashboardController implements Initializable {
                     @Override
                     protected void updateItem(Article article, boolean empty) {
                         super.updateItem(article, empty);
-                        if (article == null || empty) {
+                        if (empty || article == null) {
                             setText(null);
                             setGraphic(null);
                         } else {
-                            VBox content = new VBox();
+                            HBox content = new HBox(); // Use HBox to align items horizontally
                             content.setSpacing(5);
 
                             Label titleLabel = new Label(article.getTitre());
@@ -71,7 +69,17 @@ public class DashboardController implements Initializable {
 
                             Label commentsLabel = new Label("Comments: " + article.getNbcommentaire());
 
-                            content.getChildren().addAll(titleLabel, descriptionLabel, dateLabel, commentsLabel);
+                            Button deleteButton = new Button("Supprimer");
+                            deleteButton.setStyle("-fx-background-color: #DE2667; -fx-text-fill: white;");
+                            deleteButton.setOnAction(event -> {
+                                // Handle delete action here
+                                articles.remove(article); // Remove the article from the list
+                                articleListView.getItems().remove(article); // Remove the article from the ListView
+                                // You may also want to delete the article from the database
+                                deleteArticle(article);
+                            });
+
+                            content.getChildren().addAll(titleLabel, descriptionLabel, dateLabel, commentsLabel, deleteButton);
 
                             setGraphic(content);
                         }
@@ -79,9 +87,40 @@ public class DashboardController implements Initializable {
 
 
 
+
+
                 };
             }
         });
+    }
+
+    @FXML
+    public void openAjouterArticle(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/pidevjava/AjouterArticle.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    private void deleteArticle(Article article) {
+        try (Connection connection = new DBConnection().getConnection();
+             PreparedStatement ps = connection.prepareStatement("DELETE FROM article WHERE idarticle = ?")) {
+            ps.setInt(1, article.getIdarticle());
+            int rowsAffected = ps.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Article deleted successfully from the database");
+            } else {
+                System.out.println("Failed to delete article from the database");
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
 
