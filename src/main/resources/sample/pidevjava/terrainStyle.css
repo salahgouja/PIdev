@@ -1,0 +1,34 @@
+/* Style for the FlowPane */
+.flow-pane {
+    -fx-padding: 20;
+    -fx-hgap: 10;
+    -fx-vgap: 10;
+}
+
+/* Style for the terrain item pane */
+.terrain-pane {
+    -fx-background-color: #f0f0f0;
+    -fx-padding: 10;
+    -fx-border-radius: 5;
+    -fx-border-color: #dddddd;
+}
+
+/* Style for the terrain name label */
+.terrain-name-label {
+    -fx-font-size: 16;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+/* Style for the other labels */
+.terrain-label {
+    -fx-font-size: 14;
+    -fx-text-fill: #555555;
+}
+
+/* Style for the terrain image */
+.terrain-image {
+    -fx-fit-width: 100;
+    -fx-fit-height: 100;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 5, 0, 0, 0);
+}
