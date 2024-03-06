@@ -39,10 +39,7 @@ import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Base64;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
 
 import static sample.pidevjava.model.EvetCategory.evetCategory;
@@ -183,12 +180,7 @@ public class EventsPageController extends ISevecesEvent  implements Initializabl
 
     @FXML
     public void refrechEventlist() {
-        evenements.clear();
-        mylistview.getItems().clear();
-        getAll();
-        ObservableList<Evenement> observableList = FXCollections.observableArrayList();
-        observableList.addAll(evenements);
-        mylistview.setItems(observableList);
+
 
     }
     @FXML
@@ -338,11 +330,19 @@ public class EventsPageController extends ISevecesEvent  implements Initializabl
                 titreField.getText().isEmpty() ||
                 descriptionField.getText().isEmpty() ||
                 categorieFieldchoise.getValue() == null ||
-                imageView.getImage() == null) {
+                imageView.getImage() == null ||
+                prixField.getText()== null ) {
             System.out.println("error rmty");
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("ERROR");
-            alert.setContentText("You should fill in all fields.");
+            alert.setContentText("Vous devez remplir tous les champs.");
+            alert.showAndWait(); // This line was missing
+        }
+        if ( !prixField.getText().matches("\\d+") ) {
+            System.out.println("error rmty");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("ERROR");
+            alert.setContentText("Le champ de prix doit contenir uniquement des chiffres.");
             alert.showAndWait(); // This line was missing
         } else {
             try {
@@ -366,6 +366,12 @@ public class EventsPageController extends ISevecesEvent  implements Initializabl
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+            evenements.clear();
+            mylistview.getItems().clear();
+            getAll();
+            ObservableList<Evenement> observableList = FXCollections.observableArrayList();
+            observableList.addAll(evenements);
+            mylistview.setItems(observableList);
         }
 
     }
@@ -415,19 +421,84 @@ public class EventsPageController extends ISevecesEvent  implements Initializabl
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        evenements.clear();
+        mylistview.getItems().clear();
+        getAll();
+        ObservableList<Evenement> observableList = FXCollections.observableArrayList();
+        observableList.addAll(evenements);
+        mylistview.setItems(observableList);
     }
 
+//    public boolean delete(Evenement evenement) {
+//        String query = "DELETE FROM evenement WHERE id_event=?";
+//        try {
+//            PreparedStatement statement = DBConnection.getInstance().getConnection().prepareStatement(query);
+//            statement.setInt(1, evenement.getId_event());
+//            int rowsDeleted = statement.executeUpdate();
+//            return rowsDeleted > 0;
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//            return false;
+//        }
+//    }
+
     public boolean delete(Evenement evenement) {
-        String query = "DELETE FROM evenement WHERE id_event=?";
+        String checkParticipationQuery = "SELECT COUNT(*) FROM participation WHERE id_event=?";
+        String deleteParticipationQuery = "DELETE FROM participation WHERE id_event=?";
+        String deleteEvenementQuery = "DELETE FROM evenement WHERE id_event=?";
+
         try {
-            PreparedStatement statement = DBConnection.getInstance().getConnection().prepareStatement(query);
-            statement.setInt(1, evenement.getId_event());
-            int rowsDeleted = statement.executeUpdate();
-            return rowsDeleted > 0;
+            Connection connection = DBConnection.getInstance().getConnection();
+
+            // Vérifier s'il y a des enregistrements associés dans la table participation
+            PreparedStatement checkParticipationStatement = connection.prepareStatement(checkParticipationQuery);
+            checkParticipationStatement.setInt(1, evenement.getId_event());
+            ResultSet resultSet = checkParticipationStatement.executeQuery();
+            resultSet.next();
+            int participationCount = resultSet.getInt(1);
+
+            if (participationCount > 0) {
+                // Afficher une boîte de dialogue de confirmation
+                Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
+                confirmAlert.setTitle("Confirmation de suppression");
+                confirmAlert.setHeaderText("Suppression d'événement avec des enregistrements associés");
+                confirmAlert.setContentText("Cet événement a des enregistrements associés. Voulez-vous supprimer les enregistrements associés également?");
+
+                // Ajouter les boutons OK et Annuler à la boîte de dialogue
+                confirmAlert.getButtonTypes().setAll(ButtonType.YES, ButtonType.NO);
+
+                // Afficher la boîte de dialogue et attendre la réponse de l'utilisateur
+                Optional<ButtonType> result = confirmAlert.showAndWait();
+
+                // Si l'utilisateur clique sur le bouton OK, supprimer les enregistrements associés et l'événement
+                if (result.isPresent() && result.get() == ButtonType.YES) {
+                    // Supprimer les enregistrements associés dans la table participation
+                    PreparedStatement deleteParticipationStatement = connection.prepareStatement(deleteParticipationQuery);
+                    deleteParticipationStatement.setInt(1, evenement.getId_event());
+                    deleteParticipationStatement.executeUpdate();
+
+                    // Supprimer l'événement de la table evenement
+                    PreparedStatement deleteEvenementStatement = connection.prepareStatement(deleteEvenementQuery);
+                    deleteEvenementStatement.setInt(1, evenement.getId_event());
+                    int rowsDeleted = deleteEvenementStatement.executeUpdate();
+
+                    return rowsDeleted > 0;
+                } else {
+                    // Si l'utilisateur clique sur le bouton Annuler, annuler la suppression
+                    return false;
+                }
+            } else {
+                // S'il n'y a pas d'enregistrements associés, supprimer simplement l'événement
+                PreparedStatement deleteEvenementStatement = connection.prepareStatement(deleteEvenementQuery);
+                deleteEvenementStatement.setInt(1, evenement.getId_event());
+                int rowsDeleted = deleteEvenementStatement.executeUpdate();
+                return rowsDeleted > 0;
+            }
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
+
     }
 
     public boolean deleteParticipation(Participation p) {
@@ -446,8 +517,22 @@ public class EventsPageController extends ISevecesEvent  implements Initializabl
     public void removeEvent(ActionEvent actionEvent) {
         Evenement Selectedenvent = mylistview.getSelectionModel().getSelectedItem();
         delete(Selectedenvent);
-        mylistview.getItems().remove(Selectedenvent);
+        dateFieldPicker.setValue(null);
+        titreField.clear();
+        descriptionField.clear();
+        prixField.clear();
+        categorieFieldchoise.setValue(null);
+        imageView.setImage(null);
+        evenements.clear();
+        mylistview.getItems().clear();
+        getAll();
+        ObservableList<Evenement> observableList = FXCollections.observableArrayList();
+        observableList.addAll(evenements);
+        mylistview.setItems(observableList);
+
     }
+
+
 
 
     @FXML

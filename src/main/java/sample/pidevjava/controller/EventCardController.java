@@ -197,7 +197,7 @@ public class EventCardController extends  ISevecesEvent{
     }
 
     @FXML
-    void participationRefuser(){
+    void participationRefuser() throws Exception {
         int id;
         String query = "UPDATE participation SET etat=? WHERE id_participation=?";
 
@@ -210,6 +210,7 @@ public class EventCardController extends  ISevecesEvent{
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        JavaMailUtil.sendMail("chebili335@gmail.com"," Réponse  du complexe sportif concernant votre demande de participation à un événement \n Nous vous remercions sincèrement pour votre intérêt à participer à notre événement dans notre complexe sportif. Après avoir examiné attentivement votre demande, nous regrettons de vous informer que nous ne pourrons pas donner suite à votre participation pour cette édition de l'événement. ","HelloWorld_out.pdf");
     }
 
 
