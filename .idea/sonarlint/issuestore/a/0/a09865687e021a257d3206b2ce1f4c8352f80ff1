@@ -1,0 +1,29 @@
+
+t	java:S116!"SRename this field "add_user" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âÿÿ˜üÿÿÿÿ8Å…²ëß1
+p	java:S116<"ORename this field "Menu" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ã Ôöýÿÿÿÿ8Æ…²ëß1
+u	java:S116?"TRename this field "MenuClose" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ÿ Ä†ûÿÿÿÿ8Æ…²ëß1
+¤
+java:S1186ƒ"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(§þˆøúÿÿÿÿ8Æ…²ëß1
+u
+java:S1450C"SRemove the "user" field and declare it as a local variable in the relevant methods.(’Ø¾ýÿÿÿÿ8‹¤à1
+O
+java:S1172u"2Remove this unused method parameter "actionEvent".(ä»¼›8Í…²ëß1
+M	java:S106”"+Replace this use of System.out by a logger.(´ûüÿÿÿÿ8Ö…²ëß1
+p	java:S100Ÿ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×ã¡Êøÿÿÿÿ8Ö…²ëß1
+U
+java:S1172Ÿ"2Remove this unused method parameter "actionEvent".(×ã¡Êøÿÿÿÿ8Ö…²ëß1
+[
+java:S1117 "8Rename "user" which hides the field declared at line 67.(”Ú¼Øùÿÿÿÿ8™¤à1
+p	java:S100°"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÔŸ´†úÿÿÿÿ8×…²ëß1
+U
+java:S1172°"2Remove this unused method parameter "actionEvent".(ÔŸ´†úÿÿÿÿ8×…²ëß1
+[
+java:S1117±"8Rename "user" which hides the field declared at line 67.(ÜÕè×þÿÿÿÿ8š¤à1
+J
+java:S1905±"'Remove this unnecessary cast to "User".(ÜÕè×þÿÿÿÿ8Ø…²ëß1
+P
+java:S1172À"2Remove this unused method parameter "actionEvent".(€€“Þ8Ø…²ëß1
+O
+java:S1128"2Remove this unused import 'sample.pidevjava.Main'.(¶íûˆ8 ¬”Æà1
+J
+java:S1068C"(Remove this unused "user" private field.(’Ø¾ýÿÿÿÿ8œ¤à1

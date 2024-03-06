@@ -1,0 +1,26 @@
+
+t
+java:S1192@"RDefine a constant instead of duplicating this literal "-fx-border-color:" 5 times.(ςΜΌΐψÿÿÿÿ8Δ΅ύκί1
+r
+java:S2095ª"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ΚφΟΔϊÿÿÿÿ8ΰ΅ύκί1
+£
+java:S1186]"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Α ώÿÿÿÿ8α΅ύκί1
+I
+java:S1172H",Remove this unused method parameter "event".(ƒΩ„’8δ΅ύκί1
+G	java:S106K"+Replace this use of System.out by a logger.(“…Ψ8δ΅ύκί1
+N
+java:S1172O",Remove this unused method parameter "event".(Ή³“‹ωÿÿÿÿ8δ΅ύκί1
+V
+java:S1854΅"8Remove this useless assignment to local variable "user".(η­‘Ο8μ΅ύκί1
+F
+java:S1481h"*Remove this unused "image" local variable.(ςΆέH8ν΅ύκί1
+S
+java:S2209΅"5Change this instance-reference to a static reference.(η­‘Ο8ο΅ύκί1
+G
+java:S1481΅")Remove this unused "user" local variable.(η­‘Ο8ο΅ύκί1
+c
+java:S2147Ι"ECombine this catch with the one at line 199, which has the same body.(ο­£Δ8π΅ύκί1
+X	java:S125£"<This block of commented-out lines of code should be removed.(Αίλi8κσΐλί1
+X
+java:S2209±"5Change this instance-reference to a static reference.(‹ΤΣΆϋÿÿÿÿ8ρ΅ύκί1
+M	java:S106ω"+Replace this use of System.out by a logger.(υΐΈώÿÿÿÿ8ψ΅ύκί1

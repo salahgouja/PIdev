@@ -1,0 +1,29 @@
+
+l
+java:S2095A"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ùÀ¬Ë8ó‰…Ş1
+r
+java:S2095ß"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(º„ÎØıÿÿÿÿ8ó‰…Ş1
+r
+java:S2095ª"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ü¥Æÿıÿÿÿÿ8›”¦Ş1
+q
+java:S20953"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(£éªÄüÿÿÿÿ8ó‰…Ş1
+r
+java:S2095’"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ûáÖ¤ÿÿÿÿÿ8ó‰…Ş1
+r
+java:S2095¶"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(›…‰­ıÿÿÿÿ8ó‰…Ş1
+G	java:S1067"+Replace this use of System.out by a logger.(ñ·¤¬8ù‰…Ş1
+G	java:S106F"+Replace this use of System.out by a logger.(ñ·¤¬8ù‰…Ş1
+N
+java:S1172K",Remove this unused method parameter "event".(¹Ä£·úÿÿÿÿ8ú‰…Ş1
+X	java:S125Z"<This block of commented-out lines of code should be removed.(”™¼ó8ı‰…Ş1
+N
+java:S1172w",Remove this unused method parameter "event".(üÅœ¬ıÿÿÿÿ8ŠŠ…Ş1
+H	java:S106°"+Replace this use of System.out by a logger.(ñ·¤¬8Š…Ş1
+H	java:S106¿"+Replace this use of System.out by a logger.(ñ·¤¬8Š…Ş1
+;
+java:S2119Ò"Save and re-use this "Random".(¼İÅf8‘Š…Ş1
+H	java:S106æ"+Replace this use of System.out by a logger.(ñ·¤¬8’Š…Ş1
+^	java:S125õ"<This block of commented-out lines of code should be removed.(Åøòüÿÿÿÿÿ8”Š…Ş1
+H	java:S106›"+Replace this use of System.out by a logger.(ñ·¤¬8®¼å’Ş1
+U
+java:S1172¢"2Remove this unused method parameter "actionEvent".(¬¶èôşÿÿÿÿ8îáÆŞ1

@@ -1,0 +1,42 @@
+
+m
+java:S2095¡"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(™ñëô8íš€ãà1
+t
+java:S2095À"QUse try-with-resources or close this "PDPageContentStream" in a "finally" clause.(‡±®şûÿÿÿÿ8íš€ãà1
+k
+java:S2095»"HUse try-with-resources or close this "PDDocument" in a "finally" clause.(³’’ïøÿÿÿÿ8íš€ãà1
+t	java:S116>"XRename this field "PasswordField" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€«³è8îš€ãà1
+z	java:S116A"YRename this field "PasswordField1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŸºòÔşÿÿÿÿ8îš€ãà1
+v	java:S116D"URename this field "PhoneField" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(×—ø²ùÿÿÿÿ8îš€ãà1
+y	java:S116G"XRename this field "VBoxupdatepwd" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Õì„ëúÿÿÿÿ8îš€ãà1
+r	java:S116Y"VRename this field "VBoxprofile" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(óÆµÚ8îš€ãà1
+}	java:S116\"\Rename this field "VBoxupdateprofile" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªÿÏêùÿÿÿÿ8îš€ãà1
+v	java:S116b"ZRename this field "FirstnameField1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹Â¬ò8îš€ãà1
+u	java:S116d"YRename this field "LastnameField1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²ñø8îš€ãà1
+w	java:S116f"VRename this field "PhoneField1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´óø±úÿÿÿÿ8îš€ãà1
+w	java:S116h"VRename this field "EmailField1" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ş¿ûåùÿÿÿÿ8îš€ãà1
+p	java:S116j"ORename this field "Menu" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ã Ôöıÿÿÿÿ8îš€ãà1
+u	java:S116m"TRename this field "MenuClose" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ÿ Ä†ûÿÿÿÿ8îš€ãà1
+v	java:S116{"URename this field "EmailField" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤«„ùÿÿÿÿ8îš€ãà1
+z	java:S116~"YRename this field "FirstnameField" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Êö®ªÿÿÿÿÿ8îš€ãà1
+z	java:S116"XRename this field "LastnameField" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.( £ˆÒûÿÿÿÿ8îš€ãà1
+v
+java:S1450Œ"SRemove the "user" field and declare it as a local variable in the relevant methods.(’Ø¾ıÿÿÿÿ8ïš€ãà1
+^	java:S125™"<This block of commented-out lines of code should be removed.(è”Ùùÿÿÿÿ8‰›€ãà1
+H	java:S106ª"+Replace this use of System.out by a logger.(ñ·¤¬8Š›€ãà1
+M	java:S106É"+Replace this use of System.out by a logger.(Ôã—¦øÿÿÿÿ8Œ›€ãà1
+^	java:S125Ñ"<This block of commented-out lines of code should be removed.(¹›÷‡ûÿÿÿÿ8›€ãà1
+H	java:S106Û"+Replace this use of System.out by a logger.(‡ö€·8›€ãà1
+m
+java:S2674à"JCheck the return value of the "read" call to see how many bytes were read.(Ã®‚Ãùÿÿÿÿ8›€ãà1
+M	java:S106â"+Replace this use of System.out by a logger.(€ô”Üøÿÿÿÿ8›€ãà1
+O
+java:S1128#"-Remove this unused import 'java.util.Random'.(èøÉ›ùÿÿÿÿ8¸¿„ãà1
+;
+java:S11280"Remove this duplicated import.(†Ğ¥Å8‘›€ãà1
+@
+java:S11281"Remove this duplicated import.(ªº»Úıÿÿÿÿ8‘›€ãà1
+K
+java:S1068Œ"(Remove this unused "user" private field.(’Ø¾ıÿÿÿÿ8’›€ãà1
+L
+java:S1144è".Remove this unused private "showAlert" method.(õœƒÃ8àƒãà1
