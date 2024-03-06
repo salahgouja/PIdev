@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="19ceb744-616d-4382-a4d3-5d6106809877" name="Changes" comment="version 1.0">
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/b65f8ed3-ea7a-4743-a9f1-0c902c329fb6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b65f8ed3-ea7a-4743-a9f1-0c902c329fb6.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/d/fdb58388007494e21e1ce1305460b255c61f2fbf" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/d/fdb58388007494e21e1ce1305460b255c61f2fbf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,11 +84,11 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Cherry-picking in master&quot;,
     &quot;javascript.karma.karma_node_package_dir&quot;: &quot;&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_directory_selection&quot;: &quot;C:/Users/Salah Gouja/IdeaProjects/pidevjava/src/main/java/sample/pidevjava&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Salah Gouja/Downloads/wetransfer_maram-rar_2024-03-03_0707/maram&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Salah Gouja/Desktop/GitHub Desktop.lnk&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -210,6 +211,7 @@
       <workItem from="1709342304746" duration="434000" />
       <workItem from="1709344240022" duration="89201000" />
       <workItem from="1709742456173" duration="2832000" />
+      <workItem from="1709749810507" duration="263000" />
     </task>
     <task id="LOCAL-00001" summary="forgetpassword+hashpassword crud+interfaceuser">
       <option name="closed" value="true" />
