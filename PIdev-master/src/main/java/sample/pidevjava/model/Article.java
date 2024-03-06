@@ -1,13 +1,6 @@
 package sample.pidevjava.model;
 
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import sample.pidevjava.db.DBConnection;
-
 public class Article {
     private int idarticle;
     private String titre;
@@ -22,6 +15,16 @@ public class Article {
     private  int nbrdislike;
 
     private String imageFileName;
+
+    private typec t;
+
+    public typec getT() {
+        return t;
+    }
+
+    public void setT(typec t) {
+        this.t = t;
+    }
 
     public Article() {
     }
@@ -52,7 +55,7 @@ public class Article {
     }
 
 
-    public Article(int idarticle, String titre, String description, String date, int nbcommentaire, int iduser, int nbrlike, int nbrdislike, String imageFileName) {
+    public Article(int idarticle, String titre, String description, String date, int nbcommentaire, int iduser, int nbrlike, int nbrdislike, String imageFileName, typec t) {
         this.idarticle = idarticle;
         this.titre = titre;
         this.description = description;
@@ -62,14 +65,9 @@ public class Article {
         this.nbrlike = nbrlike;
         this.nbrdislike = nbrdislike;
         this.imageFileName = imageFileName;
+        this.t=t;
     }
-//    public Article(int iduser, String titre, String description, String date, int nbcommenatire) {
-//        this.titre = titre;
-//        this.description = description;
-//        this.date = date;
-//        this.nbcommentaire = this.nbcommentaire;
-//        this.iduser = iduser;
-//    }
+
 
     public int getIdarticle() {
         return this.idarticle;

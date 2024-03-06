@@ -1,14 +1,65 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<BorderPane id="borderPane" fx:id="borderPane" prefHeight="700.0" prefWidth="1161.0"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sample.pidevjava.controller.DashboardController">
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0" >
+    <!-- Left content -->
+    <left>
+        <VBox id="sideNav" alignment="TOP_CENTER" prefWidth="250.0" spacing="10.0" style="-fx-background-color: #3F3F46;">
+            <HBox id="header" prefHeight="50.0" style="-fx-padding: 0 10 0 10;">
 
-</AnchorPane>
+                <Label style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 15px; -fx-text-fill: white;" text="Admin Dashboard">
+                    <HBox.margin>
+                        <Insets left="10.0" />
+                    </HBox.margin>
+                </Label>
+            </HBox>
+            <Line endX="116.89287567138672" endY="-3.862381163344253E-6" opacity="0.19" startX="-100.0" stroke="WHITE" />
+
+            <Button alignment="CENTER" prefHeight="40.0" prefWidth="220.0" style="-fx-background-color: #DE2667; -fx-background-radius: 5px; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 15px; -fx-text-fill: white; -fx-pref-width: 220px; -fx-pref-height: 40px;" text="Dashboard">
+                <VBox.margin>
+                    <Insets top="20.0" />
+                </VBox.margin>
+            </Button>
+
+        </VBox>
+    </left>
+
+    <!-- Center content -->
+    <center>
+        <VBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #F0F2F5;">
+            <Pane prefHeight="200.0" prefWidth="425.0">
+                <children>
+                    <Text fill="#3f3f46" layoutX="286.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Listes des Articles" wrappingWidth="409.4699784517288">
+                        <font>
+                            <Font size="27.0" />
+                        </font>
+                    </Text>
+                    <Button fx:id="stat" alignment="CENTER" layoutX="14.0" layoutY="45.0" onAction="#stat" prefHeight="40.0" prefWidth="74.0" style="-fx-background-color: #DE2667; -fx-background-radius: 5px; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 15px; -fx-text-fill: white; -fx-pref-width: 2px; -fx-pref-height: 40px;">
+                        <graphic>
+                            <FontAwesomeIconView fill="WHITE" glyphName="BAR_CHART" />
+                        </graphic>
+                    </Button>
+                    <TextField fx:id="search" layoutX="704.0" layoutY="52.0" promptText="Search" />
+                    <FontAwesomeIconView fx:id="btnsearch" fill="#de2667" glyphName="SEARCH" layoutX="871.0" layoutY="73.0" onMouseClicked="#btnsearch" size="1.5em" text="" />
+                </children>
+            </Pane>
+            <ListView fx:id="articleListView" prefHeight="413.0" prefWidth="650.0" />
+        </VBox>
+    </center>
+</BorderPane>

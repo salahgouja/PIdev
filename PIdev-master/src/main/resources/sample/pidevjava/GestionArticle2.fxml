@@ -3,6 +3,7 @@
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -11,63 +12,69 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.TilePane?>
-
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+
 <BorderPane prefHeight="644.0" prefWidth="717.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pidevjava.controller.GestionArticleController">
 
     <top>
-        <AnchorPane prefHeight="100.0" prefWidth="1000.0">
-            <children>
-
-                <ImageView fitHeight="106.0" fitWidth="1602.0" layoutX="-50.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@images/test3.png" />
-
-                    </image>
-                </ImageView>
-            </children>
-        </AnchorPane>
+        <VBox alignment="CENTER" style="-fx-background-color: #bcb8b8;">
+            <ImageView fitHeight="120.0" fitWidth="1280.0">
+                <image>
+                    <Image url="@images/ActiveZone.jpg" />
+                </image>
+            </ImageView>
+        </VBox>
     </top>
 
+    <!-- Left Section -->
     <left>
-        <AnchorPane prefHeight="100.0" prefWidth="100.0">
-            <children>
-
-                <ImageView fitHeight="2000.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@images/test1.png" />
-
-                    </image>
-                </ImageView>
-            </children>
-        </AnchorPane>
+        <VBox prefHeight="221.0" prefWidth="236.0" spacing="10" style="-fx-background-color: #bcb8b8;">
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <TextField fx:id="searchField" promptText="Search by title" />
+                <Button onAction="#handleSearch" style="-fx-background-color: #3c3b3e; -fx-text-fill: white;" text="Search">
+                    <textFill>
+                        <LinearGradient endX="1.0" endY="1.0" startX="0.21590909271529227" startY="0.32196969696969696">
+                            <stops>
+                                <Stop>
+                                    <color>
+                                        <Color />
+                                    </color>
+                                </Stop>
+                                <Stop offset="1.0">
+                                    <color>
+                                        <Color />
+                                    </color>
+                                </Stop>
+                            </stops>
+                        </LinearGradient>
+                    </textFill>
+                </Button>
+            </HBox>
+            <Button onAction="#handleAjouterArticle" style="-fx-background-color: #3c3b3e; -fx-text-fill: white;" text="Ajouter un Article" />
+            <Button onAction="#handleRefresh" style="-fx-background-color: #3c3b3e; -fx-text-fill: white;" text="Refresh" />
+            <ChoiceBox fx:id="typeFilterChoiceBox" onAction="#handleFilter" />
+        </VBox>
     </left>
 
+    <!-- Right Section -->
     <right>
-        <AnchorPane prefHeight="100.0" prefWidth="100.0">
-            <children>
-
-                <ImageView fitHeight="497.0" fitWidth="135.0" layoutX="0.0" layoutY="0.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@images/test1.png" />
-
-                    </image>
-                </ImageView>
-            </children>
-        </AnchorPane>
+        <VBox style="-fx-background-color: #f44336;">
+            <!-- Right Content -->
+        </VBox>
     </right>
 
+    <!-- Center Section -->
     <center>
         <VBox alignment="CENTER" spacing="10">
-            <HBox spacing="10">
-                <TextField fx:id="searchField" promptText="Search by title" />
-                <Button onAction="#handleSearch" text="Search" />
-            </HBox>
-            <ScrollPane prefHeight="490.0" prefWidth="1037.0">
+            <!-- Center Content -->
+            <ScrollPane prefHeight="599.0" prefWidth="466.0">
                 <content>
                     <AnchorPane prefHeight="310.0" prefWidth="682.0">
                         <children>
-                            <TilePane fx:id="articleContainer" alignment="center" hgap="40" layoutX="-14.0" prefHeight="480.0" prefWidth="994.0" vgap="40">
+                            <TilePane fx:id="articleContainer" alignment="CENTER" hgap="40" layoutX="-22.0" prefHeight="581.0" prefWidth="994.0" style="-fx-background-color: #ececec;" vgap="40">
                                 <opaqueInsets>
                                     <Insets />
                                 </opaqueInsets>
@@ -82,10 +89,10 @@
         </VBox>
     </center>
 
+    <!-- Bottom Section -->
     <bottom>
-        <HBox prefWidth="997.0" spacing="10">
-            <Button onAction="#handleRefresh" text="Refresh" />
-            <Button onAction="#handleAjouterArticle" text="Ajouter un Article" />
+        <HBox alignment="CENTER" spacing="10" style="-fx-background-color: #f44336;">
+            <!-- Bottom Content -->
         </HBox>
     </bottom>
 

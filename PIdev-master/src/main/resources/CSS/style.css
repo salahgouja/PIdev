@@ -60,6 +60,8 @@
     -fx-text-fill: #cccccc; /* Light gray text color */
 }
 
+
+
 /* Comment date styling */
 .comment-date {
     -fx-font-size: 10px;
@@ -93,6 +95,7 @@
     -fx-start-margin: 0px;
 
 }
+
 
 
 

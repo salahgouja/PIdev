@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
@@ -17,6 +18,7 @@ import javafx.stage.Stage;
 import sample.pidevjava.db.DBConnection;
 import sample.pidevjava.model.Article;
 import sample.pidevjava.model.Commentaire;
+import sample.pidevjava.model.typec;
 
 import java.io.IOException;
 import java.net.URL;
@@ -41,7 +43,7 @@ public class GestionArticleController implements Initializable {
 
     private List<Article> articles;
     @FXML
-    private ComboBox<String> filterTypeComboBox;
+    private ChoiceBox<typec> typeFilterChoiceBox;
 
     @FXML
     private TextField filterValueTextField;
@@ -50,8 +52,44 @@ public class GestionArticleController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         loadArticles();
-
+        populateTypeFilterChoiceBox();
     }
+
+    private void populateTypeFilterChoiceBox() {
+        List<typec> types = articles.stream()
+                .map(Article::getT)
+                .distinct()
+                .collect(Collectors.toList());
+
+        types.add(0, typec.All); // Add "All" at the beginning of the list
+
+        typeFilterChoiceBox.getItems().addAll(types);
+    }
+
+
+
+    @FXML
+    public void handleFilter(ActionEvent event) {
+        typec selectedType = typeFilterChoiceBox.getValue();
+
+        List<Article> filteredArticles;
+        if (selectedType == typec.All) {
+            filteredArticles = articles;
+        } else {
+            filteredArticles = articles.stream()
+                    .filter(article -> article.getT() == selectedType)
+                    .collect(Collectors.toList());
+        }
+
+        articleContainer.getChildren().clear();
+        for (Article article : filteredArticles) {
+            ArticleCard card = new ArticleCard(article);
+            articleContainer.getChildren().add(card);
+        }
+    }
+
+
+
 
 
 
@@ -74,10 +112,11 @@ public class GestionArticleController implements Initializable {
                 int iduser = rs.getInt("iduser");
                 int nbrlike = rs.getInt("nbrlike");
                 int nbrdislike = rs.getInt("nbrdislike");
-                String imageFileName = rs.getString("imageFileName"); // Fetch image file name from the database
+                String imageFileName = rs.getString("imageFileName");// Fetch image file name from the database
+                typec t = typec.valueOf(rs.getString("choice"));
 
-                Article article = new Article(idarticle, titre, description, date, nbcommentaire, iduser, nbrlike, nbrdislike, imageFileName);
-                articles.add(article); // Add each article to the articles list
+                Article article = new Article(idarticle, titre, description, date, nbcommentaire, iduser, nbrlike, nbrdislike, imageFileName, t);
+                articles.add(article);
 
                 VBox articleBox = new VBox();
                 ArticleCard articleCard = new ArticleCard(article);

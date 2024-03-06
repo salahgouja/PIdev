@@ -31,7 +31,7 @@ public class Main extends Application {
 
         BorderPane root = new BorderPane();
 
-        Scene scene = new Scene(fxmlLoader.load(), 800, bounds.getHeight());
+        Scene scene = new Scene(fxmlLoader.load(), 1300, bounds.getHeight());
         primaryStage.setScene(scene);
 
         primaryStage.setY(bounds.getMinY());

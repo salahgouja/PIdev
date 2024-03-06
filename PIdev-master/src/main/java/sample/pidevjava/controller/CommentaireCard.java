@@ -1,14 +1,14 @@
 package sample.pidevjava.controller;
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import sample.pidevjava.db.DBConnection;
@@ -23,6 +23,10 @@ public class CommentaireCard extends StackPane {
     private Button modButton;
     private Button supButton;
 
+    public CommentaireCard() {
+        // This constructor can be empty or initialized with default values
+    }
+
     public CommentaireCard(Commentaire commentaire) {
         this.commentaire = commentaire;
 
@@ -33,6 +37,10 @@ public class CommentaireCard extends StackPane {
         Label dateLabel = new Label("Date: " + commentaire.getDate());
         dateLabel.setFont(Font.font("Arial", 10));
         dateLabel.setTextFill(Color.DARKGRAY);
+
+        FontAwesomeIconView commentIcon = new FontAwesomeIconView(FontAwesomeIcon.COMMENT_ALT);
+        commentIcon.setFill(Color.DARKGOLDENROD);
+        commentIcon.setSize("16px");
 
         modButton = new Button("Mod");
         modButton.setVisible(false);
@@ -55,10 +63,9 @@ public class CommentaireCard extends StackPane {
                 updateCommentaire(newContenu);
                 contenuLabel.setText(newContenu);
                 textField.clear();
-                getChildren().remove(modifierBox); // Remove the modifierBox after updating
+                getChildren().remove(modifierBox);
             });
         });
-
 
         supButton.setOnAction(event -> {
             int idcom = commentaire.getIdcom();
@@ -69,16 +76,23 @@ public class CommentaireCard extends StackPane {
         HBox buttonBox = new HBox(modButton, supButton);
         buttonBox.setAlignment(Pos.BOTTOM_RIGHT);
 
-        BorderPane contentPane = new BorderPane();
-        contentPane.setTop(contenuLabel);
-        contentPane.setLeft(dateLabel);
-        contentPane.setBottom(buttonBox);
-        contentPane.setPadding(new Insets(10));
-        contentPane.setStyle("-fx-background-color: #f0f0f0; -fx-border-color: #ccc; -fx-border-width: 1px;");
+        BorderPane headerPane = new BorderPane();
+        headerPane.setLeft(contenuLabel);
+        headerPane.setBottom(dateLabel);
+        headerPane.setRight(commentIcon);
+        headerPane.setPadding(new Insets(5));
+        headerPane.setStyle("-fx-background-color: #cce5ff; -fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #99c2ff; -fx-border-width: 1px;");
+        headerPane.setEffect(new DropShadow());
 
-        getChildren().add(contentPane);
-        setPadding(new Insets(5));
+        BorderPane contentPane = new BorderPane();
+        contentPane.setTop(headerPane);
+        contentPane.setBottom(buttonBox);
+        contentPane.setPadding(new Insets(5));
+        contentPane.setStyle("-fx-background-color: transparent;");
+
+        setPadding(new Insets(0, 5, 5, 5));
         setMaxWidth(300);
+        getChildren().add(contentPane);
 
         setOnMouseClicked(event -> {
             modButton.setVisible(!modButton.isVisible());

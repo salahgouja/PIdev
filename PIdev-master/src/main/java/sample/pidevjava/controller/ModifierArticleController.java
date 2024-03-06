@@ -10,8 +10,10 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import sample.pidevjava.db.DBConnection;
 import sample.pidevjava.model.Article;
 
@@ -22,6 +24,9 @@ public class ModifierArticleController implements Initializable {
 
     @FXML
     private TextArea descriptionArea;
+    @FXML
+    private Button ajouterButton;
+
 
     private Article articleToUpdate;
 
@@ -51,11 +56,16 @@ public class ModifierArticleController implements Initializable {
                 System.out.println("Article updated successfully.");
                 ps.close();
                 connection.close();
+
+                // Close the stage
+                Stage stage = (Stage) ajouterButton.getScene().getWindow();
+                stage.close();
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
         }
     }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

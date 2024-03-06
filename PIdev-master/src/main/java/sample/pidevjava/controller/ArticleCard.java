@@ -1,20 +1,24 @@
 package sample.pidevjava.controller;
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-import sample.pidevjava.controller.GestionCommentaire;
-import sample.pidevjava.controller.ModifierArticleController;
 import sample.pidevjava.db.DBConnection;
 import sample.pidevjava.model.Article;
+import sample.pidevjava.model.typec;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -22,15 +26,23 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class ArticleCard extends StackPane {
+
+    private static boolean appelDOffreSelected = false;
+
+    public static void setAppelDOffreSelected(boolean selected) {
+        appelDOffreSelected = selected;
+    }
     private Article article;
 
-    private ImageView imageView;
     private Button modifierButton;
     private Button supprimerButton;
     private VBox content;
 
     private Button likeButton;
     private Button dislikeButton;
+
+
+    private Hyperlink link;
 
     public ArticleCard(Article article) {
         this.article = article;
@@ -52,15 +64,17 @@ public class ArticleCard extends StackPane {
         Label nbrdislike = new Label("Dislikes: " + article.getNbrdislike());
         nbrdislike.getStyleClass().add("article-date");
 
-
-
-
-
-        content = new VBox(titleLabel, descriptionLabel, dateLabel, commentLabel, nbrlike, nbrdislike );
+        content = new VBox(titleLabel, descriptionLabel, dateLabel, commentLabel, nbrlike, nbrdislike);
         content.getStyleClass().add("article-content");
+        content.setPrefSize(300, 200);
 
-        likeButton = new Button("Like");
-        likeButton.getStyleClass().add("like-button");
+        likeButton = new Button();
+        FontAwesomeIconView likeIcon = new FontAwesomeIconView(FontAwesomeIcon.THUMBS_ALT_UP);
+        likeIcon.setFill(Color.BEIGE);
+        likeIcon.setSize("1.5em");
+
+        likeButton.setStyle("-fx-background-color: #4c5df2; ");
+        likeButton.setGraphic(new FontAwesomeIconView(FontAwesomeIcon.THUMBS_UP));
         likeButton.setOnAction(e -> {
             System.out.println("Like clicked for article: " + article.getIdarticle());
             try {
@@ -80,8 +94,13 @@ public class ArticleCard extends StackPane {
 
         });
 
-        dislikeButton = new Button("Dislike");
+        dislikeButton = new Button();
+        FontAwesomeIconView dislikeIcon = new FontAwesomeIconView(FontAwesomeIcon.THUMBS_DOWN);
+        dislikeIcon.setSize("1.5em");
+        dislikeButton.setGraphic(dislikeIcon);
         dislikeButton.getStyleClass().add("dislike-button");
+        dislikeButton.setStyle("-fx-background-color: #fc2020; -fx-text-fill: red;");
+        dislikeButton.setGraphic(new FontAwesomeIconView(FontAwesomeIcon.THUMBS_DOWN));
         dislikeButton.setOnAction(e -> {
             System.out.println("Dislike clicked for article: " + article.getIdarticle());
             try {
@@ -164,9 +183,24 @@ public class ArticleCard extends StackPane {
             }
         });
 
-        HBox commentBox = new HBox(commentField, ajouterCommentaireButton);
-        commentBox.getStyleClass().add("comment-box");
-        content.getChildren().add(commentBox);
+        content.getChildren().add(new HBox(commentField, ajouterCommentaireButton));
+
+
+        if (article.getT() == typec.APPELLE_D_OFFRE) {
+            link = new Hyperlink("Link to formulaire");
+            link.setOnAction(ev -> {
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/pidevjava/formulaireappel.fxml"));
+                    Parent root = loader.load();
+                    Stage stage = new Stage();
+                    stage.setScene(new Scene(root));
+                    stage.show();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            });
+            content.getChildren().add(link);
+        }
     }
 
     private void addComment(String commentaire) {
@@ -189,5 +223,4 @@ public class ArticleCard extends StackPane {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-    }
-}
+    }}
