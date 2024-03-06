@@ -6,8 +6,8 @@ import java.util.Properties;
 
 public class DBConnection {
 
-    private static  DBConnection dbConnection;
-    private final Connection connection ;
+    private static DBConnection dbConnection;
+    private Connection connection;
 
     public DBConnection(){
         try {
@@ -51,7 +51,6 @@ public class DBConnection {
             }
 
         } catch (ClassNotFoundException | SQLException e) {
-            throw new RuntimeException(e);
 
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
@@ -70,3 +69,8 @@ public class DBConnection {
     }
 
 }
+
+
+        
+            
+         

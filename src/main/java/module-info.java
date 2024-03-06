@@ -14,10 +14,14 @@ module sample.pidevjava {
     requires org.apache.pdfbox;
     requires twilio;
 
+    requires java.mail;
+    requires aspose.pdf;
+
     opens sample.pidevjava to javafx.fxml;
 
     exports sample.pidevjava;
     exports sample.pidevjava.controller;
+
     opens sample.pidevjava.controller to javafx.fxml;
     opens sample.pidevjava.model to javafx.base;
 

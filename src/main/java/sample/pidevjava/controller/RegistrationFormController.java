@@ -12,7 +12,6 @@ import sample.pidevjava.model.User;
 import sample.pidevjava.model.UserRole;
 import sample.pidevjava.validator.UserValidator;
 
-
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
@@ -22,7 +21,6 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.*;
 import java.util.Properties;
-
 
 public class RegistrationFormController {
     @FXML
@@ -42,16 +40,14 @@ public class RegistrationFormController {
     @FXML
     private Label lblpasswordconfirm;
     @FXML
-    private BorderPane root2 ;
+    private BorderPane root2;
     @FXML
     private Label lblemail;
     @FXML
     private Label lblphone;
     private UserRole userRole;
 
-
-
-    public void initialize()  {
+    public void initialize() {
         lblpassword.setVisible(false);
         lblpasswordconfirm.setVisible(false);
         lblemail.setVisible(false);
@@ -59,7 +55,7 @@ public class RegistrationFormController {
         setBorderColor("transparent");
     }
 
-    private void setBorderColor (String color){
+    private void setBorderColor(String color) {
         password.setStyle(" -fx-border-color: " + color);
         passwordconfirm.setStyle("-fx-border-color:" + color);
         email.setStyle("-fx-border-color:" + color);
@@ -68,10 +64,9 @@ public class RegistrationFormController {
         lastname.setStyle("-fx-border-color:" + color);
     }
 
-
     public void btnSignup(ActionEvent event) {
 
-        DBConnection conncexion = DBConnection.getInstance() ;
+        DBConnection conncexion = DBConnection.getInstance();
         System.out.println(conncexion);
         register();
     }
@@ -101,8 +96,7 @@ public class RegistrationFormController {
         String useremail = email.getText();
         String pass = password.getText();
         String newpasswordconfirm = passwordconfirm.getText();
-        String image = null ;
-
+        String image = null;
 
         boolean isValid = true;
 
@@ -155,52 +149,48 @@ public class RegistrationFormController {
         File qrCodeFile = qrCodeGenerator.generateQRCode(useremail, pass);
         pass = HashPasswordController.hashPassword(pass);
 
-
-
         // Créer un objet User avec les données saisies par l'utilisateur
-        User user = new User(userfirstname, userlastname, mobilephone, useremail, pass, String.valueOf(userRole.USER), null, qrCodeFile.getAbsolutePath());
+        User user = new User(userfirstname, userlastname, mobilephone, useremail, pass, String.valueOf(userRole.USER),
+                null, qrCodeFile.getAbsolutePath());
 
-        //if (!UserValidator.validate(user)){
+        // if (!UserValidator.validate(user)){
 
-            try {
+        try {
 
-                Connection connection = DBConnection.getInstance().getConnection();
+            Connection connection = DBConnection.getInstance().getConnection();
 
+            PreparedStatement preparedStatement = connection.prepareStatement(
+                    "INSERT INTO user (firstname, lastname, phone, email, password,role,qrcode) VALUES (?,?, ?, ?, ?, ?, ?)");
 
-                PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO user (firstname, lastname, phone, email, password,role,qrcode) VALUES (?,?, ?, ?, ?, ?, ?)");
+            preparedStatement.setString(1, userfirstname);
+            preparedStatement.setString(2, userlastname);
+            preparedStatement.setString(3, mobilephone);
+            preparedStatement.setString(4, useremail);
+            preparedStatement.setString(5, pass);
+            preparedStatement.setString(6, String.valueOf(userRole.USER));
 
-                preparedStatement.setString(1, userfirstname);
-                preparedStatement.setString(2, userlastname);
-                preparedStatement.setString(3, mobilephone);
-                preparedStatement.setString(4, useremail);
-                preparedStatement.setString(5, pass);
-                preparedStatement.setString(6, String.valueOf(userRole.USER));
+            preparedStatement.setString(7, qrCodeFile.getAbsolutePath());
 
-                preparedStatement.setString(7,qrCodeFile.getAbsolutePath());
+            int i = preparedStatement.executeUpdate();
 
+            if (i != 0) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Success");
+                alert.showAndWait();
+                sendQRCodeByEmail(useremail, qrCodeFile);
 
-                int i = preparedStatement.executeUpdate();
-
-
-                if (i != 0) {
-                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Success");
-                    alert.showAndWait();
-                    sendQRCodeByEmail(useremail, qrCodeFile);
-
-
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/pidevjava/LoginForm.fxml"));
-                    Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-                    Stage primarystage = (Stage) root2.getScene().getWindow();
-                    primarystage.setScene(scene);
-                    primarystage.setTitle("Login Form");
-                    primarystage.centerOnScreen();
-                }
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/pidevjava/LoginForm.fxml"));
+                Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+                Stage primarystage = (Stage) root2.getScene().getWindow();
+                primarystage.setScene(scene);
+                primarystage.setTitle("Login Form");
+                primarystage.centerOnScreen();
+            }
 
         } catch (SQLException e) {
-                throw new RuntimeException(e);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void sendQRCodeByEmail(String userEmail, File qrCodeFile) {
@@ -252,6 +242,4 @@ public class RegistrationFormController {
         }
     }
 
-
 }
-

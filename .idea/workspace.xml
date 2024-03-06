@@ -8,6 +8,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/b65f8ed3-ea7a-4743-a9f1-0c902c329fb6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/b65f8ed3-ea7a-4743-a9f1-0c902c329fb6.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/d/fdb58388007494e21e1ce1305460b255c61f2fbf" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/d/fdb58388007494e21e1ce1305460b255c61f2fbf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="19ceb744-616d-4382-a4d3-5d6106809877" name="Changes" comment="card">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/EventCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/EventCardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/EventsPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/EventsPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/dashboardEvent.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/dashboardEvent.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp_image.png" beforeDir="false" afterPath="$PROJECT_DIR$/temp_image.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +24,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="AnnotationType" />
+        <option value="Interface" />
+        <option value="Enum" />
         <option value="CSS File" />
         <option value="FxmlFile" />
         <option value="Class" />
@@ -29,6 +37,12 @@
     <option name="BRANCH" value="origin/rania" />
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--follow-tags" />
+        <option name="title" value="Current Branch" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="rania" />
@@ -120,8 +134,11 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Salah Gouja\IdeaProjects\pidevjava\src\main\resources\sample\pidevjava\style" />
       <recent name="C:\Users\Salah Gouja\IdeaProjects\pidevjava\src\main\resources\sample\CSS" />
+      <recent name="C:\Users\ASUS\PIdev\src\main\resources\sample\pidevjava\images" />
+      <recent name="C:\Users\ASUS\PIdev\src\main\resources\sample\pidevjava" />
+      <recent name="C:\Users\ASUS\PIdev\src\main\resources\images" />
+      <recent name="C:\Users\ASUS\PIdev\src\images" />
       <recent name="C:\Users\Salah Gouja\IdeaProjects\pidevjava\src\main\resources\sample\pidevjava" />
-      <recent name="C:\Users\Salah Gouja\IdeaProjects\pidevjava\src\main\resources\sample\pidevjava\FXML" />
     </key>
   </component>
   <component name="RunManager">
@@ -141,13 +158,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="sample.pidevjava.Main" />
+      <module name="pidevjava" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -246,6 +259,29 @@
       <updated>1709743031978</updated>
     </task>
     <option name="localTasksCounter" value="5" />
+      <workItem from="1707162406344" duration="2809000" />
+      <workItem from="1707220074898" duration="14211000" />
+      <workItem from="1707306282888" duration="10000" />
+      <workItem from="1707306319535" duration="18000" />
+      <workItem from="1707409231928" duration="31577000" />
+      <workItem from="1708169489848" duration="38467000" />
+      <workItem from="1708518418994" duration="13800000" />
+      <workItem from="1708551590297" duration="977000" />
+      <workItem from="1708552827808" duration="28334000" />
+      <workItem from="1708774477848" duration="63715000" />
+      <workItem from="1709028515272" duration="21956000" />
+      <workItem from="1709320553882" duration="2486000" />
+      <workItem from="1709323062615" duration="37089000" />
+    </task>
+    <task id="LOCAL-00001" summary="card">
+      <option name="closed" value="true" />
+      <created>1708697422004</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1708697422004</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
