@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pidevjava.controller.Dashbordappelcontrolleur">
+    <children>
+        <AnchorPane layoutX="-136.0" prefHeight="858.0" prefWidth="1114.0" style="-fx-background-color: #030307; -fx-background-radius: 15;">
+            <children>
+
+                <VBox layoutY="-38.0" prefHeight="858.0" prefWidth="0.0" style="-fx-background-color: #131022; -fx-background-radius: 15 0 0 15;" AnchorPane.bottomAnchor="38.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="-38.0" />
+                <Label layoutX="173.0" layoutY="18.0" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="27.0" />
+                    </font>
+                </Label>
+                <Label layoutX="331.0" layoutY="44.0" prefHeight="58.0" prefWidth="524.0" text="Liste des appels d'offres" textFill="LIGHTBLUE">
+                    <font>
+                        <Font name="Segoe UI Black" size="40.0" />
+                    </font>
+                </Label>
+                <Button fx:id="ajouterBtn" layoutX="249.0" layoutY="761.0" mnemonicParsing="false" onAction="#accepter" prefHeight="31.0" prefWidth="138.0" style="-fx-background-color: #228B22;" text="valider" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Button>
+                <Button id="delete" fx:id="deleteBtn" layoutX="870.0" layoutY="761.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="31.0" prefWidth="138.0" style="-fx-background-color: #228B22;" text="Delete" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="18.0" />
+                    </font>
+                </Button>
+            <Button id="delete" fx:id="voir" layoutX="569.0" layoutY="761.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="138.0" style="-fx-background-color: #228B22;" text="apercu" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="tri" layoutX="899.0" layoutY="218.0" mnemonicParsing="false" onAction="#trii" prefHeight="40.0" prefWidth="45.0" style="-fx-background-color: #228B22;" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+                <VBox fx:id="motsScoresVBoxContainer" layoutX="157.0" layoutY="142.0">
+                    <Label text="Mots et Scores" textFill="LIGHTBLUE">
+                  <font>
+                     <Font name="System Italic" size="25.0" />
+                  </font></Label>
+                    <HBox>
+                        <TextField fx:id="motTextField" />
+                        <TextField fx:id="scoreTextField" />
+                        <Button fx:id="ajout" onAction="#ajouterMotScore" text="Ajouter">
+                     <font>
+                        <Font name="System Italic" size="12.0" />
+                     </font></Button>
+                    </HBox>
+                </VBox>
+            <Button fx:id="cal" layoutX="585.0" layoutY="184.0" mnemonicParsing="false" onAction="#handleCalculButtonAction" text="score" textOverrun="LEADING_ELLIPSIS">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font></Button>
+            <Button fx:id="apercu" layoutX="767.0" layoutY="218.0" mnemonicParsing="false" onAction="#apercu" prefHeight="36.0" prefWidth="55.0" style="-fx-background-color: #228B22;" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="sup" layoutX="961.0" layoutY="218.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="40.0" prefWidth="46.0" style="-fx-background-color: #228B22;" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="fill1" layoutX="839.0" layoutY="218.0" mnemonicParsing="false" onAction="#accepter" prefHeight="40.0" prefWidth="45.0" style="-fx-background-color: #228B22;" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="26.0" fitWidth="34.0" layoutX="971.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/delete.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="26.0" fitWidth="33.0" layoutX="909.0" layoutY="225.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/down-arrow.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="26.0" fitWidth="35.0" layoutX="849.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/accept.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="26.0" fitWidth="34.0" layoutX="782.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/preview.png" />
+               </image>
+            </ImageView>
+
+
+                
+            </children>
+        </AnchorPane>
+      <ScrollPane layoutX="89.0" layoutY="262.0" prefHeight="585.0" prefWidth="787.0">
+         <content>
+            <GridPane fx:id="gridPane">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+            </GridPane>
+         </content>
+      </ScrollPane>
+    </children>
+</AnchorPane>

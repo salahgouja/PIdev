@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<!-- Carteview.fxml -->
+
+<VBox prefHeight="475.0" prefWidth="517.0" stylesheets="@Appelview.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pidevjava.controller.Appelview">
+   <children>
+      <AnchorPane prefHeight="454.0" prefWidth="499.0">
+         <!-- Vos éléments FXML ici -->
+      
+         <children>
+            <Label layoutX="-2.0" layoutY="190.0" prefHeight="18.0" prefWidth="139.0" text="Numero de whatsapp:" />
+            <Label layoutX="14.0" layoutY="91.0" prefHeight="18.0" prefWidth="35.0" text="Nom:" />
+            <Label layoutX="14.0" layoutY="221.0" prefHeight="18.0" prefWidth="106.0" text="Prix:" />
+            <Label layoutY="137.0" prefHeight="18.0" prefWidth="54.0" text="Prenom" />
+            <Text layoutX="166.0" layoutY="290.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="87.58303260803223" />
+            <Label layoutX="18.0" layoutY="261.0" text="cv" />
+            <Label layoutX="15.0" layoutY="293.0" text="cv filtré" />
+            <TextArea fx:id="filtreTF" layoutX="83.0" layoutY="293.0" prefHeight="82.0" prefWidth="219.0" />
+            <Text fx:id="prixTF" layoutX="68.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="61.98307228088379" />
+            <Text fx:id="cvTF" layoutX="61.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="409.18308448791504" />
+            <Text fx:id="numeroTF" layoutX="137.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="61.98307228088379" />
+            <Text fx:id="nomTF" layoutX="72.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="123.20000000000005" />
+            <Text fx:id="prenomTF" layoutX="75.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="158.78306007385254" />
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="297.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/appel_offres1.jpg" />
+               </image>
+            </ImageView>
+            <Text fx:id="scoreTF" layoutX="99.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="61.98307228088379" />
+            <Label layoutX="21.0" layoutY="383.0" text="score" />
+
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
