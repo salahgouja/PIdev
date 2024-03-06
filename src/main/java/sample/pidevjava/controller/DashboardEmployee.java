@@ -64,6 +64,7 @@ public class DashboardEmployee implements Initializable {
 
     @FXML
     private AnchorPane slider;
+    private User user;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -116,7 +117,7 @@ public class DashboardEmployee implements Initializable {
     public void logout(ActionEvent actionEvent) {
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("LoginForm.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/pidevjava/LoginForm.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 14000, 800);
             Stage primarystage = (Stage) logout.getScene().getWindow();
             primarystage.setScene(scene);
@@ -190,11 +191,15 @@ public class DashboardEmployee implements Initializable {
 
     public void navigatetoadduser(ActionEvent actionEvent) throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("AddUserForm.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/pidevjava/AddUserForm.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage primaryStage = (Stage) add.getScene().getWindow();
         primaryStage.setScene(scene);
         primaryStage.setTitle("AddUserForm");
         primaryStage.centerOnScreen();
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

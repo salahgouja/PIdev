@@ -1,5 +1,7 @@
 package sample.pidevjava.model;
 
+import javafx.scene.image.Image;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -23,6 +25,21 @@ public class User {
 
 
     public User() {
+    }
+
+    public User(String email) {
+        this.email = email;
+    }
+
+    public User(int id, String email, String password) {
+        this.id = id;
+        this.email = email;
+        this.password = password;
+    }
+
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
     }
 
     public User(int id, String firstname, String lastname, String email, String phone, String password, String role) {
@@ -174,6 +191,7 @@ public class User {
                 ", role=" + role +
                 '}';
     }
+
 
 
 }

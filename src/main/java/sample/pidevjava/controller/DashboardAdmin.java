@@ -86,21 +86,14 @@ public class DashboardAdmin implements Initializable {
     private ChoiceBox<UserRole> RoleFieldchoise;
 
     @FXML
-    private Button add;
-
-    @FXML
-    private Button delete;
-
-    @FXML
-    private Button editbutton;
-
-
-
-    @FXML
     private ListView<User> mylistview;
 
-    @FXML
-    private Button uploadButton;
+
+    private User user;
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
 
     public class UserCellFactory implements Callback<ListView<User>, ListCell<User>> {
@@ -374,6 +367,14 @@ public class DashboardAdmin implements Initializable {
             });
         });
 
+ /*       if (user != null) {
+            FirstnameLabel.setText(user.getFirstname());
+            FastnameLabel.setText(user.getLastname());
+            PhoneLabel.setText(user.getPhone());
+            EmailLabel.setText(user.getEmail());
+        }
+*/
+
 
     }
 
@@ -397,7 +398,7 @@ public class DashboardAdmin implements Initializable {
     public void logout(ActionEvent actionEvent) {
 
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("LoginForm.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/sample/pidevjava/LoginForm.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 600, 400);
             Stage primarystage = (Stage) logout.getScene().getWindow();
             primarystage.setScene(scene);
