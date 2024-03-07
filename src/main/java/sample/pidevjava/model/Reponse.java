@@ -1,4 +1,4 @@
-package models;
+package sample.pidevjava.model;
 
 public class Reponse {
     private int id;

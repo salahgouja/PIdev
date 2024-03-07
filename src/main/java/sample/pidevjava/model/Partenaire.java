@@ -1,4 +1,4 @@
-package models;
+package sample.pidevjava.model;
 
 public class Partenaire {
     private int id_partenaire;

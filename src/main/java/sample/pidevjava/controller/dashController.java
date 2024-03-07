@@ -1,4 +1,4 @@
-package GUI;
+package sample.pidevjava.controller;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,8 +13,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ListCell;
 import javafx.scene.input.MouseEvent;
-import models.Partenaire;
-import services.PartenaireService;
+import sample.pidevjava.model.Partenaire;
+import sample.pidevjava.controller.PartenaireService;
 
 import java.io.IOException;
 import java.net.URL;
@@ -85,7 +85,7 @@ public class dashController implements Initializable {
                     setGraphic(null);
                 } else {
                     try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/partenaireCardDash.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/pidevjava/partenaireCardDash.fxml"));
                         Node node = loader.load();
                         CardController controller = loader.getController();
                         controller.setEventData(item);
@@ -124,7 +124,7 @@ public class dashController implements Initializable {
         });
     }
     @FXML
-  void refresh(ActionEvent event) {
+    void refresh(ActionEvent event) {
         try {
             PartenaireService par = new PartenaireService();
             partenaires = par.getPartenaireList();

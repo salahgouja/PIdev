@@ -1,4 +1,4 @@
-package org.example;
+package sample.pidevjava;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,13 +10,14 @@ import java.io.IOException;
 public class Home extends Application {
 
     public static void main(String[] args) {
+        
         launch(args);
     }
 
     @Override
     public void start(Stage primaryStage) {
 
-        FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/dash.fxml"));
+        FXMLLoader loader2 = new FXMLLoader(getClass().getResource("/sample/pidevjava/front.fxml"));
         try {
             Parent root = loader2.load();
             primaryStage.setTitle("Dashboard");

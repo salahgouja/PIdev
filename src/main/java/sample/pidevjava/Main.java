@@ -1,4 +1,4 @@
-package org.example;
+package sample.pidevjava;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="835.0" prefWidth="1475.0" styleClass="anchor-pane" stylesheets="@style/dashboardCSS.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.dashController">
+<AnchorPane prefHeight="835.0" prefWidth="1475.0" styleClass="anchor-pane" stylesheets="@style/dashboardCSS.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pidevjava.GUI.dashController">
     <children>
       <BorderPane prefHeight="762.0" prefWidth="1466.0">
          <top>

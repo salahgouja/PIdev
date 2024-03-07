@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane prefHeight="36.0" prefWidth="988.0" stylesheets="@style/eventCssFile.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CardController">
+<AnchorPane prefHeight="36.0" prefWidth="988.0" stylesheets="@style/eventCssFile.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pidevjava.GUI.CardController">
    <children>
       <HBox prefHeight="36.0" prefWidth="988.0" styleClass="card" stylesheets="@style/eventCssFile.css">
          <children>
