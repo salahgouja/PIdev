@@ -7,12 +7,12 @@ import sample.pidevjava.interfaces.IService;
 import sample.pidevjava.model.User;
 import sample.pidevjava.model.UserRole;
 
-
 import java.sql.*;
 import java.util.ArrayList;
 
-
 public class UserController implements IService<User> {
+
+    Connection connection = DBConnection.getInstance().getConnection();
 
     Connection connection = DBConnection.getInstance().getConnection();
 
@@ -21,7 +21,8 @@ public class UserController implements IService<User> {
 
         try {
 
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO USER (firstname, lastname, phone, email, password, role,image) VALUES (?,?, ?, ?, ?, ?, ?)");
+            PreparedStatement preparedStatement = connection.prepareStatement(
+                    "INSERT INTO USER (firstname, lastname, phone, email, password, role,image) VALUES (?,?, ?, ?, ?, ?, ?)");
 
             preparedStatement.setString(1, user.getFirstname());
             preparedStatement.setString(2, user.getLastname());
@@ -29,7 +30,7 @@ public class UserController implements IService<User> {
             preparedStatement.setString(4, user.getEmail());
             preparedStatement.setString(5, user.getPassword());
             preparedStatement.setString(6, user.getRole().toString());
-            preparedStatement.setString(7, user.getImage()) ;
+            preparedStatement.setString(7, user.getImage());
 
             preparedStatement.executeUpdate();
 
@@ -37,14 +38,13 @@ public class UserController implements IService<User> {
             System.out.println(exception.getMessage());
         }
 
-
     }
-
 
     @Override
     public void update(User user) {
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE user SET firstname = ?, lastname = ?, phone = ?, email = ?, password = ?, role = ? ,image = ? WHERE id = ?");
+            PreparedStatement preparedStatement = connection.prepareStatement(
+                    "UPDATE user SET firstname = ?, lastname = ?, phone = ?, email = ?, password = ?, role = ? ,image = ? WHERE id = ?");
 
             preparedStatement.setString(1, user.getFirstname());
             preparedStatement.setString(2, user.getLastname());
@@ -52,7 +52,7 @@ public class UserController implements IService<User> {
             preparedStatement.setString(4, user.getEmail());
             preparedStatement.setString(5, user.getPassword());
             preparedStatement.setString(6, user.getRole().toString());
-            preparedStatement.setString(7, user.getImage()) ;
+            preparedStatement.setString(7, user.getImage());
             preparedStatement.setInt(8, user.getId());
 
             preparedStatement.executeUpdate();
@@ -61,7 +61,6 @@ public class UserController implements IService<User> {
             System.out.println(exception.getMessage());
         }
     }
-
 
     @Override
     public void delete(User user) {
@@ -74,6 +73,7 @@ public class UserController implements IService<User> {
             System.out.println(exception.getMessage());
         }
     }
+
     @Override
     public ArrayList<User> getAllUsers() {
         ArrayList<User> userList = new ArrayList<>();
@@ -88,7 +88,7 @@ public class UserController implements IService<User> {
                 user.setEmail(resultSet.getString("email"));
                 user.setPhone(resultSet.getString("phone"));
                 user.setPassword(resultSet.getString("password"));
-                user.setRole(String.valueOf(UserRole.valueOf(resultSet.getString("role")))); //  role is a string
+                user.setRole(String.valueOf(UserRole.valueOf(resultSet.getString("role")))); // role is a string
                 userList.add(user);
             }
             statement.close();
@@ -97,7 +97,6 @@ public class UserController implements IService<User> {
         }
         return userList;
     }
-
 
     @Override
     public User getUserById(int id) {
@@ -115,7 +114,7 @@ public class UserController implements IService<User> {
                 user.setEmail(resultSet.getString("email"));
                 user.setPhone(resultSet.getString("phone"));
                 user.setPassword(resultSet.getString("password"));
-                user.setRole(String.valueOf(UserRole.valueOf(resultSet.getString("role")))); //  role is a string
+                user.setRole(String.valueOf(UserRole.valueOf(resultSet.getString("role")))); // role is a string
             }
 
             statement.close();
@@ -125,13 +124,12 @@ public class UserController implements IService<User> {
         return user;
     }
 
-
     @Override
     public User getUserByEmail(String email) {
         User user = null;
         try {
             PreparedStatement statement = connection.prepareStatement("SELECT * FROM USER WHERE email = ?");
-            statement.setString(1,email); // Set the id parameter for the prepared statement
+            statement.setString(1, email); // Set the id parameter for the prepared statement
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()) { // Move the cursor to the first row
@@ -151,6 +149,7 @@ public class UserController implements IService<User> {
         }
         return user;
     }
+
     public ObservableList<User> searchUsers(String query) {
         ObservableList<User> searchResults = FXCollections.observableArrayList();
         for (User user : getAllUsers()) {

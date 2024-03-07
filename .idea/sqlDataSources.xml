@@ -4,5 +4,14 @@
     <mapping uuid="f176b1f5-1538-4fdd-af23-17ed5c0fe493" name="@localhost Mapping">
       <data-sources db="2971188b-5d51-4d5e-97d4-1e791f66ef6f" />
     </mapping>
+    <mapping uuid="913585fd-cf20-4e1c-afd8-60b415c88198" name="pidev@localhost Mapping">
+      <data-sources db="b65f8ed3-ea7a-4743-a9f1-0c902c329fb6" />
+      <scope>
+        <node kind="schema" qname="pidev" />
+      </scope>
+    </mapping>
+    <mapping uuid="dcda1389-a795-4edb-8ded-a3ac681ca101" name="@localhost Mapping [2]">
+      <data-sources db="c94a060a-0991-4eef-bd5b-cb173e8b4a2a" />
+    </mapping>
   </component>
 </project>

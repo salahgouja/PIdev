@@ -9,9 +9,9 @@ public class DBConnection {
     private static DBConnection dbConnection;
     private Connection connection;
 
-    public DBConnection(){
+    public DBConnection() {
         try {
-            //properties fih url, username , password
+            // properties fih url, username , password
             Properties properties = new Properties();
             InputStream input = new FileInputStream("src/main/resources/db.properties");
             properties.load(input);
@@ -21,7 +21,7 @@ public class DBConnection {
             String Password = properties.getProperty("db.password");
 
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection(URL,Username,Password);
+            connection = DriverManager.getConnection(URL, Username, Password);
             System.out.println("connected");
             PreparedStatement pstm = connection.prepareStatement("SHOW TABLES");
             ResultSet resultSet = pstm.executeQuery();
@@ -39,13 +39,11 @@ public class DBConnection {
                         "  `image` varchar(10000000) DEFAULT NULL,\n" +
                         "  `qrcode` varchar(10000000) DEFAULT NULL,\n" +
 
-
                         "  PRIMARY KEY (`id`)\n" +
                         ") ENGINE=InnoDB DEFAULT CHARSET=latin1;\n" +
                         "\n"
 
-
-                        ;
+                ;
                 pstm = connection.prepareStatement(sql);
                 pstm.execute();
             }
@@ -59,18 +57,16 @@ public class DBConnection {
             throw new RuntimeException(e);
         }
     }
-    public static  DBConnection getInstance(){
-        if(dbConnection == null){ dbConnection = new DBConnection();}
-        return dbConnection ;
+
+    public static DBConnection getInstance() {
+        if (dbConnection == null) {
+            dbConnection = new DBConnection();
+        }
+        return dbConnection;
     }
 
-    public Connection getConnection(){
-        return connection ;
+    public Connection getConnection() {
+        return connection;
     }
 
 }
-
-
-        
-            
-         

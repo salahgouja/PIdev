@@ -5,7 +5,6 @@ import javafx.scene.image.Image;
 import javax.persistence.*;
 import java.util.Objects;
 
-
 @Entity
 public class User {
 
@@ -18,17 +17,33 @@ public class User {
     private String phone;
     private String email;
     private String password;
-
-    private String role ;
+    private String role;
     private String image;
     private String qrcode;
-
 
     public User() {
     }
 
     public User(String email) {
         this.email = email;
+
+    public User(String password, String firstname, String lastname, String email, String phone, String role) {
+        super();
+
+        this.password = password;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.phone = phone;
+        this.role = role;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public User(int id, String email, String password) {
@@ -63,7 +78,8 @@ public class User {
         this.role = role;
     }
 
-    public User(String firstname, String lastname, String phone, String email, String password, String role, String image) {
+    public User(String firstname, String lastname, String phone, String email, String password, String role,
+            String image) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.phone = phone;
@@ -73,7 +89,8 @@ public class User {
         this.image = image;
     }
 
-    public User(String firstname, String lastname, String phone, String email, String password, String role, String image, String qrcode) {
+    public User(String firstname, String lastname, String phone, String email, String password, String role,
+            String image, String qrcode) {
         super();
         this.firstname = firstname;
         this.lastname = lastname;
@@ -173,10 +190,15 @@ public class User {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         User user = (User) o;
-        return id == user.id && Objects.equals(firstname, user.firstname) && Objects.equals(lastname, user.lastname) && Objects.equals(phone, user.phone) && Objects.equals(email, user.email) && Objects.equals(password, user.password) && Objects.equals(role, user.role) && Objects.equals(image, user.image) && Objects.equals(qrcode, user.qrcode);
+        return id == user.id && Objects.equals(firstname, user.firstname) && Objects.equals(lastname, user.lastname)
+                && Objects.equals(phone, user.phone) && Objects.equals(email, user.email)
+                && Objects.equals(password, user.password) && Objects.equals(role, user.role)
+                && Objects.equals(image, user.image) && Objects.equals(qrcode, user.qrcode);
     }
 
     @Override
@@ -191,8 +213,4 @@ public class User {
                 ", role=" + role +
                 '}';
     }
-
-
-
 }
-

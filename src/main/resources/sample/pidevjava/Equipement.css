@@ -1,0 +1,8 @@
+.border-layout{  /* edha bordure mtaa lbox ili fi wistha image view*/
+    -fx-border-radius: 20;
+    -fx-border-color:  #D3D3D3;
+    -fx-border-width: 5px;
+}
+.shadow{
+    -fx-effect:dropshadow(three-pass-box, rgba(0,0,0,0.4), 6,0,0,0);
+}

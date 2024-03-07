@@ -17,6 +17,9 @@ module sample.pidevjava {
     requires java.mail;
     requires aspose.pdf;
 
+    requires MaterialFX;
+
+    opens sample.pidevjava.model to javafx.base;
     opens sample.pidevjava to javafx.fxml;
 
     exports sample.pidevjava;

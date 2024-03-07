@@ -6,6 +6,7 @@
     -fx-border-color: #ffffff; /* Card border color */
     -fx-border-radius: 20px; /* Card border radius */
     -fx-background-radius: 20px;
+ 
 }
 
 .shadow{
@@ -140,3 +141,14 @@
     -fx-background-color: #45a049; /* Hover background color */
 }
 
+.datePicker .content{
+    -fx-background-color: #fff;
+    -fx-border-color: transparent;
+    -fx-border-radius: 0;
+
+    -fx-font-family: "Open Sans SemiBold";
+
+}
+.backgound-card{
+    -fx-background-color: linear-gradient(to left, rgba(255, 255, 255, 0.5), rgba(255, 172, 51, 0.5));
+}

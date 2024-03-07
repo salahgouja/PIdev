@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import sample.pidevjava.controller.EventsPageController;
@@ -31,6 +32,7 @@ public class Main extends Application {
     double x, y = 0;
 
     public static void main(String[] args) {
+
         launch();
     }
 
@@ -54,7 +56,19 @@ public class Main extends Application {
 
         primaryStage.setTitle("LOGIN");
         primaryStage.setScene(scene);
-        primaryStage.centerOnScreen();
+
+        // Set the stage to full-screen height
+        primaryStage.setY(bounds.getMinY());
+        primaryStage.setX(0);
+        primaryStage.setHeight(bounds.getHeight());
+
+        // Set minimum and maximum width to keep it resizable
+        primaryStage.setMinWidth(bounds.getWidth() / 2); // Set a minimum width
+        primaryStage.setMaxWidth(bounds.getWidth()); // Set a maximum width
+        primaryStage.setMinHeight(bounds.getHeight());
+        primaryStage.setX(0);
+
+        primaryStage.setTitle(" ActiveZone ");
         primaryStage.show();
         System.out.println("Scene displayed successfully.");
         // Test the UserController
@@ -83,6 +97,16 @@ public class Main extends Application {
 
         primaryStage.setTitle(" ActiveZone ");
         primaryStage.show();
+
+        /*
+         * EquipementService service=new EquipementService();
+         * int id= service.getDerniereReservationId();
+         * EquipementLocation equipementLocation=new EquipementLocation();
+         * service.getLocationEquipementsByReservationId(id);
+         * 
+         * LocationEquipementController locationEquipementController=new
+         * LocationEquipementController();
+         */
 
     }
     /*

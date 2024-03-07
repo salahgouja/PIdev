@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<HBox fx:id="box" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="185.0" prefWidth="400.0" spacing="15.0" stylesheets="@Card.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pidevjava.controller.EquipementCardController">
+   <children>
+      <ImageView fx:id="image" fitHeight="155.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
+         <HBox.margin>
+            <Insets left="10.0" top="10.0" />
+         </HBox.margin>
+         <image>
+            <Image url="@../../img/equipement/ballonfoot.jpg" />
+         </image>
+      </ImageView>
+      <VBox prefHeight="186.0" prefWidth="239.0">
+         <children>
+            <Label fx:id="nom_equipement" prefHeight="56.0" prefWidth="218.0" text="BALLON DE FOOT" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial Black" size="20.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="220.0" spacing="20.0">
+               <children>
+                  <Label prefHeight="16.0" prefWidth="76.0" text="Prix Unitaire">
+                     <font>
+                        <Font name="Cambria" size="14.0" />
+                     </font>
+                  </Label>
+                  <MFXTextField fx:id="prix_txt" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="62.0" prefWidth="220.0" spacing="20.0">
+               <children>
+                  <Label text="Quantité">
+                     <font>
+                        <Font name="Cambria" size="14.0" />
+                     </font>
+                  </Label>
+                  <Spinner fx:id="quantite_spin" prefHeight="26.0" prefWidth="96.0" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+   <styleClass>
+      <String fx:value="card" />
+      <String fx:value="shadow" />
+   </styleClass>
+</HBox>

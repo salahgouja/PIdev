@@ -1,0 +1,83 @@
+/*.nav-form{
+    -fx-background-color: linear-gradient(#fff, #FFAC33);;
+}
+.nav-bar{
+    -fx-background-color: rgb(2,22,40);
+
+}*/
+* {
+    &::before,
+    &::after {
+        box-sizing: border-box;
+    }}
+
+.white-background{
+    -fx-background-color: '#fff';
+}
+.righ-side-border{
+    -fx-border-color: #6F6F6F;
+    -fx-border-width: 0 1 0 0 ;
+}
+.search-container{
+    -fx-border-color: #6F6F6F;
+    -fx-border-radius:30 ;
+}
+.tranparent{
+    -fx-background-color: rgba(0,0,0,0);
+}
+.primary-color{
+    -fx-background-color: #EFF2F6;
+}
+
+.container_card {
+    -fx-display: flex;
+    -fx-align-items: center;
+    -fx-justify-content: space-between;
+    -fx-background-color: linear-gradient(to left, rgba(255, 255, 255, 0.5), rgba(255, 172, 51, 0.5));
+    -fx-max-height: 340px;
+    -fx-max-width: 310px;
+    -fx-margin: 10em 10em 10em 10em;
+}
+/*.card {
+    -fx-background-color: linear-gradient(to left, rgba(255, 255, 255, 0.5), rgba(255, 172, 51, 0.5));
+    -fx-border-width: 5 5 5 5 ;
+    -fx-border-radius:50 ;
+}*/
+.grid{
+    -fx-padding: 20px
+}
+.container{
+    -fx-background-color: linear-gradient(to left, rgba(255, 255, 255, 0.5), rgba(255, 172, 51, 0.5));
+    -fx-max-height: 340px;
+    -fx-max-width: 310px;
+    -fx-margin: 10em 10em 10em 10em;
+
+   /* -fx-justify-items: center;*/
+    -fx-flex: 1 1 50%;
+    -fx-border: 1px solid #efefef;;
+
+    -fx-box-shadow: 2px 6px 25px rgba(0, 0, 0, 0.1);
+    -fx-transition: all .3s ease;
+    -fx-position: center;
+
+}
+.img_pane,img{
+    -fx-max-height: 150px;
+    -fx-max-width: 150px;
+    -fx-margin:7em 7em;
+
+}
+.id_reservation_txt,date_txt,temps_txt,prix_txt,terrain_txt{
+    -fx-max-height:30em;
+    -fx-max-width: 50em;
+    -fx-display:flex;
+}
+.labels_card{
+    -fx-display: flex;
+    -fx-align-items: center;
+    -fx-justify-content: space-between;
+}
+
+.img{
+    -fx-border-radius:50% ;
+}
