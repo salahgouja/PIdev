@@ -44,10 +44,10 @@ public class CommentaireCard extends StackPane {
 
         modButton = new Button("Mod");
         modButton.setVisible(false);
-        modButton.setStyle("-fx-background-color: black; -fx-text-fill: white; -fx-font-size: 10px;");
+        modButton.setStyle("-fx-background-color: #0078d4; -fx-text-fill: white; -fx-font-size: 10px;");
         supButton = new Button("Sup");
         supButton.setVisible(false);
-        supButton.setStyle("-fx-background-color: black; -fx-text-fill: white; -fx-font-size: 10px;");
+        supButton.setStyle("-fx-background-color: #dc3545; -fx-text-fill: white; -fx-font-size: 10px;");
 
         modButton.setOnAction(event -> {
             TextField textField = new TextField(commentaire.getContenu());
@@ -81,7 +81,7 @@ public class CommentaireCard extends StackPane {
         headerPane.setBottom(dateLabel);
         headerPane.setRight(commentIcon);
         headerPane.setPadding(new Insets(5));
-        headerPane.setStyle("-fx-background-color: #cce5ff; -fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #99c2ff; -fx-border-width: 1px;");
+        headerPane.setStyle("-fx-background-color: #f8f9fa; -fx-background-radius: 10px; -fx-border-radius: 10px; -fx-border-color: #e9ecef; -fx-border-width: 1px;");
         headerPane.setEffect(new DropShadow());
 
         BorderPane contentPane = new BorderPane();

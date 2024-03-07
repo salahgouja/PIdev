@@ -6,10 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -40,7 +38,6 @@ public class ArticleCard extends StackPane {
 
     private Button likeButton;
     private Button dislikeButton;
-
 
     private Hyperlink link;
 
@@ -73,7 +70,7 @@ public class ArticleCard extends StackPane {
         likeIcon.setFill(Color.BEIGE);
         likeIcon.setSize("1.5em");
 
-        likeButton.setStyle("-fx-background-color: #4c5df2; ");
+        likeButton.setStyle("-fx-background-color: #0078d4; -fx-text-fill: white; -fx-font-size: 10px;");
         likeButton.setGraphic(new FontAwesomeIconView(FontAwesomeIcon.THUMBS_UP));
         likeButton.setOnAction(e -> {
             System.out.println("Like clicked for article: " + article.getIdarticle());
@@ -99,7 +96,7 @@ public class ArticleCard extends StackPane {
         dislikeIcon.setSize("1.5em");
         dislikeButton.setGraphic(dislikeIcon);
         dislikeButton.getStyleClass().add("dislike-button");
-        dislikeButton.setStyle("-fx-background-color: #fc2020; -fx-text-fill: red;");
+        dislikeButton.setStyle("-fx-background-color: #dc3545; -fx-text-fill: white; -fx-font-size: 10px;");
         dislikeButton.setGraphic(new FontAwesomeIconView(FontAwesomeIcon.THUMBS_DOWN));
         dislikeButton.setOnAction(e -> {
             System.out.println("Dislike clicked for article: " + article.getIdarticle());
@@ -185,7 +182,6 @@ public class ArticleCard extends StackPane {
 
         content.getChildren().add(new HBox(commentField, ajouterCommentaireButton));
 
-
         if (article.getT() == typec.APPELLE_D_OFFRE) {
             link = new Hyperlink("Link to formulaire");
             link.setOnAction(ev -> {
@@ -223,4 +219,5 @@ public class ArticleCard extends StackPane {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-    }}
+    }
+}
