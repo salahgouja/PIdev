@@ -1,0 +1,173 @@
+/* style.css */
+
+/* General styling */
+.tile-pane {
+    -fx-padding: 20px;
+    -fx-background-color: #222222; /* Dark background color */
+}
+
+/* Article card styling */
+.article-card {
+    -fx-background-color: #333333; /* Darker background color */
+    -fx-border-color: #444444; /* Slightly lighter border color */
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-padding: 20px;
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.1), 10, 0, 0, 1); /* White shadow */
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 8px;
+}
+
+.article-card:hover {
+    -fx-background-color: #444444; /* Darker background color on hover */
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-transition: all 0.3s;
+}
+
+/* Article title styling */
+.article-title {
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 24px;
+    -fx-font-weight: 800; /* Semi-bold */
+    -fx-text-fill: #333333; /* Darker text color */
+}
+
+
+
+
+/* Article description styling */
+.article-description {
+    -fx-font-size: 14px;
+    -fx-text-fill: #222222; /* Light gray text color */
+}
+
+/* Article date styling */
+.date-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #888888; /* Gray text color */
+}
+
+/* Comment box styling */
+.comment-box {
+    -fx-padding: 5px;
+    -fx-spacing: 5px;
+}
+
+/* Comment content styling */
+.comment-content {
+    -fx-font-size: 12px;
+    -fx-text-fill: #cccccc; /* Light gray text color */
+}
+
+
+
+/* Comment date styling */
+.comment-date {
+    -fx-font-size: 10px;
+    -fx-text-fill: #aaaaaa; /* Light gray text color */
+}
+
+/* Button styling */
+.button {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ffffff; /* White text color */
+    -fx-background-color: #ff5722; /* Orange button color */
+    -fx-border-radius: 5px;
+    -fx-padding: 8px 16px;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-background-radius: 5px;
+}
+
+.button:hover {
+    -fx-background-color: #f44336; /* Darker orange on hover */
+}
+/* Article card styling */
+.article-content {
+    -fx-padding: 20px;
+    -fx-background-color: #f0f0f0; /* Modern grey background color */
+    -fx-border-color: #ccc; /* Slightly lighter border color */
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.2) , 10,0,0,1 );
+    -fx-start-margin: 0px;
+
+}
+
+
+
+
+
+
+
+
+
+
+/* Article date styling */
+.article-date {
+    -fx-font-size: 12px;
+    -fx-text-fill: #888888; /* Gray text color */
+}
+
+/* Article comments styling */
+.article-comments {
+    -fx-font-size: 12px;
+    -fx-text-fill: #888888; /* Gray text color */
+}
+
+/* Modifier button styling */
+.modifier-button {
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-text-fill: #ffffff; /* White text color */
+    -fx-background-color: #ff5722; /* Orange button color */
+    -fx-border-radius: 5px;
+    -fx-padding: 8px 16px;
+}
+
+.modifier-button:hover {
+    -fx-background-color: #f44336; /* Darker orange on hover */
+}
+
+/* Supprimer button styling */
+.supprimer-button {
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-text-fill: #ffffff; /* White text color */
+    -fx-background-color: #333333; /* Darker background color */
+    -fx-border-color: #444444; /* Slightly lighter border color */
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-padding: 8px 16px;
+}
+
+.supprimer-button:hover {
+    -fx-background-color: #444444; /* Darker background color on hover */
+}
+
+/* Buttons box styling */
+.buttons-box {
+    -fx-spacing: 10px;
+}
+
+/* Comment box styling */
+.comment-box {
+    -fx-padding: 5px;
+    -fx-spacing: 5px;
+}
+
+/* Ajouter commentaire button styling */
+.ajouter-commentaire-button {
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-text-fill: #ffffff; /* White text color */
+    -fx-background-color: #ff5722; /* Orange button color */
+    -fx-border-radius: 5px;
+    -fx-padding: 8px 16px;
+}
+
+.ajouter-commentaire-button:hover {
+    -fx-background-color: #f44336; /* Darker orange on hover */
+}

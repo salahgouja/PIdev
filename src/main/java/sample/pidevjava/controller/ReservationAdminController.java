@@ -1,19 +1,19 @@
 package sample.pidevjava.controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.HBox;
 import javafx.fxml.Initializable;
-import sample.pidevjava.Main;
+import javafx.stage.Stage;
 import sample.pidevjava.db.DBConnection;
 import sample.pidevjava.model.Reservation;
-import sample.pidevjava.model.Terrain;
 import sample.pidevjava.model.TypeTerrain;
 import sample.pidevjava.model.User;
 
@@ -213,7 +213,6 @@ public class ReservationAdminController implements Initializable {
 
         afficherCartesRecherches(reservationsFiltresParNoms); // Afficher les cartes filtrées
     }
-
 
 
 

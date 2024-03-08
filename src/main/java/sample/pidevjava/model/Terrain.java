@@ -26,6 +26,21 @@ public class Terrain {
         this.prix_location_terrain=prix_location_terrain;
     }
 
+    public Terrain(int id, String nom, boolean active, int capaciteTerrain, TypeTerrain type) {
+        this.id = id;
+        this.nom = nom;
+        this.active = active;
+        this.capaciteTerrain = capaciteTerrain;
+        this.type = type;
+    }
+
+    public Terrain(String nom, boolean active, int capaciteTerrain, TypeTerrain type) {
+        this.nom = nom;
+        this.active = active;
+        this.capaciteTerrain = capaciteTerrain;
+        this.type = type;
+    }
+
     public int getId() {
         return id;
     }

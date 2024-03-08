@@ -11,7 +11,7 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pidevjava.controller.LocationEquipementController">
    <children>
       <HBox prefHeight="53.0" prefWidth="1000.0" style="-fx-background-color: white;" />
-      <FlowPane layoutX="685.0" layoutY="158.0" prefHeight="438.0" prefWidth="300.0" stylesheets="@Equipement.css">
+      <FlowPane layoutX="685.0" layoutY="158.0" prefHeight="438.0" prefWidth="300.0" stylesheets="@style/Equipement.css">
          <styleClass>
             <String fx:value="border-layout" />
             <String fx:value="shadow" />
@@ -26,7 +26,7 @@
       </FlowPane>
       <MFXScrollPane layoutX="23.0" layoutY="64.0" prefHeight="722.0" prefWidth="646.0">
          <content>
-            <FlowPane fx:id="cardLayout" alignment="CENTER" prefHeight="719.0" prefWidth="640.0" stylesheets="@Equipement.css">
+            <FlowPane fx:id="cardLayout" alignment="CENTER" prefHeight="719.0" prefWidth="640.0" stylesheets="@style/Equipement.css">
                <styleClass>
                   <String fx:value="border-layout" />
                   <String fx:value="shadow" />

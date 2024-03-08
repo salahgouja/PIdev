@@ -1,33 +1,33 @@
 
 f
-java:S1192Z"IDefine a constant instead of duplicating this literal "password" 3 times.(‡ıªˆ8ê®ŞÓß1
-l
-java:S1192V"JDefine a constant instead of duplicating this literal "firstname" 3 times.(»Ù•¹ùÿÿÿÿ8ë®ŞÓß1
-c
-java:S1192Y"FDefine a constant instead of duplicating this literal "phone" 3 times.(õ««æ8ë®ŞÓß1
-c
-java:S1192X"FDefine a constant instead of duplicating this literal "email" 3 times.(ø‹¬¶8ë®ŞÓß1
+java:S1192Z"IDefine a constant instead of duplicating this literal "password" 3 times.(‡ıªˆ8–àÄºá1
 f
-java:S1192W"IDefine a constant instead of duplicating this literal "lastname" 3 times.(¹„ù8ë®ŞÓß1
+java:S1192W"IDefine a constant instead of duplicating this literal "lastname" 3 times.(¹„ù8—àÄºá1
+c
+java:S1192Y"FDefine a constant instead of duplicating this literal "phone" 3 times.(õ««æ8—àÄºá1
+l
+java:S1192V"JDefine a constant instead of duplicating this literal "firstname" 3 times.(»Ù•¹ùÿÿÿÿ8—àÄºá1
+c
+java:S1192X"FDefine a constant instead of duplicating this literal "email" 3 times.(ø‹¬¶8—àÄºá1
+l
+java:S2095Q"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ü»•Æ8¦¥‰»á1
+l
+java:S2095j"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ŞÛ­¾8¦¥‰»á1
 q
-java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(×…üÿÿÿÿ8¯ÛÓÔß1
+java:S2095E"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ê‚”·úÿÿÿÿ8¥¥‰»á1
+q
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(×…üÿÿÿÿ8ÂãÿÌá1
 r
-java:S2095…"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(™¡¸³ûÿÿÿÿ8ë™¡à1
-q
-java:S2095E"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ê‚”·úÿÿÿÿ8ƒ¯ŞÓß1
+java:S2095…"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(™¡¸³ûÿÿÿÿ8¦¥‰»á1
 l
-java:S2095j"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ŞÛ­¾8ƒ¯ŞÓß1
-l
-java:S2095Q"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Ü»•Æ8ƒ¯ŞÓß1
-l
-java:S2095/"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ÎÚÁĞ8ƒ¯ŞÓß1
+java:S2095/"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ÎÚÁĞ8ÂãÿÌá1
 c
-java:S1858"A"getRole" returns a string, there's no need to call "toString()".(ŞÓÙõıÿÿÿÿ8‡¯ŞÓß1
-G	java:S106%"+Replace this use of System.out by a logger.(ñ·¤¬8‡¯ŞÓß1
+java:S1858"A"getRole" returns a string, there's no need to call "toString()".(ŞÓÙõıÿÿÿÿ8¯¥‰»á1
+G	java:S106%"+Replace this use of System.out by a logger.(ñ·¤¬8§àÄºá1
 c
-java:S18586"A"getRole" returns a string, there's no need to call "toString()".(ŞÓÙõıÿÿÿÿ8ˆ¯ŞÓß1
-G	java:S106="+Replace this use of System.out by a logger.(ñ·¤¬8ˆ¯ŞÓß1
-G	java:S106J"+Replace this use of System.out by a logger.(ñ·¤¬8‰¯ŞÓß1
-G	java:S106`"+Replace this use of System.out by a logger.(ñ·¤¬8‹¯ŞÓß1
-G	java:S106{"+Replace this use of System.out by a logger.(ñ·¤¬8Œ¯ŞÓß1
-H	java:S106–"+Replace this use of System.out by a logger.(ñ·¤¬8¯ŞÓß1
+java:S18586"A"getRole" returns a string, there's no need to call "toString()".(ŞÓÙõıÿÿÿÿ8¶¥‰»á1
+G	java:S106="+Replace this use of System.out by a logger.(ñ·¤¬8ªàÄºá1
+G	java:S106J"+Replace this use of System.out by a logger.(ñ·¤¬8«àÄºá1
+G	java:S106`"+Replace this use of System.out by a logger.(ñ·¤¬8¯àÄºá1
+G	java:S106{"+Replace this use of System.out by a logger.(ñ·¤¬8³àÄºá1
+H	java:S106–"+Replace this use of System.out by a logger.(ñ·¤¬8¶àÄºá1

@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="786.0" prefWidth="1535.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pidevjava.controller.frontController">
+   <top>
+      <AnchorPane prefHeight="9.0" prefWidth="1475.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="MenuClose" layoutX="14.0" layoutY="44.0" prefHeight="38.0" prefWidth="80.0" textFill="#b7b7b7">
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/menu1.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="Menu" layoutX="14.0" layoutY="51.0" prefHeight="23.0" prefWidth="64.0" textFill="#b7b7b7">
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/menu1.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </top>
+   <left>
+      <AnchorPane fx:id="slider" prefHeight="779.0" prefWidth="213.0" style="-fx-background-color: #ff3800;" BorderPane.alignment="CENTER">
+         <children>
+            <VBox layoutX="14.0" layoutY="1.0" prefHeight="785.0" prefWidth="214.0" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0">
+               <children>
+                  <JFXButton alignment="BASELINE_LEFT" prefHeight="81.0" prefWidth="213.0" styleClass="sidebarItem" text="Dashboard" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="36.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/dash.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="48.0" prefHeight="56.0" prefWidth="210.0" styleClass="sidebarItem" text="Reserver" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="33.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/calendrier.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="48.0" prefHeight="30.0" prefWidth="210.0" styleClass="sidebarItem" text="Communaute" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/massage.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="48.0" prefHeight="49.0" prefWidth="210.0" styleClass="sidebarItem" text="Evenement" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="71.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/reservation-en-ligne.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="48.0" prefHeight="13.0" prefWidth="210.0" styleClass="sidebarItem" text="Partenariat" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="48.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/appel.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="profile" alignment="BASELINE_LEFT" prefHeight="3.0" prefWidth="210.0" styleClass="sidebarItem" text="Profile" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="45.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/football.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="logout" alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="125.0" prefHeight="348.0" prefWidth="214.0" styleClass="sidebarItem" text="Logout" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="38.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/deconnexion.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <VBox prefHeight="728.0" prefWidth="1535.0" stylesheets="@style/eventCssFile.css" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="254.0" prefWidth="1290.0">
+               <children>
+                  <ImageView fitHeight="224.0" fitWidth="1012.0" layoutX="35.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/pg.png" />
+                     </image></ImageView>
+                  <ImageView fitHeight="257.0" fitWidth="640.0" layoutX="486.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/sousPg.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="76.0" layoutY="70.0" prefHeight="26.0" prefWidth="410.0" text="Vous êtes cordialement invités à participer à notre événement " textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="76.0" layoutY="24.0" prefHeight="25.0" prefWidth="340.0" text="Suivez vos activités" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Bold Italic" size="24.0" />
+                     </font></Label>
+                  <Label layoutX="76.0" layoutY="122.0" prefHeight="25.0" prefWidth="340.0" text="Rejoignez-nous pour une journée remplie d'action, de " textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="76.0" layoutY="96.0" prefHeight="26.0" prefWidth="398.0" text="sportif excitant qui se déroulera au notre Complexe Sportif . " textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="76.0" layoutY="148.0" prefHeight="25.0" prefWidth="340.0" text="compétition et de camaraderie !" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets left="50.0" right="50.0" top="10.0" />
+               </VBox.margin>
+            </AnchorPane>
+            <HBox prefHeight="398.0" prefWidth="1344.0">
+               <children>
+                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="398.0" prefWidth="415.0" styleClass="card" stylesheets="@style/eventCssFile.css">
+                     <children>
+                        <TextField fx:id="nom" layoutX="108.0" layoutY="31.0" />
+                        <TextField fx:id="prenom" layoutX="108.0" layoutY="80.0" />
+                        <TextField fx:id="email" layoutX="108.0" layoutY="131.0" />
+                        <Label layoutX="21.0" layoutY="29.0" prefHeight="25.0" prefWidth="53.0" styleClass="title-label" stylesheets="@style/eventCssFile.css" text="Nom :" />
+                        <Label layoutX="20.0" layoutY="79.0" prefHeight="27.0" prefWidth="70.0" styleClass="title-label" stylesheets="@style/eventCssFile.css" text="Prenom :" />
+                        <Label layoutX="21.0" layoutY="130.0" prefHeight="25.0" prefWidth="53.0" styleClass="title-label" stylesheets="@style/eventCssFile.css" text="Email :" />
+                        <TextField fx:id="tel" layoutX="108.0" layoutY="177.0" />
+                        <Label layoutX="21.0" layoutY="176.0" prefHeight="25.0" prefWidth="116.0" styleClass="title-label" stylesheets="@style/eventCssFile.css" text="Téléphone :" />
+                        <ComboBox fx:id="typeP" layoutX="108.0" layoutY="221.0" prefWidth="150.0" />
+                        <Label layoutX="4.0" layoutY="220.0" prefHeight="27.0" prefWidth="107.0" styleClass="title-label" stylesheets="@style/eventCssFile.css" text="Type Partenaire:" />
+                        <HBox fx:id="HM" layoutX="19.0" layoutY="264.0" prefHeight="48.0" prefWidth="237.0">
+                           <children>
+                              <Label prefHeight="27.0" prefWidth="92.0" styleClass="title-label" stylesheets="@style/eventCssFile.css" text="Montant :" />
+                              <TextField fx:id="montant" />
+                           </children>
+                        </HBox>
+                        <HBox fx:id="HT" layoutX="8.0" layoutY="307.0" prefHeight="30.0" prefWidth="237.0">
+                           <children>
+                              <Label prefHeight="27.0" prefWidth="161.0" styleClass="title-label" stylesheets="@style/eventCssFile.css" text="Type équipement :" />
+                              <TextField fx:id="typee" />
+                           </children>
+                        </HBox>
+                        <HBox fx:id="HQ" layoutX="8.0" layoutY="354.0" prefHeight="48.0" prefWidth="237.0">
+                           <children>
+                              <Label prefHeight="27.0" prefWidth="137.0" styleClass="title-label" stylesheets="@style/eventCssFile.css" text="Quantité : " />
+                              <TextField fx:id="quantite" />
+                           </children>
+                        </HBox>
+                        <Button layoutX="310.0" layoutY="205.0" mnemonicParsing="false" onAction="#ajouter" stylesheets="@style/eventCssFile.css" text="Ajouter" />
+                        <Label layoutX="151.0" layoutY="-5.0" prefHeight="27.0" prefWidth="102.0" stylesheets="@style/eventCssFile.css" text="Ajouter demande" textFill="#263c7e">
+                           <font>
+                              <Font name="MS Reference Specialty" size="26.0" />
+                           </font>
+                           <effect>
+                              <Blend />
+                           </effect>
+                        </Label>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="70.0" />
+                     </HBox.margin>
+                  </Pane>
+                  <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="306.0" prefWidth="683.0" styleClass="card" stylesheets="@style/eventCssFile.css">
+                     <children>
+                        <VBox layoutX="30.0" layoutY="49.0" prefHeight="207.0" prefWidth="517.0">
+                           <children>
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="593.0">
+                                 <children>
+                                    <HBox prefHeight="50.0" prefWidth="550.0" styleClass="anchor-pane" stylesheets="@style/eventCssFile.css">
+                                       <children>
+                                          <Label fx:id="typep" prefHeight="27.0" prefWidth="116.0" styleClass="label" text="Type Partenaire" />
+                                          <Label fx:id="montant1" prefHeight="27.0" prefWidth="85.0" styleClass="label" text="Montant" />
+                                          <Label fx:id="typee1" prefHeight="27.0" prefWidth="124.0" styleClass="label" text="Type Equipement" />
+                                          <Label fx:id="quantite3" prefHeight="27.0" prefWidth="100.0" styleClass="label" text="Quantité" />
+                                          <Label fx:id="quantite2" prefHeight="27.0" prefWidth="118.0" styleClass="label" text="Etat" />
+                                          <Label fx:id="quantite21" prefHeight="27.0" prefWidth="104.0" styleClass="label" text="Motif" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="2.0" left="5.0" right="2.0" top="2.0" />
+                                       </padding>
+                                    </HBox>
+                                    <ListView fx:id="mylistview" onMouseClicked="#selectItem" prefHeight="151.0" prefWidth="612.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <Label layoutX="237.0" layoutY="14.0" prefHeight="27.0" prefWidth="102.0" stylesheets="@style/eventCssFile.css" text="Mes partenariats" textFill="#263c7e">
+                           <font>
+                              <Font name="MS Reference Specialty" size="26.0" />
+                           </font>
+                           <effect>
+                              <Blend />
+                           </effect>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets left="50.0" top="50.0" />
+                     </HBox.margin>
+                  </Pane>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

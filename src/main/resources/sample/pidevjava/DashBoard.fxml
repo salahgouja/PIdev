@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<BorderPane id="borderPane" fx:id="borderPane" prefHeight="700.0" prefWidth="1161.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pidevjava.controller.DashboardController">
+
+    <top>
+        <AnchorPane prefHeight="9.0" prefWidth="1475.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="MenuClose" layoutX="14.0" layoutY="44.0" prefHeight="38.0" prefWidth="80.0" textFill="#b7b7b7">
+                    <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Images/menu1.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+                <Label fx:id="Menu" layoutX="14.0" layoutY="51.0" prefHeight="23.0" prefWidth="64.0" textFill="#b7b7b7">
+                    <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Images/menu1.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
+    </top>
+    <left>
+        <AnchorPane fx:id="slider" prefHeight="779.0" prefWidth="213.0" style="-fx-background-color: #ff3800;" BorderPane.alignment="CENTER">
+            <children>
+                <VBox layoutX="14.0" layoutY="1.0" prefHeight="785.0" prefWidth="214.0" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0">
+                    <children>
+                        <JFXButton alignment="BASELINE_LEFT" prefHeight="81.0" prefWidth="213.0" styleClass="sidebarItem" text="Dashboard" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="25.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="36.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../Images/dash.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="pageGestionUser" alignment="BASELINE_LEFT" onAction="#goToPage" prefHeight="42.0" prefWidth="210.0" styleClass="sidebarItem" text="Gestion User" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="41.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../Images/membre-de-lequipe.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="pageGestionReservation" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="48.0" onAction="#goToPage" prefHeight="56.0" prefWidth="210.0" styleClass="sidebarItem" text="Gestion Reservation" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="33.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../Images/calendrier.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="pageGestionBlog" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="48.0" onAction="#goToPage" prefHeight="30.0" prefWidth="210.0" styleClass="sidebarItem" text=" Blog" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="40.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../Images/massage.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="pageGestionEvent" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="48.0" onAction="#goToPage" prefHeight="49.0" prefWidth="210.0" styleClass="sidebarItem" text="Gestion Evenement" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="71.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../Images/reservation-en-ligne.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="pageGestionPartenariat" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="48.0" onAction="#goToPage" prefHeight="13.0" prefWidth="210.0" styleClass="sidebarItem" text="Gestion Partenariat" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="48.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../Images/appel.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="pageGestionOffre" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="48.0" onAction="#goToPage" prefHeight="0.0" prefWidth="210.0" styleClass="sidebarItem" text="Appel d'offre" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="62.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../Images/offre-demploi.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="pageGestionTerrain" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="48.0" onAction="#goToPage" prefHeight="0.0" prefWidth="210.0" styleClass="sidebarItem" text="Gestion Terrain" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="42.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../Images/stade.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="logout" alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="125.0" onAction="#goToPage" prefHeight="197.0" prefWidth="214.0" styleClass="sidebarItem" text="Logout" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="15.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="38.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../Images/deconnexion.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </JFXButton>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </left>
+    <center>
+        <VBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #F0F2F5;">
+            <Pane prefHeight="200.0" prefWidth="425.0">
+                <children>
+                    <Text fill="#3f3f46" layoutX="286.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Listes des Articles" wrappingWidth="409.4699784517288">
+                        <font>
+                            <Font size="27.0" />
+                        </font>
+                    </Text>
+                    <Button fx:id="stat" alignment="CENTER" layoutX="14.0" layoutY="45.0" onAction="#stat" prefHeight="40.0" prefWidth="74.0" style="-fx-background-color: linear-gradient(to bottom, #FF5733, #FF5733); -fx-background-radius: 5px; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 15px; -fx-text-fill: white; -fx-pref-width: 2px; -fx-pref-height: 40px;">
+                        <graphic>
+                            <FontAwesomeIconView fill="WHITE" glyphName="BAR_CHART" />
+                        </graphic>
+                    </Button>
+                    <TextField fx:id="search" layoutX="704.0" layoutY="52.0" promptText="Search" />
+                    <FontAwesomeIconView fx:id="btnsearch" fill="#de2667" glyphName="SEARCH" layoutX="871.0" layoutY="73.0" onMouseClicked="#btnsearch" size="1.5em" text="" />
+                </children>
+            </Pane>
+            <ListView fx:id="articleListView" prefHeight="413.0" prefWidth="650.0" styleClass="list-view" />
+        </VBox>
+    </center>
+   <right>
+        <VBox id="sideNav" alignment="TOP_CENTER" prefHeight="700.0" prefWidth="241.0" spacing="10.0" style="-fx-background-color: #3F3F46;" BorderPane.alignment="CENTER">
+            <HBox id="header" prefHeight="50.0" style="-fx-padding: 0 10 0 10;">
+
+                <Label style="-fx-font-family: 'Roboto', sans-serif; -fx-font-size: 15px; -fx-text-fill: white;" text="Admin Dashboard">
+                    <HBox.margin>
+                        <Insets left="10.0" />
+                    </HBox.margin>
+                </Label>
+            </HBox>
+            <Line endX="116.89287567138672" endY="-3.862381163344253E-6" opacity="0.19" startX="-100.0" stroke="WHITE" />
+
+            <Button alignment="CENTER" prefHeight="40.0" prefWidth="220.0" style="-fx-background-color: linear-gradient(to bottom, #FF5733, #FF5733); -fx-background-radius: 5px; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 15px; -fx-text-fill: white; -fx-pref-width: 220px; -fx-pref-height: 40px;" text="Dashboard">
+                <VBox.margin>
+                    <Insets top="20.0" />
+                </VBox.margin>
+            </Button>
+
+            <Button fx:id="ajouterButton" alignment="CENTER" onAction="#openAjouterArticle" prefHeight="40.0" prefWidth="220.0" style="-fx-background-color: linear-gradient(to bottom, #FF5733, #FF5733); -fx-background-radius: 5px; -fx-font-family: 'Roboto', sans-serif; -fx-font-size: 15px; -fx-text-fill: white; -fx-pref-width: 220px; -fx-pref-height: 40px;" text="Ajouter Article">
+                <VBox.margin>
+                    <Insets top="20.0" />
+                </VBox.margin>
+            </Button>
+
+        </VBox>
+   </right>
+</BorderPane>

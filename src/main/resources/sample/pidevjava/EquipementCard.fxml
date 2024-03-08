@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<HBox fx:id="box" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="185.0" prefWidth="400.0" spacing="15.0" stylesheets="@Card.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pidevjava.controller.EquipementCardController">
+<HBox fx:id="box" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="185.0" prefWidth="400.0" spacing="15.0" stylesheets="@style/Card.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pidevjava.controller.EquipementCardController">
    <children>
       <ImageView fx:id="image" fitHeight="155.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
          <HBox.margin>

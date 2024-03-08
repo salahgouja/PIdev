@@ -1,22 +1,8 @@
 
 A
-java:S1659"Declare "y" on a separate line.(ÎÛ ãùÿÿÿÿ8¹Š˜şß1
-G	java:S106/"+Replace this use of System.out by a logger.(¯Ë¢Ó8ÆŠ˜şß1
-X	java:S1251"<This block of commented-out lines of code should be removed.(âîˆï8ÆŠ˜şß1
-L	java:S1064"+Replace this use of System.err by a logger.(¥©Ù¶üÿÿÿÿ8ÆŠ˜şß1
-]	java:S125:"<This block of commented-out lines of code should be removed.(¤•¼Óıÿÿÿÿ8ÇŠ˜şß1
-a
-java:S1128"?Remove this unused import 'org.xml.sax.helpers.DefaultHandler'.(ø°ñ„şÿÿÿÿ8ÇŠ˜şß1
-i
-java:S1128	"GRemove this unused import 'sample.pidevjava.controller.UserController'.(Á©çöúÿÿÿÿ8ÇŠ˜şß1
-Z
-java:S1128
-"8Remove this unused import 'sample.pidevjava.model.User'.(‘ËÕ›ùÿÿÿÿ8ÇŠ˜şß1
-Y
-java:S1128"<Remove this unused import 'sample.pidevjava.model.UserRole'.(ğª§í8ÇŠ˜şß1
-R
-java:S1128"0Remove this unused import 'java.io.IOException'.(ªº»Úıÿÿÿÿ8ÇŠ˜şß1
-M
-java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8ÇŠ˜şß1
-_
-java:S1128"BRemove this unused import 'sample.pidevjava.model.UserRole.ADMIN'.(øˆÇä8ÇŠ˜şß1
+java:S1659
+"Declare "y" on a separate line.(ÎÛ ãùÿÿÿÿ8¥¹§¹á1
+G	java:S106)"+Replace this use of System.out by a logger.(¯Ë¢Ó8å¹§¹á1
+X	java:S125+"<This block of commented-out lines of code should be removed.(âîˆï8ï¹§¹á1
+]	java:S1253"<This block of commented-out lines of code should be removed.(ÀßËøÿÿÿÿÿ8Æº§¹á1
+]	java:S125>"<This block of commented-out lines of code should be removed.(ÊûœÍüÿÿÿÿ8ƒ…ä©á1

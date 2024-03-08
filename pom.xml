@@ -120,9 +120,6 @@
             <groupId>com.google.zxing</groupId>
             <artifactId>javase</artifactId>
             <version>3.4.0</version>
-            <groupId>com.sun.activation</groupId>
-            <artifactId>javax.activation</artifactId>
-            <version>1.2.0</version>
         </dependency>
         <dependency>
             <groupId>com.sun.mail</groupId>
@@ -166,9 +163,23 @@
         </dependency>
 
 
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>5.2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>5.2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-media</artifactId>
+            <version>20.0.2</version>
+        </dependency>
 
-
-
+        <dependency>
             <groupId>com.aspose</groupId>
             <artifactId>aspose-pdf</artifactId>
             <version>22.12</version>

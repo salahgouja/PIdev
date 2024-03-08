@@ -14,18 +14,24 @@ module sample.pidevjava {
     requires org.apache.pdfbox;
     requires twilio;
 
-    requires java.mail;
+
     requires aspose.pdf;
+    requires de.jensd.fx.glyphs.fontawesome;
+    requires org.apache.poi.poi;
+    requires org.apache.poi.ooxml;
 
     requires MaterialFX;
 
-    opens sample.pidevjava.model to javafx.base;
     opens sample.pidevjava to javafx.fxml;
 
     exports sample.pidevjava;
     exports sample.pidevjava.controller;
 
     opens sample.pidevjava.controller to javafx.fxml;
-    opens sample.pidevjava.model to javafx.base;
+    exports sample.pidevjava.model;
+    opens sample.pidevjava.model to javafx.base, javafx.fxml;
+    exports sample.pidevjava.Services;
+    opens sample.pidevjava.Services to javafx.fxml;
+
 
 }

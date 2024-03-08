@@ -1,29 +1,18 @@
 package sample.pidevjava.controller;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
 import sample.pidevjava.db.DBConnection;
 import sample.pidevjava.model.Evenement;
 import sample.pidevjava.model.Participation;
-import sample.pidevjava.model.user;
+import sample.pidevjava.model.User;
 
 import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Base64;
 
 public class EventCardController extends  ISevecesEvent{
@@ -34,18 +23,11 @@ public class EventCardController extends  ISevecesEvent{
     private Label eventDesc;
     @FXML
     private Label eventDate;
-
-
-
     @FXML
     private ImageView eventImg;
-
     @FXML
     private Label eventTitre;
-
     private Evenement eventData;
-
-
     @FXML
     private Label paticipationDate;
 
@@ -95,11 +77,15 @@ public class EventCardController extends  ISevecesEvent{
 
 
     public void setParticipationData(Participation p) {
-        user user = getUserById(p.getId());
+        UserController userController =new UserController();
+        //User user = userController.getUserById(p.getId());
+
         Evenement evenement = getEventById(p.getId_event());
         paticipationEvnt.setText(String.valueOf(evenement.getTitre()));
         paticipationDate.setText(p.getDateDeCreation());
-        paticipationUser.setText(user.getName() +" "+ user.getSurname());
+       // paticipationUser.setText(user.getFirstname() +" "+ user.getLastname());
+        paticipationUser.setText("user.getFirstname() + user.getLastname()");
+
     }
 
 
@@ -117,8 +103,9 @@ public class EventCardController extends  ISevecesEvent{
 
         // Handle the button click here
         if (eventData != null) {
-            user cutentUser = getUserById(2);
-            String userName = cutentUser.getName() + cutentUser.getSurname();
+            UserController userController= new UserController();
+            User cutentUser = userController.getUserById(2);
+            String userName = cutentUser.getFirstname() + cutentUser.getLastname();
 
             int id_participation = 0;
             final int eventId = eventData.getId_event();
@@ -130,7 +117,7 @@ public class EventCardController extends  ISevecesEvent{
             showAlert(
                     Alert.AlertType.CONFIRMATION,
                     "Confirmation Dialog",
-                     cutentUser.getName() +" "+ cutentUser.getSurname() +"\nÊtes-vous sur de vouloir continuer? \n",
+                     cutentUser.getFirstname() +" "+ cutentUser.getLastname() +"\nÊtes-vous sur de vouloir continuer? \n",
                     "oui",
                     (_void) -> {
                         try {
@@ -211,16 +198,5 @@ public class EventCardController extends  ISevecesEvent{
             e.printStackTrace();
         }
         JavaMailUtil.sendMail("chebili335@gmail.com"," Réponse  du complexe sportif concernant votre demande de participation à un événement \n Nous vous remercions sincèrement pour votre intérêt à participer à notre événement dans notre complexe sportif. Après avoir examiné attentivement votre demande, nous regrettons de vous informer que nous ne pourrons pas donner suite à votre participation pour cette édition de l'événement. ","HelloWorld_out.pdf");
-    }
-
-
-
-
-
-
-
-
 }
-
-
-//System.out.println("Selected item: " + eventData.getTitre());
+}

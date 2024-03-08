@@ -19,6 +19,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import sample.pidevjava.db.DBConnection;
+import sample.pidevjava.interfaces.SMSService;
 import sample.pidevjava.model.User;
 
 import javax.imageio.ImageIO;
@@ -53,10 +54,9 @@ import static sample.pidevjava.controller.UserSession.currentUser;
 
 public class DashboardUser implements Initializable {
     @FXML
-    private ResourceBundle resources;
-
+    private TextField OldPasswordField;
     @FXML
-    private URL location;
+    private TextField NewPasswordField;
 
     @FXML
     private TextField PasswordField;
@@ -139,6 +139,7 @@ public class DashboardUser implements Initializable {
 
     private User user;
 
+    private SMSService smsService;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -223,12 +224,6 @@ public class DashboardUser implements Initializable {
     }
 
 
-
-
-
-
-
-
     private void showAlert(Alert.AlertType alertType, String title, String content) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
@@ -238,32 +233,7 @@ public class DashboardUser implements Initializable {
     }
 
 
-    @FXML
-    private void logout(ActionEvent actionEvent) {
 
-        // Get the current stage
-        Stage stage = (Stage) logout.getScene().getWindow();
-
-        try {
-            // Create a new FXMLLoader
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/pidevjava/LoginForm.fxml"));
-
-            // Load the LoginForm.fxml filea
-            Parent root = loader.load();
-
-            // Create a new Scene with the loaded LoginForm.fxml file
-            Scene scene = new Scene(root);
-
-            // Set the newly created Scene as the scene for the current stage
-            stage.setScene(scene);
-
-            // Show the stage
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
 
 
     @FXML
@@ -272,19 +242,10 @@ public class DashboardUser implements Initializable {
         Stage stage = (Stage) logout.getScene().getWindow();
 
         try {
-            // Create a new FXMLLoader
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/pidevjava/LoginForm.fxml"));
-
-            // Load the LoginForm.fxml filea
             Parent root = loader.load();
-
-            // Create a new Scene with the loaded LoginForm.fxml file
             Scene scene = new Scene(root);
-
-            // Set the newly created Scene as the scene for the current stage
             stage.setScene(scene);
-
-            // Show the stage
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -484,7 +445,60 @@ public class DashboardUser implements Initializable {
         }
     }
 
+    private boolean verifyOldPassword(String oldPassword) {
+        User currentUser = UserSession.getCurrentUser();
+        if (currentUser != null) {
+            return currentUser.getPassword().equals(oldPassword);
+        }
+        return false;
+    }
+    private void sendSMSNotification(String phoneNumber, String message) {
+        // Call your SMS service to send the message
+        if (smsService != null) {
+            smsService.sendSMS(phoneNumber, message);
+        }
+    }
+    private void updateUserPassword(String newPassword) {
+        User currentUser = UserSession.getCurrentUser();
+        if (currentUser != null) {
+            try {
+                Connection connection = DBConnection.getInstance().getConnection();
+                PreparedStatement preparedStatement = connection.prepareStatement("UPDATE user SET password = ? WHERE id = ?");
+                preparedStatement.setString(1, newPassword);
+                preparedStatement.setInt(2, currentUser.getId());
+                preparedStatement.executeUpdate();
+
+                // Update user's password in the current session
+                currentUser.setPassword(newPassword);
+            } catch (SQLException exception) {
+                System.out.println(exception.getMessage());
+            }
+        }
+    }
+
+    @FXML
+    public void modifierpassword(ActionEvent actionEvent) {
+        String oldPassword = HashPasswordController.hashPassword(OldPasswordField.getText());
+        String newPassword = HashPasswordController.hashPassword(NewPasswordField.getText());
+        if (!verifyOldPassword(oldPassword)) {
+            showAlert(Alert.AlertType.ERROR, "Error", "Old password is incorrect.");
+            return;
+        }
+
+        updateUserPassword(newPassword);
+        sendSMSNotification(UserSession.getCurrentUser().getPhone(), "Your password has been updated.");
+
+        OldPasswordField.clear();
+        NewPasswordField.clear();
+
+        // Show success message
+        showAlert(Alert.AlertType.INFORMATION, "Success", "Password updated successfully.");
 
 
+    }
+
+    @FXML
+    public void annuler(ActionEvent actionEvent) {
+    }
 }
 

@@ -1,17 +1,16 @@
 
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âÀºõþÿÿÿÿ8Šð¬§ß1
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘õô¨úÿÿÿÿ8Šð¬§ß1
-r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñüÇÔûÿÿÿÿ8Šð¬§ß1
-j
-java:S2095"MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(÷ëÍ¹8”ð¬§ß1
-q
-java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Æö£âýÿÿÿÿ8•ð¬§ß1
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âÀºõþÿÿÿÿ8ÀÄ³ºá1
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘õô¨úÿÿÿÿ8ÇÄ³ºá1
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñüÇÔûÿÿÿÿ8ÈÄ³ºá1
 l
-java:S20951"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(åÃ‹ï8•ð¬§ß1
+java:S2095/"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(åÃ‹ï8ëÄ³ºá1
+j
+java:S2095"MUse try-with-resources or close this "FileInputStream" in a "finally" clause.(÷ëÍ¹8ëÄ³ºá1
+q
+java:S2095"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(Æö£âýÿÿÿÿ8ëÄ³ºá1
 a
-java:S21478"DCombine this catch with the one at line 53, which has the same body.(‹±ÃÆ8—ð¬§ß1
-a
-java:S2147;"DCombine this catch with the one at line 56, which has the same body.(ï­£Ä8˜ð¬§ß1
-G	java:S106"+Replace this use of System.out by a logger.(ðÉ®™8›ð¬§ß1
+java:S21478"DCombine this catch with the one at line 53, which has the same body.(ï­£Ä8ïÄ³ºá1
+G	java:S106"+Replace this use of System.out by a logger.(ðÉ®™8ôÄ³ºá1
 O
-java:S6126"2Replace this String concatenation with Text block.(È¼žË8œð¬§ß1
+java:S6126"2Replace this String concatenation with Text block.(È¼žË8õÄ³ºá1
+E	java:S1083")Either remove or fill this block of code.(Œ°—ý8õÄ³ºá1

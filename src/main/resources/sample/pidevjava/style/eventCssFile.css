@@ -6,7 +6,6 @@
     -fx-border-color: #ffffff; /* Card border color */
     -fx-border-radius: 20px; /* Card border radius */
     -fx-background-radius: 20px;
- 
 }
 
 .shadow{
@@ -83,8 +82,8 @@
 
 /* Style for the ImageView */
 .image-view {
-   /* -fx-fit-width: 72px; /* Set width */
-   /* -fx-fit-height: 72px; /* Set height */
+    /* -fx-fit-width: 72px; /* Set width */
+    /* -fx-fit-height: 72px; /* Set height */
     -fx-background-radius: 20px;
     -fx-border-radius: 20px;
 }
@@ -139,16 +138,4 @@
 
 .custom-alert .button:hover {
     -fx-background-color: #45a049; /* Hover background color */
-}
-
-.datePicker .content{
-    -fx-background-color: #fff;
-    -fx-border-color: transparent;
-    -fx-border-radius: 0;
-
-    -fx-font-family: "Open Sans SemiBold";
-
-}
-.backgound-card{
-    -fx-background-color: linear-gradient(to left, rgba(255, 255, 255, 0.5), rgba(255, 172, 51, 0.5));
 }

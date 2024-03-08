@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
+import sample.pidevjava.db.DBConnection;
 import sample.pidevjava.model.Reservation;
 import sample.pidevjava.model.Terrain;
 import sample.pidevjava.model.TypeTerrain;
@@ -16,6 +17,7 @@ import javafx.scene.image.Image;
 
 import javax.persistence.Id;
 import java.awt.*;
+import java.sql.Connection;
 import java.sql.SQLException;
 
 public class CardController {
@@ -81,9 +83,6 @@ public class CardController {
         }
     }
 
-    public void setReservation(Reservation reservation) {
-        this.reservation = reservation;
-    }
 
     public void displayReservationDetails(Reservation reservation) {
         // Afficher les détails de la réservation dans les champs de texte correspondants
@@ -96,7 +95,9 @@ public class CardController {
         }
         //terrain_txt.setText(String.valueOf(reservation.getId_terrain()));
         // Récupérer le terrain associé à cette réservation
-        TerrainController terrainController = new TerrainController();
+        Connection connection = DBConnection.getInstance().getConnection();
+
+        TerrainController terrainController = new TerrainController(connection);
         Terrain terrain = terrainController.getById(reservation.getId_terrain());
 
         if (terrain != null) {
@@ -137,7 +138,8 @@ public class CardController {
 
     public TypeTerrain getTypeTerrainFromReservation(int Id_terrain) {
         //ReservationAdminController r = new ReservationAdminController();
-        TerrainController terrainController = new TerrainController();
+        Connection connection = DBConnection.getInstance().getConnection();
+        TerrainController terrainController = new TerrainController(connection);
         //Terrain terrain = r.getById(Id_terrain);
         Terrain terrain = terrainController.getById(Id_terrain);
         //System.out.println(terrain);
@@ -151,6 +153,10 @@ public class CardController {
     public Reservation getReservation() {
         return reservation;
     }
+    public void setReservation(Reservation reservation) {
+        this.reservation = reservation;
+    }
+
 
 }
 

@@ -14,7 +14,7 @@ import sample.pidevjava.db.DBConnection;
 import sample.pidevjava.interfaces.IServices;
 import sample.pidevjava.model.Evenement;
 import sample.pidevjava.model.Participation;
-import sample.pidevjava.model.user;
+import sample.pidevjava.model.User;
 
 import java.awt.*;
 import java.io.IOException;
@@ -28,7 +28,7 @@ public class ISevecesEvent implements Initializable {
 
     ArrayList<Evenement> evenements = new ArrayList<>();
     ArrayList<Participation> paticipations = new ArrayList<>();
-    ArrayList<user> users = new ArrayList<>();
+    ArrayList<User> users = new ArrayList<>();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -120,29 +120,7 @@ public class ISevecesEvent implements Initializable {
     }
 
 
-    public user getUserById(int userId) {
-        String query = "SELECT * FROM user WHERE id = ?";
-        try {
-            Connection connection = DBConnection.getInstance().getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, userId);
-            ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()) {
-                user user = new user();
-                user.setId(resultSet.getInt("id"));
-                user.setEmail(resultSet.getString("email"));
-                user.setName(resultSet.getString("firstname"));
-                user.setPassword(resultSet.getString("password"));
-                user.setPhone(resultSet.getString("phone"));
-                user.setSurname(resultSet.getString("lastname"));
-                resultSet.close();
-                return user;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null; // Return null if user with specified ID is not found
-    }
+
 
     public Evenement getEventById(int eventId) {
         String query = "SELECT * FROM evenement WHERE id_event = ?";

@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<AnchorPane prefHeight="835.0" prefWidth="1475.0" styleClass="anchor-pane" stylesheets="@style/dashboardCSS.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pidevjava.controller.dashController">
+    <children>
+      <BorderPane prefHeight="762.0" prefWidth="1466.0">
+         <top>
+            <AnchorPane prefHeight="9.0" prefWidth="1475.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="MenuClose" layoutX="14.0" layoutY="44.0" prefHeight="38.0" prefWidth="80.0" textFill="#b7b7b7">
+                     <graphic>
+                        <ImageView fitHeight="23.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/menu1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Menu" layoutX="14.0" layoutY="51.0" prefHeight="23.0" prefWidth="64.0" textFill="#b7b7b7">
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Images/menu1.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </top>
+         <left>
+            <AnchorPane fx:id="slider" prefHeight="779.0" prefWidth="213.0" style="-fx-background-color: #ff3800;" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox layoutX="14.0" layoutY="1.0" prefHeight="785.0" prefWidth="214.0" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0">
+                     <children>
+                        <JFXButton alignment="BASELINE_LEFT" prefHeight="81.0" prefWidth="213.0" styleClass="sidebarItem" text="Dashboard" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="25.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="36.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/dash.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="pageGestionUser" alignment="BASELINE_LEFT" onAction="#goToPage" prefHeight="42.0" prefWidth="210.0" styleClass="sidebarItem" text="Gestion User" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="41.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/membre-de-lequipe.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="pageGestionReservation" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="48.0" onAction="#goToPage" prefHeight="56.0" prefWidth="210.0" styleClass="sidebarItem" text="Gestion Reservation" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="33.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/calendrier.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="pageGestionBlog" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="48.0" onAction="#goToPage" prefHeight="30.0" prefWidth="210.0" styleClass="sidebarItem" text=" Blog" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="40.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/massage.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="pageGestionEvent" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="48.0" onAction="#goToPage" prefHeight="49.0" prefWidth="210.0" styleClass="sidebarItem" text="Gestion Evenement" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="71.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/reservation-en-ligne.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="pageGestionPartenariat" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="48.0" onAction="#goToPage" prefHeight="13.0" prefWidth="210.0" styleClass="sidebarItem" text="Gestion Partenariat" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="48.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/appel.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="pageGestionOffre" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="48.0" onAction="#goToPage" prefHeight="0.0" prefWidth="210.0" styleClass="sidebarItem" text="Appel d'offre" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="62.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/offre-demploi.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="pageGestionTerrain" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="48.0" onAction="#goToPage" prefHeight="0.0" prefWidth="210.0" styleClass="sidebarItem" text="Gestion Terrain" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="42.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/stade.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="logout" alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="125.0" onAction="#goToPage" prefHeight="197.0" prefWidth="214.0" styleClass="sidebarItem" text="Logout" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="38.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Images/deconnexion.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+         </left>         <right>
+            <VBox prefHeight="730.0" prefWidth="1215.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label styleClass="dashboard-label" stylesheets="@style/dashboardCSS.css" text="Dashboard Partenaires">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Pane prefHeight="290.0" prefWidth="1126.0">
+                     <children>
+                        <HBox prefHeight="126.0" prefWidth="670.0">
+                           <children>
+                              <Pane prefHeight="106.0" prefWidth="202.0" stylesheets="@style/dashboardCSS.css">
+                                 <children>
+                                    <VBox layoutX="14.0" layoutY="12.0" prefHeight="85.0" prefWidth="100.0">
+                                       <children>
+                                          <ImageView fitHeight="43.0" fitWidth="53.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@images/eventIcon.png" />
+                                             </image>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" />
+                                             </VBox.margin>
+                                          </ImageView>
+                                          <Label text="Partenaires" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="nbEvents" text="00" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                                 </padding>
+                                 <styleClass>
+                                    <String fx:value="cardDash" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                                 <HBox.margin>
+                                    <Insets right="20.0" />
+                                 </HBox.margin>
+                              </Pane>
+                              <Pane prefHeight="126.0" prefWidth="175.0" stylesheets="@style/dashboardCSS.css">
+                                 <children>
+                                    <VBox layoutX="14.0" layoutY="12.0" prefHeight="100.0" prefWidth="163.0">
+                                       <children>
+                                          <ImageView fitHeight="48.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@images/participationIcon.png" />
+                                             </image>
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" />
+                                             </VBox.margin>
+                                          </ImageView>
+                                          <Label prefHeight="22.0" prefWidth="162.0" text="Partenaires acceptées" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="15.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="nbParticipation" text="00" textFill="WHITE">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                                 </padding>
+                                 <styleClass>
+                                    <String fx:value="cardDash" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                              </Pane>
+                           </children>
+                        </HBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="150.0" />
+                     </VBox.margin>
+                  </Pane>
+                  <Label styleClass="anchor-pane" stylesheets="@style/dashboardCSS.css" text="List des demandes de partenaires">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Label>
+                  <HBox prefHeight="500.0" prefWidth="1215.0">
+                     <children>
+                        <VBox prefHeight="331.0" prefWidth="1011.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" prefHeight="34.0" prefWidth="668.0">
+                                 <children>
+                                    <HBox alignment="CENTER" maxWidth="250.0" minWidth="250.0" prefHeight="30.0" prefWidth="250.0" styleClass="search" stylesheets="@style/dashboardCSS.css">
+                                       <children>
+                                          <TextField fx:id="searchField" promptText="search...." styleClass="searchInput">
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </TextField>
+                                          <Button mnemonicParsing="false" onAction="#search" prefHeight="24.0" prefWidth="78.0" styleClass="searchButton" text="search" textFill="WHITE" />
+                                       </children>
+                                    </HBox>
+                                    <Pane prefHeight="34.0" prefWidth="351.0" />
+                                    <Button mnemonicParsing="false" onAction="#Tri" prefHeight="26.0" prefWidth="68.0" styleClass="searchButton" text="Tri" textFill="WHITE" />
+                                    <Button mnemonicParsing="false" onAction="#excel" prefHeight="26.0" prefWidth="68.0" styleClass="searchButton" text="Excel" textFill="WHITE">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#refresh" prefHeight="26.0" prefWidth="68.0" styleClass="searchButton" text="refresh" textFill="WHITE">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <VBox prefHeight="200.0" prefWidth="866.0">
+                                 <children>
+                                    <HBox prefHeight="34.0" prefWidth="773.0" styleClass="anchor-pane" stylesheets="@style/eventCssFile.css">
+                                       <children>
+                                          <Label fx:id="nom" prefHeight="27.0" prefWidth="85.0" styleClass="label" text="Nom" />
+                                          <Label fx:id="prenom" prefHeight="27.0" prefWidth="80.0" styleClass="label" text="Prenom" />
+                                          <Label fx:id="tel" prefHeight="27.0" prefWidth="102.0" styleClass="label" text="Téléphone" />
+                                          <Label fx:id="email" prefHeight="27.0" prefWidth="158.0" styleClass="label" text="Email" />
+                                          <Label fx:id="typep" prefHeight="27.0" prefWidth="125.0" styleClass="label" text="Type Partenaire" />
+                                          <Label fx:id="montant" prefHeight="27.0" prefWidth="90.0" styleClass="label" text="Montant" />
+                                          <Label fx:id="typee" prefHeight="27.0" prefWidth="124.0" styleClass="label" text="Type Equipement" />
+                                          <Label fx:id="quantite" prefHeight="27.0" prefWidth="83.0" styleClass="label" text="Quantité" />
+                                          <Label fx:id="quantite2" prefHeight="27.0" prefWidth="83.0" styleClass="label" text="Etat" />
+                                          <Label fx:id="quantite1" prefHeight="27.0" prefWidth="83.0" styleClass="label" text="Accepter" />
+                                          <Label fx:id="quantite11" prefHeight="27.0" prefWidth="83.0" styleClass="label" text="Rejeter" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="2.0" left="5.0" right="2.0" top="2.0" />
+                                       </padding>
+                                    </HBox>
+                                    <ListView fx:id="mylistview" onMouseClicked="#selectItem" prefHeight="150.0" prefWidth="865.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+               <BorderPane.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </BorderPane.margin>
+            </VBox>
+         </right>
+      </BorderPane>
+    </children>
+</AnchorPane>

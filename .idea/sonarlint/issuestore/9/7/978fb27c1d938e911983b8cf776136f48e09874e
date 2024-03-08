@@ -1,18 +1,18 @@
 
-r	java:S117I"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·ïñ¿øÿÿÿÿ8±âï¡à1
-r	java:S117J"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ñ ¼àÿÿÿÿÿ8±âï¡à1
+r	java:S117I"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·ïñ¿øÿÿÿÿ8óşøÚá1
+r	java:S117J"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ñ ¼àÿÿÿÿÿ8óşøÚá1
 l
-java:S2095L"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñúí¸8¸À°¢à1
+java:S2095L"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ñúí¸8¨ÿøÚá1
 I
-java:S11721",Remove this unused method parameter "event".(É–èš8æ³ùß1
+java:S11721",Remove this unused method parameter "event".(É–èš8ªÿøÚá1
 T
-java:S1172;"2Remove this unused method parameter "actionEvent".(©Œ®üúÿÿÿÿ8ò³ùß1
+java:S1172;"2Remove this unused method parameter "actionEvent".(©Œ®üúÿÿÿÿ8µÿøÚá1
 N
-java:S1172E",Remove this unused method parameter "event".(¹³“‹ùÿÿÿÿ8À™í¡à1
-G	java:S106t"+Replace this use of System.out by a logger.(ŸşÄ8§ƒ°¢à1
+java:S1172E",Remove this unused method parameter "event".(¹³“‹ùÿÿÿÿ8·ÿøÚá1
+G	java:S106t"+Replace this use of System.out by a logger.(ŸşÄ8ºÿøÚá1
 J
-java:S1172Â",Remove this unused method parameter "event".(¢“âÿ8ïçí¡à1
+java:S1172Â",Remove this unused method parameter "event".(¢“âÿ8ÀÿøÚá1
 Z
-java:S1117Ø"<Rename "password" which hides the field declared at line 35.(Á½” 8‚´ùß1
+java:S1117Ø"<Rename "password" which hides the field declared at line 35.(Á½” 8ÂÿøÚá1
 O
-java:S1128"2Remove this unused import 'sample.pidevjava.Main'.(¶íûˆ8¡ÖŠÆà1
+java:S1128"2Remove this unused import 'sample.pidevjava.Main'.(¶íûˆ8ÂÿøÚá1

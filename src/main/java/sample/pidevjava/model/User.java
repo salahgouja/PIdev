@@ -26,17 +26,8 @@ public class User {
 
     public User(String email) {
         this.email = email;
-
-    public User(String password, String firstname, String lastname, String email, String phone, String role) {
-        super();
-
-        this.password = password;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.phone = phone;
-        this.role = role;
     }
+
 
     public String getRole() {
         return role;
@@ -166,13 +157,7 @@ public class User {
         this.password = password;
     }
 
-    public String getRole() {
-        return role;
-    }
 
-    public void setRole(String role) {
-        this.role = role;
-    }
 
     @Override
     public int hashCode() {

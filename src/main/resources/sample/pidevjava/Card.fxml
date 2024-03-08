@@ -10,9 +10,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="box" maxWidth="-Infinity" prefHeight="500.0" prefWidth="335.0" stylesheets="@Card.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pidevjava.controller.CardController">
+<AnchorPane fx:id="box" maxWidth="-Infinity" prefHeight="500.0" prefWidth="335.0" stylesheets="@style/Card.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pidevjava.controller.CardController">
    <children>
-      <HBox alignment="CENTER" layoutX="20.0" layoutY="14.0" prefHeight="100.0" prefWidth="200.0" styleClass="border-layout" stylesheets="@Card.css" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="20.0">
+      <HBox alignment="CENTER" layoutX="20.0" layoutY="14.0" prefHeight="100.0" prefWidth="200.0" styleClass="border-layout" stylesheets="@style/Card.css" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="20.0">
          <children>
             <ImageView fx:id="image" fitHeight="99.0" fitWidth="201.0" pickOnBounds="true" preserveRatio="true" styleClass="image-layout">
                <HBox.margin>
@@ -21,27 +21,27 @@
             </ImageView>
          </children>
       </HBox>
-      <Label fx:id="sport_label" layoutX="14.0" layoutY="165.0" prefHeight="18.0" prefWidth="103.0" styleClass="text" stylesheets="@Card.css" text="Sport :">
+      <Label fx:id="sport_label" layoutX="14.0" layoutY="165.0" prefHeight="18.0" prefWidth="103.0" styleClass="text" stylesheets="@style/Card.css" text="Sport :">
          <font>
             <Font name="Cambria Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="terrain_label" layoutX="14.0" layoutY="241.0" prefHeight="18.0" prefWidth="103.0" styleClass="text" stylesheets="@Card.css" text="Terrain :">
+      <Label fx:id="terrain_label" layoutX="14.0" layoutY="241.0" prefHeight="18.0" prefWidth="103.0" styleClass="text" stylesheets="@style/Card.css" text="Terrain :">
          <font>
             <Font name="Cambria Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="date_label" layoutX="14.0" layoutY="284.0" prefHeight="18.0" prefWidth="103.0" styleClass="text" stylesheets="@Card.css" text="Date :">
+      <Label fx:id="date_label" layoutX="14.0" layoutY="284.0" prefHeight="18.0" prefWidth="103.0" styleClass="text" stylesheets="@style/Card.css" text="Date :">
          <font>
             <Font name="Cambria Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="duree_label" layoutX="18.0" layoutY="367.0" prefHeight="18.0" prefWidth="95.0" styleClass="text" stylesheets="@Card.css" text="Durée :">
+      <Label fx:id="duree_label" layoutX="18.0" layoutY="367.0" prefHeight="18.0" prefWidth="95.0" styleClass="text" stylesheets="@style/Card.css" text="Durée :">
          <font>
             <Font name="Cambria Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="prix_label" layoutX="14.0" layoutY="404.0" prefHeight="18.0" prefWidth="103.0" styleClass="text" stylesheets="@Card.css" text="prix à payer :">
+      <Label fx:id="prix_label" layoutX="14.0" layoutY="404.0" prefHeight="18.0" prefWidth="103.0" styleClass="text" stylesheets="@style/Card.css" text="prix à payer :">
          <font>
             <Font name="Cambria Bold" size="14.0" />
          </font>
@@ -52,13 +52,13 @@
       <TextField fx:id="duree_txt" layoutX="140.0" layoutY="363.0" prefHeight="26.0" prefWidth="171.0" />
       <TextField fx:id="prix_txt" layoutX="140.0" layoutY="400.0" prefHeight="26.0" prefWidth="171.0" />
       <MFXButton fx:id="del_btn" layoutX="226.0" layoutY="444.0" onAction="#supprimerCarte" prefHeight="24.0" prefWidth="81.0" text="Delete" />
-      <Label fx:id="date_label1" layoutX="14.0" layoutY="323.0" prefHeight="18.0" prefWidth="103.0" styleClass="text" stylesheets="@Card.css" text="prévu à :">
+      <Label fx:id="date_label1" layoutX="14.0" layoutY="323.0" prefHeight="18.0" prefWidth="103.0" styleClass="text" stylesheets="@style/Card.css" text="prévu à :">
          <font>
             <Font name="Cambria Bold" size="14.0" />
          </font>
       </Label>
       <TextField fx:id="temps_txt" layoutX="140.0" layoutY="319.0" prefHeight="26.0" prefWidth="171.0" />
-      <Label fx:id="user_label1" layoutX="14.0" layoutY="207.0" prefHeight="18.0" prefWidth="103.0" styleClass="text" stylesheets="@Card.css" text="Au nom de MR :">
+      <Label fx:id="user_label1" layoutX="14.0" layoutY="207.0" prefHeight="18.0" prefWidth="103.0" styleClass="text" stylesheets="@style/Card.css" text="Au nom de MR :">
          <font>
             <Font name="Cambria Bold" size="14.0" />
          </font>

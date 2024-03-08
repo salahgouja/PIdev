@@ -26,7 +26,8 @@
             <String fx:value="shadow" />
             <String fx:value="date-picker-popup" />
             <String fx:value="mfx-date-picker" />
-         </styleClass></MFXDatePicker>
+         </styleClass>
+      </MFXDatePicker>
       <MFXTextField fx:id="heure_txt" alignment="CENTER" layoutX="502.0" layoutY="322.0" prefHeight="50.0" prefWidth="218.0" promptText="HH:MM:SS" stylesheets="@style/eventCssFile.css">
          <font>
             <Font size="19.0" />
@@ -80,7 +81,7 @@
             <Font name="Cambria Bold" size="15.0" />
          </font>
       </Label>
-      <MFXButton fx:id="confirmer_btn" layoutX="588.0" layoutY="733.0" onAction="#confirmerButtonClicked" stylesheets="@ReservationAdmin2.css" text="Confirmer" />
+      <MFXButton fx:id="confirmer_btn" layoutX="588.0" layoutY="733.0" stylesheets="@style/ReservationAdmin2.css" text="Confirmer" />
       <Text fx:id="heure_reserv_valmsg" fill="#e70808" layoutX="152.0" layoutY="404.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez saisir un horaire de la forme ( hh : mm : ss ) s'il vous plait" visible="false">
          <font>
             <Font name="Cambria" size="13.0" />
@@ -96,8 +97,8 @@
             <Font name="Cambria" size="18.0" />
          </font>
       </Label>
-      <MFXButton fx:id="equipement_btn" layoutX="352.0" layoutY="733.0" stylesheets="@ReservationAdmin2.css" text="Voir equipement" visible="false" />
-      <MFXToggleButton fx:id="equi_btn" layoutX="608.0" layoutY="655.0" styleClass="mfx-toggle-button" stylesheets="@Buttons.css" text="Oui" />
+      <MFXButton fx:id="equipement_btn" layoutX="352.0" layoutY="733.0" stylesheets="@style/ReservationAdmin2.css" text="Voir equipement" visible="false" />
+      <MFXToggleButton fx:id="equi_btn" layoutX="608.0" layoutY="655.0" styleClass="mfx-toggle-button" stylesheets="@style/Buttons.css" text="Oui" />
       <VBox layoutX="-1.0" layoutY="-5.0" prefHeight="809.0" prefWidth="188.0" style="-fx-background-color: white;" />
       <Label layoutX="755.0" layoutY="273.0" prefHeight="27.0" prefWidth="343.0" text="des horaires suivants s'il vous plait:">
          <font>
@@ -108,7 +109,7 @@
          <children>
             <ImageView fitHeight="186.0" fitWidth="916.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../img/pg.png" />
+                  <Image url="@../img/preview.png" />
                </image>
                <viewport>
                   <Rectangle2D />
@@ -116,7 +117,7 @@
             </ImageView>
             <ImageView fitHeight="186.0" fitWidth="376.0" layoutX="310.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../img/sousPg.png" />
+                  <Image url="@../../img/tennis.jpg" />
                </image>
             </ImageView>
          </children>

@@ -7,12 +7,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
-<AnchorPane prefHeight="30.0" prefWidth="460.0" stylesheets="@eventCssFile.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pidevjava.controller.EventCardController">
+<AnchorPane prefHeight="30.0" prefWidth="460.0" stylesheets="@style/eventCssFile.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pidevjava.controller.EventCardController">
     <children>
-        <HBox prefHeight="30.0" prefWidth="640.0" styleClass="card" stylesheets="@eventCssFile.css">
+        <HBox prefHeight="30.0" prefWidth="640.0" styleClass="card" stylesheets="@style/eventCssFile.css">
             <children>
                 <ImageView fx:id="eventImg" fitHeight="20.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view" />
-                <Label fx:id="eventId" styleClass="label" text="Label" />
                 <Label fx:id="eventDate" styleClass="label" text="Label" />
                 <Label fx:id="eventTitre" styleClass="label" text="Label" />
                 <Label fx:id="eventPrix" styleClass="label" text="Label" />
@@ -26,23 +25,4 @@
         <String fx:value="card" />
         <String fx:value="shadow" />
     </styleClass>
-</AnchorPane>
-<AnchorPane prefHeight="30.0" prefWidth="460.0" stylesheets="@style/eventCssFile.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.pidevjava.controller.EventCardController">
-   <children>
-      <HBox prefHeight="30.0" prefWidth="640.0" styleClass="card" stylesheets="@style/eventCssFile.css">
-         <children>
-            <ImageView fx:id="eventImg" fitHeight="20.0" fitWidth="86.0" pickOnBounds="true" preserveRatio="true" styleClass="image-view" />
-            <Label fx:id="eventDate" styleClass="label" text="Label" />
-            <Label fx:id="eventTitre" styleClass="label" text="Label" />
-            <Label fx:id="eventPrix" styleClass="label" text="Label" />
-         </children>
-         <padding>
-            <Insets bottom="2.0" left="5.0" right="2.0" top="2.0" />
-         </padding>
-      </HBox>
-   </children>
-   <styleClass>
-      <String fx:value="card" />
-      <String fx:value="shadow" />
-   </styleClass>
 </AnchorPane>

@@ -35,7 +35,7 @@
             <Font name="Arial Black" size="14.0" />
          </font>
       </Label>
-      <MFXToggleButton fx:id="repos_btn" layoutX="495.0" layoutY="212.0" styleClass="mfx-toggle-button" stylesheets="@Buttons.css" text="repos" />
+      <MFXToggleButton fx:id="repos_btn" layoutX="495.0" layoutY="212.0" styleClass="mfx-toggle-button" stylesheets="@style/Buttons.css" text="repos" />
       <MFXComboBox fx:id="jours_list" layoutX="77.0" layoutY="240.0" onAction="#affichageHoraireTravail" prefHeight="40.0" prefWidth="170.0" stylesheets="@style/eventCssFile.css">
          <styleClass>
             <String fx:value="shadow" />
@@ -57,8 +57,8 @@
             <String fx:value="shadow" />
             <String fx:value="input" />
          </styleClass></MFXTextField>
-      <MFXButton fx:id="confirmation_btn" layoutX="501.0" layoutY="324.0" onAction="#addHoraireTravail" prefHeight="26.0" prefWidth="102.0" stylesheets="@ReservationAdmin2.css" text="Confirmer" />
-      <MFXButton fx:id="maj_btn" layoutX="501.0" layoutY="396.0" onAction="#handleUpdateButton" prefHeight="30.0" prefWidth="161.0" stylesheets="@ReservationAdmin2.css" text="Mettre à jour" />
+      <MFXButton fx:id="confirmation_btn" layoutX="501.0" layoutY="324.0" onAction="#addHoraireTravail" prefHeight="26.0" prefWidth="102.0" stylesheets="@style/ReservationAdmin2.css" text="Confirmer" />
+      <MFXButton fx:id="maj_btn" layoutX="501.0" layoutY="396.0" onAction="#handleUpdateButton" prefHeight="30.0" prefWidth="161.0" stylesheets="@style/ReservationAdmin2.css" text="Mettre à jour" />
       <Text layoutX="484.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Non" />
       <Text layoutX="533.0" layoutY="260.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Oui" />
       <Text fx:id="heure_debut_valmsg" fill="#ef0a0a" layoutX="79.0" layoutY="394.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Entrez un champ valide sous forme hh:mm:ss" visible="false">

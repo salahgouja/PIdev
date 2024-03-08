@@ -74,78 +74,90 @@
                 </AnchorPane>
             </top>
             <left>
-                <AnchorPane fx:id="slider" prefHeight="517.0" prefWidth="210.0" style="-fx-background-color: #ff3800;" BorderPane.alignment="CENTER">
+                <AnchorPane fx:id="slider" prefHeight="779.0" prefWidth="213.0" style="-fx-background-color: #ff3800;" BorderPane.alignment="CENTER">
                     <children>
-                        <VBox layoutX="14.0" layoutY="35.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="53.0">
+                        <VBox layoutX="14.0" layoutY="1.0" prefHeight="785.0" prefWidth="214.0" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0">
                             <children>
-                                <JFXButton alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="Home" textFill="WHITE">
+                                <JFXButton alignment="BASELINE_LEFT" prefHeight="81.0" prefWidth="213.0" styleClass="sidebarItem" text="Dashboard" textFill="WHITE">
                                     <font>
-                                        <Font name="System Bold" size="15.0" />
+                                        <Font name="System Bold" size="25.0" />
                                     </font>
                                     <graphic>
-                                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fitHeight="36.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../Images/apps.png" />
+                                                <Image url="@../Images/dash.png" />
                                             </image>
                                         </ImageView>
                                     </graphic>
                                 </JFXButton>
-                                <JFXButton alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="Communaute" textFill="WHITE">
+                                <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="48.0" prefHeight="56.0" prefWidth="210.0" styleClass="sidebarItem" text="Reserver" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="15.0" />
                                     </font>
                                     <graphic>
-                                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fitHeight="33.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../Images/comment-alt.png" />
+                                                <Image url="@../Images/calendrier.png" />
                                             </image>
                                         </ImageView>
                                     </graphic>
                                 </JFXButton>
-                                <JFXButton alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="Calendrier" textFill="WHITE">
+                                <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="48.0" prefHeight="30.0" prefWidth="210.0" styleClass="sidebarItem" text="Communaute" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="15.0" />
                                     </font>
                                     <graphic>
-                                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fitHeight="40.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../Images/calendar.png" />
+                                                <Image url="@../Images/massage.png" />
                                             </image>
                                         </ImageView>
                                     </graphic>
                                 </JFXButton>
-                                <JFXButton alignment="BASELINE_LEFT" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="Evenement" textFill="WHITE">
+                                <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="48.0" prefHeight="49.0" prefWidth="210.0" styleClass="sidebarItem" text="Evenement" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="15.0" />
                                     </font>
                                     <graphic>
-                                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fitHeight="71.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../Images/logo.png" />
+                                                <Image url="@../Images/reservation-en-ligne.png" />
                                             </image>
                                         </ImageView>
                                     </graphic>
                                 </JFXButton>
-                                <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="164.0" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="Notification" textFill="WHITE">
+                                <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="48.0" prefHeight="13.0" prefWidth="210.0" styleClass="sidebarItem" text="Partenariat" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="15.0" />
                                     </font>
                                     <graphic>
-                                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fitHeight="48.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../Images/bell1.png" />
+                                                <Image url="@../Images/appel.png" />
                                             </image>
                                         </ImageView>
                                     </graphic>
                                 </JFXButton>
-                                <JFXButton fx:id="logout" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="125.0" onAction="#logout" prefHeight="38.0" prefWidth="176.0" styleClass="sidebarItem" text="logout" textFill="WHITE">
+                                <JFXButton fx:id="profile" alignment="BASELINE_LEFT" prefHeight="3.0" prefWidth="210.0" styleClass="sidebarItem" text="Profile" textFill="WHITE">
                                     <font>
                                         <Font name="System Bold" size="15.0" />
                                     </font>
                                     <graphic>
-                                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                        <ImageView fitHeight="45.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
                                             <image>
-                                                <Image url="@../Images/logout.png" />
+                                                <Image url="@../Images/football.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </JFXButton>
+                                <JFXButton fx:id="logout" alignment="BOTTOM_LEFT" layoutX="10.0" layoutY="125.0" prefHeight="348.0" prefWidth="214.0" styleClass="sidebarItem" text="Logout" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                    <graphic>
+                                        <ImageView fitHeight="38.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../Images/deconnexion.png" />
                                             </image>
                                         </ImageView>
                                     </graphic>
@@ -272,13 +284,13 @@
                                        </AnchorPane>
                                        <AnchorPane fx:id="VBoxupdatepwd" prefHeight="460.0" prefWidth="471.0" styleClass="box" stylesheets="@style/eventCssFile.css">
                                            <children>
-                                               <Button layoutX="146.0" layoutY="365.0" mnemonicParsing="false"  prefHeight="51.0" prefWidth="171.0" stylesheets="@style/eventCssFile.css" text="confirmButton">
+                                               <Button layoutX="118.0" layoutY="308.0" mnemonicParsing="false" onAction="#modifierpassword" prefHeight="51.0" prefWidth="88.0" stylesheets="@style/eventCssFile.css" text="modifer">
                                                    <styleClass>
                                                        <String fx:value="button" />
                                                        <String fx:value="shadow" />
                                                    </styleClass>
                                                </Button>
-                                               <TextField fx:id="OldPasswordField" layoutX="118.0" layoutY="165.0" prefHeight="34.0" prefWidth="196.0" promptText="old password">
+                                               <TextField fx:id="OldPasswordField" layoutX="118.0" layoutY="148.0" prefHeight="34.0" prefWidth="196.0" promptText="old password">
                                                    <styleClass>
                                                        <String fx:value="input" />
                                                        <String fx:value="shadow" />
@@ -289,13 +301,13 @@
                                                        <Font size="1.0" />
                                                    </font>
                                                </Label>
-                                               <TextField fx:id="NewPasswordField" layoutX="118.0" layoutY="234.0" prefHeight="34.0" prefWidth="196.0" promptText="new password">
+                                               <TextField fx:id="NewPasswordField" layoutX="118.0" layoutY="219.0" prefHeight="34.0" prefWidth="196.0" promptText="new password">
                                                    <styleClass>
                                                        <String fx:value="input" />
                                                        <String fx:value="shadow" />
                                                    </styleClass>
                                                </TextField>
-                                               <Button fx:id="annuler" layoutX="171.0" layoutY="302.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="89.0" stylesheets="@style/eventCssFile.css" text="annuler">
+                                               <Button layoutX="236.0" layoutY="308.0" mnemonicParsing="false" onAction="#annuler" prefHeight="51.0" prefWidth="89.0" stylesheets="@style/eventCssFile.css" text="annuler">
                                                    <styleClass>
                                                        <String fx:value="button" />
                                                        <String fx:value="shadow" />

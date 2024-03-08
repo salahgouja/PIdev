@@ -1,0 +1,44 @@
+
+    /* Appelview.css */
+
+    /* Style de base pour le conteneur VBox */
+VBox {
+    -fx-spacing: 10;
+    -fx-padding: 10;
+}
+
+/* Style pour le conteneur AnchorPane */
+AnchorPane {
+    -fx-background-color: #f7f7f7; /* Couleur de fond */
+    -fx-border-color: #ddd; /* Couleur de la bordure */
+    -fx-border-width: 1; /* Largeur de la bordure */
+    -fx-border-radius: 8; /* Rayon de la bordure */
+}
+
+/* Style pour les étiquettes (Labels) */
+Label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #444;
+    margin: 1.5em 0;
+    color:#FF0000;;
+    font-size: 1.2em;}
+
+/* Style pour le champ de texte (TextArea) */
+TextArea {
+    -fx-pref-width: 200;
+    -fx-pref-height: 54;
+    -fx-font-size: 12;
+    -fx-background-color: #f0f0f0; /* Couleur de fond */
+    -fx-border-color: #ddd; /* Couleur de la bordure */
+    -fx-border-width: 1; /* Largeur de la bordure */
+    -fx-border-radius: 5; /* Rayon de la bordure */
+}
+
+/* Style pour les textes (Text) */
+Text {
+    -fx-font-size: 14;
+    -fx-fill: #555; /* Couleur du texte */
+    color:#FF0000;;
+
+
+}
