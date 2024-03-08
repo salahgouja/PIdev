@@ -54,7 +54,7 @@ public class EquipementCardController {
     @FXML
     public void initialize() {
         // Créer une valeur factory pour le Spinner
-        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100, 1);
+        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100, 1);
 
         // Configurer le Spinner avec la valeur factory
         quantite_spin.setValueFactory(valueFactory);
@@ -62,9 +62,9 @@ public class EquipementCardController {
         // Définir le modèle de comportement de changement de valeur pour le Spinner
         quantite_spin.setEditable(true);
         quantite_spin.getValueFactory().valueProperty().addListener((obs, oldValue, newValue) -> {
-            if (newValue == null || newValue == 0) {
+            /*if (newValue == null || newValue == 0) {
                 quantite_spin.getValueFactory().setValue(oldValue != null ? oldValue : 1);
-            }
+            }*/
             // Mettre à jour la valeur de quantite à chaque changement de valeur du Spinner
             quantite = newValue;
         });

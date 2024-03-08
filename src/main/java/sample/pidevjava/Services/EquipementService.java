@@ -17,6 +17,7 @@ import java.util.List;
 
 public class EquipementService implements IController<Equipement> {
     Connection connection;
+    Equipement equipement=new Equipement();
     public EquipementService()
     {
         connection = DBConnection.getInstance().getConnection();
@@ -218,11 +219,45 @@ public class EquipementService implements IController<Equipement> {
         return locationEquipements;
     }
 
+    public List<Equipement> getAllEquipement() {
+        List<Equipement> equipements = new ArrayList<>();
 
+        // Requête SQL pour sélectionner tous les équipements
+        String qry = "SELECT * FROM equipement";
 
+        try (
+                // Récupérer la connexion à la base de données
 
+                PreparedStatement stm = connection.prepareStatement(qry);
+                // Exécuter la requête et obtenir le résultat
+                ResultSet resultSet = stm.executeQuery();
+        ) {
+            // Parcourir les résultats et mapper chaque ligne à un objet Equipement
+            while (resultSet.next()) {
+                int id_equipement = resultSet.getInt("id_equipement");
+                String type = resultSet.getString("type");
+                String imageSrc = resultSet.getString("imageSrc");
+                String nom_equipement = resultSet.getString("nom_equipement");
+                int quantite = resultSet.getInt("quantite");
+                float prix_location = resultSet.getFloat("prix_location");
+
+                // Créer un objet Equipement et l'ajouter à la liste des équipements
+                Equipement equipement = new Equipement(type, imageSrc, nom_equipement, quantite, prix_location);
+                equipement.setId_equipement(id_equipement);
+                equipements.add(equipement);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // Gérer les exceptions SQL
+        }
+
+        return equipements;
+    }
 
 }
+
+
+
+
 
 
 

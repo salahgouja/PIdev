@@ -34,6 +34,7 @@
             </FlowPane>
          </content>
       </MFXScrollPane>
-      <MFXButton fx:id="confirmer_btn" layoutX="801.0" layoutY="659.0" stylesheets="@style/eventCssFile.css" text="Confirmer" />
+      <MFXButton fx:id="confirmer_btn" layoutX="862.0" layoutY="664.0" stylesheets="@style/eventCssFile.css" text="Confirmer" />
+      <MFXButton fx:id="delete_btn" layoutX="722.0" layoutY="666.0" onAction="#supprimerArticleList" prefHeight="30.0" prefWidth="94.0" stylesheets="@style/eventCssFile.css" text="supprimer" />
    </children>
 </AnchorPane>

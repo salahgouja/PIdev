@@ -4,66 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="19ceb744-616d-4382-a4d3-5d6106809877" name="Changes" comment="L'interface de choix de sport,&#10;L'interface de configuration des horaire,l'interface d'affichage reservation">
-      <change afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/Services/EquipementService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/Services/ReservationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/EquipementCardController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/LocationEquipementController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/model/Equipement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/model/EquipementLocation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/equipement/ballonbasket.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/equipement/ballonfoot.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/equipement/ballonhand.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/equipement/ballonstennis.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/equipement/doussar.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/equipement/piquets.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/equipement/plots.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/img/equipement/raquette.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/Buttons.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/ChecksRadiosToggles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/Equipement.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/MFXColors.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/NewCardEquipement.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/ReservationUser.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/style/dashboardCSS.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/style/eventCssFile.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/style/style.css" afterDir="false" />
+    <list default="true" id="19ceb744-616d-4382-a4d3-5d6106809877" name="Changes" comment="version finale">
+      <change afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/Services/Smstwilio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/CardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/CardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/ChoixSportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/ChoixSportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/DashBoard.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/DashboardAdmin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/DashboardEmployee.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/HoraireController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/HoraireController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/LoginFormController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/MainFormController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/RegistrationFormController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/ReservationAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/ReservationAdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/ReservationController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/Services/EquipementService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/Services/EquipementService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/EquipementCardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/EquipementCardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/LocationEquipementController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/LocationEquipementController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/ReservationUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/ReservationUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/TerrainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/TerrainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/db/DBConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/db/DBConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/model/HoraireTravail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/model/HoraireTravail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/model/Jours.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/model/Jours.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/model/Reservation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/model/Reservation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/model/TypeTerrain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sample/pidevjava/model/TypeTerrain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sample/pidevjava/model/UserRole.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/Card.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/Card.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/Card.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/Card.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/ChoixSport.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/ChoixSport.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/ChoixSportController.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/ChoixSportController.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/DashboardAdmin.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/EquipementCard.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/DashboardEmployee.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/LocationEquipement.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/Horaire.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/Horaire.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/LoginForm.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/MainForm.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/ReservationAdmin.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/ReservationAdmin2.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/ReservationAdmin2.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/ReservationAdmin2.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/ReservationAdmin2.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/ReservationController.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/LocationEquipement.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sample/pidevjava/LocationEquipement.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,8 +29,8 @@
         <option value="Interface" />
         <option value="Enum" />
         <option value="CSS File" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -93,6 +45,7 @@
     </option>
   </component>
   <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
     <option name="showPreview" value="true" />
   </component>
   <component name="ProjectColorInfo">{
@@ -118,7 +71,7 @@
     "javascript.karma.karma_node_package_dir": "",
     "kotlin-language-version-configured": "true",
     "last_directory_selection": "C:/Users/Salah Gouja/IdeaProjects/pidevjava/src/main/java/sample/pidevjava",
-    "last_opened_file_path": "C:/Users/ahmed/OneDrive/Bureau/Pi_backup/pi_project",
+    "last_opened_file_path": "C:/Users/ahmed/OneDrive/Bureau/backup2/pi_project",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -228,7 +181,9 @@
       <workItem from="1709537161827" duration="52988000" />
       <workItem from="1709649514860" duration="36289000" />
       <workItem from="1709717096296" duration="31189000" />
-      <workItem from="1709758004547" duration="1067000" />
+      <workItem from="1709758004547" duration="3628000" />
+      <workItem from="1709824930836" duration="3476000" />
+      <workItem from="1709828455643" duration="26946000" />
     </task>
     <task id="LOCAL-00001" summary="L'interface de choix de sport,&#10;L'interface de configuration des horaire,l'interface d'affichage reservation">
       <option name="closed" value="true" />
@@ -238,7 +193,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709029967423</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="version finale">
+      <option name="closed" value="true" />
+      <created>1709759215550</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1709759215550</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,7 +210,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="L'interface de choix de sport,&#10;L'interface de configuration des horaire,l'interface d'affichage reservation" />
-    <option name="LAST_COMMIT_MESSAGE" value="L'interface de choix de sport,&#10;L'interface de configuration des horaire,l'interface d'affichage reservation" />
+    <MESSAGE value="version finale" />
+    <option name="LAST_COMMIT_MESSAGE" value="version finale" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -20,6 +20,7 @@ import sample.pidevjava.model.Equipement;
 import sample.pidevjava.Services.EquipementService; // Importez votre service Equipement
 import sample.pidevjava.model.EquipementLocation;
 import sample.pidevjava.model.Reservation;
+import sample.pidevjava.model.TwilioSmsSender;
 
 import java.io.IOException;
 import java.net.URL;
@@ -44,12 +45,12 @@ public class LocationEquipementController implements Initializable {
   //  private EquipementCardController equipementCardController;
 
     public LocationEquipementController() {
-        // Constructeur non paramétré
+        equipementService = new EquipementService();
     }
 
-  /*  public LocationEquipementController(EquipementService equipementService) {
+    public LocationEquipementController(EquipementService equipementService) {
         this.equipementService = equipementService;
-    }*/
+    }
 
 
 
@@ -90,16 +91,22 @@ public class LocationEquipementController implements Initializable {
        // String type=recupererType(idDerniereReservation);
 
         afficherCartes(); // Afficher les cartes d'équipement initiales
+      /*  equipements_choisis_list.setOnMouseClicked(event -> {
+            // Récupérer l'indice de l'élément sélectionné
+            int selectedIndex = equipements_choisis_list.getSelectionModel().getSelectedValue();
+
+            // Vérifier si un élément est sélectionné
+            if (selectedIndex != -1) {
+                // Afficher l'indice de l'élément sélectionné (à titre d'exemple)
+                System.out.println("Indice de l'élément sélectionné : " + selectedIndex);
+
+                // Vous pouvez appeler d'autres méthodes ou effectuer d'autres opérations ici
+            }
+        });*/
 
         confirmer_btn.setOnAction(event -> confirmerLocation());
 
     }
-
-
-
-
-
-
 
 
 
@@ -173,16 +180,17 @@ public class LocationEquipementController implements Initializable {
         for (String article : articles) {
             String[] details = article.split(", ");
             String nomEquipement = details[0].substring(10);
-            System.out.println("nomEquipement: "+nomEquipement);
+            System.out.println("nomEquipement: " + nomEquipement);
             int quantite = Integer.parseInt(details[1].substring(8).trim());
 
             double prixTotal = Double.parseDouble(details[2].substring(7));
 
             // Récupérer l'id de l'équipement correspondant au nom
-            int id_equipement =equipementService.getIdEquipementByNom(nomEquipement);
+            int id_equipement = equipementService.getIdEquipementByNom(nomEquipement);
 
             // Ajouter une ligne à la table de location pour chaque article
-            equipementService. ajouterLocation(id_reservation, id_equipement, quantite);
+            equipementService.ajouterLocation(id_reservation, id_equipement, quantite);
+        }
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Succes");
@@ -198,7 +206,12 @@ public class LocationEquipementController implements Initializable {
 
             // Afficher la boîte de dialogue
             alert.showAndWait();
-        }
+
+
+
+        // envoie de sms
+        TwilioSmsSender twilioSmsSender = new TwilioSmsSender();
+        twilioSmsSender.envoyerSMS();
     }
 
 
@@ -207,7 +220,7 @@ public class LocationEquipementController implements Initializable {
     //2) for each (nakhou id equipement naamilou get prixEquipement ById   **done**
     //3) nadhrab quantite * prix equipemnt w nhothom fil somme
 
-
+  //************ SMS*****************************
 
     public float calculerPrixTotalLocation(List<EquipementLocation> equipementLocations) {
         float prixTotal = 0;
@@ -232,5 +245,28 @@ public class LocationEquipementController implements Initializable {
         }
         return null; // Retourner null si aucun équipement trouvé avec cet ID
     }
+    @FXML
+    private void supprimerArticleList() {
+        // Récupérer les éléments sélectionnés dans la ListView
+        String selectedItems = equipements_choisis_list.getSelectionModel().getSelectedValue();
+
+        // Vérifier si des éléments sont sélectionnés
+        if (!selectedItems.isEmpty()) {
+            // Supprimer les éléments sélectionnés de la ListView
+            equipements_choisis_list.getItems().removeAll(selectedItems);
+        } else {
+            // Afficher un message d'erreur si aucun élément n'est sélectionné
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Erreur");
+            alert.setHeaderText("Aucun élément sélectionné");
+            alert.setContentText("Veuillez sélectionner un ou plusieurs éléments à supprimer.");
+            alert.showAndWait();
+        }
+    }
+
+
+
+
+
 }
 

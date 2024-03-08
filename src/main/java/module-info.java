@@ -5,6 +5,7 @@ module sample.pidevjava {
     requires java.persistence;
     requires mysql.connector.j;
     requires MaterialFX;
+    requires twilio;
 
     opens sample.pidevjava.model to javafx.base;
     opens sample.pidevjava to javafx.fxml;

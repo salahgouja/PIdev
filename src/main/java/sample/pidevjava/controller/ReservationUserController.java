@@ -438,7 +438,7 @@ public class ReservationUserController implements Initializable {
 
             String email=email_txt.getText();
 
-            if (!validateEmail(email)){
+            if (!validateEmail(email) || email_txt.getText()==null){
                 email_val_msg.setVisible(true);
 
 
@@ -550,6 +550,7 @@ public class ReservationUserController implements Initializable {
 
 
 
+
         }catch(Exception e){
             System.out.println("Encountered an exception in confirmerButtonClicked");
             e.printStackTrace();
@@ -580,19 +581,19 @@ public class ReservationUserController implements Initializable {
 
         // Afficher les messages d'erreur si les heures ne sont pas valides
 
-        if (!heureDebutValide) {
-            duree_valmsg.setVisible(true);
+        if (!heureDebutValide || heure_txt.getText()==null ) {
+            heure_reserv_valmsg.setVisible(true);
         }
 
-        if (!dureeValide) {
-            heure_reserv_valmsg.setVisible(true);
+        if (!dureeValide || dure_res_txt.getText()==null) {
+            duree_valmsg.setVisible(true);
         }
 
 
         // Si au moins une des heures est invalide, retourner false
         if (!heureDebutValide || !dureeValide) {
-            duree_valmsg.setVisible(true);
-            heure_reserv_valmsg.setVisible(true);
+          //  duree_valmsg.setVisible(true);
+           // heure_reserv_valmsg.setVisible(true);
 
             return false;
         }
